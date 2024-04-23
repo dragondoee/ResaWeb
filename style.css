@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kite+One&display=swap');
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+/* FONT */
+
+.itim-regular {
+  font-family: "Itim", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.kite-one-regular {
+  font-family: "Kite One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+/* BODY */
+
+body{
+  position: relative;
+  background-color: #FFE2C0;
+  margin: 0;
+  color:#291503 ;
+}
+
+
+
+/* Générale */
+
+hr{
+  border: #A37A49 solid 1px;
+  width: 85%;
+  margin-top: 70px;
+  margin-bottom: 70px;
+}
+
+
+/* Skip Link */
+.skip-link {
+  background-color: #C8A379;
+  border: solid 3px #291503 ;
+  color:#291503 ;
+  padding: 0.625em 0.9375em;
+  text-decoration: none;
+  margin-left: 170px;
+  margin-top: 35px;
+  font-size: 1.1rem;
+}
+.skip-link:not(:focus):not(:active) {
+  border: 0;
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(100%);
+  clip-path: inset(100%);
+  height: 1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+.skip-link:focus {
+  left: 0;
+  position: absolute;
+  top: 0;
+  z-index: 999;
+}
+
+/* SR-Only */
+.sr-only {
+	border: 0 !important;
+	clip: rect(1px, 1px, 1px, 1px) !important;
+	-webkit-clip-path: inset(50%) !important;
+			clip-path: inset(50%) !important;
+	height: 1px !important;
+	overflow: hidden !important;
+	padding: 0 !important;
+	position: absolute !important;
+	width: 1px !important;
+	white-space: nowrap !important;
+}
+/* Focus */
+:focus-visible{
+  padding: 10px;
+  text-align: center;
+  border: #291503 2px solid;
+}
+
+/* RESPONSIVE */
+
+/* @media(max-width:700px) {
+
+  body{
+    background-color: #291503;
+  }
+  
+} */
+

@@ -1,0 +1,97 @@
+
+
+
+
+
+
+/* SLIDER */
+
+
+.js-slider{
+    width: 450px;
+    height: 250px;
+    position: relative;
+    border-radius: 25px;
+  }
+  
+  .js-photos{
+    position: relative;
+    display: flex;
+    gap: 150px;
+    left: 0;
+    transition: left 1s ease;
+  }
+  
+  
+  .js-photo{
+    width: 450px;
+    height: 250px;
+    left: 0;
+    position: relative;
+    flex-shrink: 0;
+    background-color: #A37A49;
+    border-radius: 25px;
+  }
+  
+  /* Slider contenu */
+  
+  .js-slider img{
+    width: 30%;
+    float: left;
+    border-radius: 10px;
+    margin-left: 20px;
+    margin-top: 20px;
+  }
+  
+  .js-slider h4{
+    margin-left: 225px;
+  }
+  .js-slider ul{
+    margin-left: 180px ;
+    margin-top: -10px;
+  }
+  
+  .js-slider p{
+    margin-left: 20px;
+    margin-top: 30px;
+  }
+  
+  
+  /* NAVIGATION SLIDER */
+  
+  .js-nav{
+    position: absolute;
+    bottom: 150px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    gap: 600px;
+  }
+  
+  @media(max-width:700px) {
+  
+      .js-nav{
+      position: absolute;
+      bottom: 150px;
+      display: flex;
+      justify-content: center;
+      position: relative;
+      gap: 510px;
+    } 
+  } 
+  
+  .js-nav img{
+    width: 30px;
+  }
+  
+  .js-nav-left, .js-nav-right{
+    cursor: pointer;
+    user-select: none;
+    border: none;
+    background-color: transparent;
+  }
+  
+  .js-nav-right img{
+    rotate: 180deg;
+  }
+  
