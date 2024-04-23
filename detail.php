@@ -6,7 +6,13 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="style_detail.css">
     <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
-    <title>Nom Atelier - Coffee Studio</title>
+    <?php require "connexion.php";
+    $id_atelier=$_GET["id_atelier"];
+    $requete="SELECT * FROM atelier WHERE id_atelier=$id_atelier";
+    $stmt=$db->query($requete);
+    $result=$stmt->fetch(PDO::FETCH_ASSOC);
+    ?>
+    <title><?= $result["nom_atelier"];?> - Coffee Studio</title>
 </head>
 <body>
 
@@ -14,15 +20,8 @@
 <?php require "header.php"; ?>
 
 <!-- Contenu -->
-<?php require "connexion.php" ;
-$id_atelier=$_GET["atelier"];
-$requete="SELECT * FROM atelier WHERE id_atelier=$id_atelier";
-$stmt=$db->query($requete);
-$result=$stmt->fetchall(PDO::FETCH_ASSOC);
-$atelier=$result
-?>
 
-<h1><?= $atelier["nom_atelier"] ?></h1>
+<h1><?= $result["nom_atelier"];?></h1>
 
 <!-- Slider Images -->
     <div class="slider">
@@ -30,79 +29,56 @@ $atelier=$result
             <div class="js-photos">  
                 <div class=" js-photo photo4 clone">
                             <img src="images/tableau.jpg" alt="">
-                            <h4> Nuit étoilé - Van Gogh </h4>
-                            <ul>
-                                <li>tableau</li>
-                                <li>1895</li>
-                                <li>Van Gogh</li>
-                            </ul>
-                            <p>Magnifique tableau de Van Gohg</p>
                         </div>
                         <!-- Page actuelle : changement avec une autre classe, qui se déplace avec le js -->
                         <div class="js-photo photo1"> 
                             <img src="images/pinguin.jpg" alt="">
-                            <h4> Pinguin </h4>
-                            <ul>
-                                <li>tableau</li>
-                                <li>1895</li>
-                                <li>Van Gogh</li>
-                            </ul>
-                            <p>Magnifique tableau de Van Gohg</p>
                         </div>
 
                         <div class="js-photo photo2">
                             <img src="images/chat.jpg" alt="">
-                            <h4> Chat </h4>
-                            <ul>
-                                <li>tableau</li>
-                                <li>1895</li>
-                                <li>Van Gogh</li>
-                            </ul>
-                            <p>Magnifique tableau de Van Gohg</p>
                         </div>
                         
                         <div class=" js-photo photo3">
                             <img src="images/nounours.jpg" alt="">
-                            <h4> Nounours </h4>
-                            <ul>
-                                <li>tableau</li>
-                                <li>1895</li>
-                                <li>Van Gogh</li>
-                            </ul>
-                            <p>Magnifique tableau de Van Gohg</p>
                         </div>
 
                         <div class=" js-photo photo4 clone">
                             <img src="images/tableau.jpg" alt="">
-                            <h4> Nuit étoilé - Van Gogh </h4>
-                            <ul>
-                                <li>tableau</li>
-                                <li>1895</li>
-                                <li>Van Gogh</li>
-                            </ul>
-                            <p>Magnifique tableau de Van Gohg</p>
                         </div>
 
                         <div class="js-photo photo1 clone">
                             <img src="images/pinguin.jpg" alt="">
-                            <h4> Pinguin </h4>
-                            <ul>
-                                <li>tableau</li>
-                                <li>1895</li>
-                                <li>Van Gogh</li>
-                            </ul>
-                            <p>Magnifique tableau de Van Gohg</p>
                         </div>
 
                     </div>
                 </div>
             </div>
-                 <nav class="js-nav"> 
+                <nav class="js-nav"> 
                     <button class="js-nav-left" ><img src="images/fleche.svg" alt="Voir l'image de gauche"> </button>
                     <button class="js-nav-right" ><img src="images/fleche.svg" alt="Voir l'image de gauche"> </button>
                 </nav>
+<!-- Description -->
 
+<h2>Description : </h2>
+<p><?= $result["description_atelier"];?></p>
 
+<!-- Planning Atelier -->
+<?php 
+$requetePlanning="SELECT * FROM planning";
+
+$stmt=$db->query($requetePlanning);
+$result=$stmt->fetchall(PDO::FETCH_ASSOC);
+    foreach($result as $planning){
+?>
+
+<a href="reservation.php?planning=<?= $planning["id_planning"];?>"><?= $planning["date"];?></a> <br>
+
+<?php
+    }
+?>
+
+<a href="reservation.php">réserver</a>
 
 <!-- Footer -->
 <?php require "footer.php"; ?>

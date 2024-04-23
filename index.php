@@ -135,15 +135,7 @@
             </span>
         </div>
 
-        <div class="main-nav">
-            <nav>
-                <ul>
-                    <li><a href="#top">Retour en haut</a></li>
-                    <li><a href="atelier.php">Ateliers</a></li>
-                    <li><a href="propos.php">À propos</a></li>
-                </ul>
-            </nav>
-        </div>
+        <a class="atelier" href="atelier.php">Découvrir les ateliers</a>
 
         <hr>
         <blockquote>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non similique consectetur maxime dicta accusamus nobis sit, necessitatibus consequuntur cumque, culpa labore quos. Voluptas soluta similique rerum, veritatis excepturi culpa ut?</blockquote>

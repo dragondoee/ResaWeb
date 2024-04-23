@@ -18,7 +18,6 @@
 <!-- Zone filtre -->
 
 <!-- Liste Ateliers -->
-<!-- Méthode 2 -->
 
 <?php require "connexion.php" ;
 
@@ -34,10 +33,9 @@
         ?>
 
 
-        <form action="detail.php">
-            <!-- <input type="submit" name="<?= $atelier["id_atelier"]; ?>" value="<?= $atelier["nom_atelier"];?>" > -->
-            <a href="detail.php?atelier=<?= $atelier["id_atelier"];?>"><?= $atelier["nom_atelier"];?></a>
-        </form>
+        <a href="detail.php?atelier=<?= $atelier["nom_atelier"];?>"><?= $atelier["nom_atelier"];?></a>
+        <a href="detail.php?id_atelier=<?= $atelier["id_atelier"];?>"><?= $atelier["nom_atelier"];?></a>
+        
 
 
         <?php

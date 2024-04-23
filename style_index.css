@@ -280,15 +280,15 @@ h2{
   flex-direction: row-reverse;
 }
 
-/* Main Nav */
+/* Main lien */
 
-.main-nav ul{
+#atelier{
   margin-top: 5%;
   display: flex;
   justify-content: space-around;
 }
 
-.main-nav li{
+#atelier{
   font-family: "Itim", cursive, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif ;
   list-style-type: none;
   background-color: #A37A49;
@@ -300,7 +300,7 @@ h2{
   text-align: center;
 }
 
-.main-nav a{
+#atelier{
   font-size: 1.5rem;
   text-decoration: none;
   color:#291503 ;

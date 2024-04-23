@@ -1,4 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kite+One&display=swap');
 
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+/* FONT */
+
+.itim-regular {
+  font-family: "Itim", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.kite-one-regular {
+  font-family: "Kite One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
 
 
 
@@ -6,31 +27,40 @@
 
 /* SLIDER */
 
+.slider{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  position: relative;
+  overflow: hidden;
+}
 
 .js-slider{
-    width: 450px;
-    height: 250px;
-    position: relative;
-    border-radius: 25px;
-  }
-  
-  .js-photos{
-    position: relative;
-    display: flex;
-    gap: 150px;
-    left: 0;
-    transition: left 1s ease;
-  }
-  
-  
-  .js-photo{
-    width: 450px;
-    height: 250px;
-    left: 0;
-    position: relative;
-    flex-shrink: 0;
-    background-color: #A37A49;
-    border-radius: 25px;
+  width: 450px;
+  height: 250px;
+  position: relative;
+  border-radius: 5px;
+}
+
+.js-photos{
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  gap: 150px;
+  left: 0;
+  transition: left 1s ease;
+}
+
+
+.js-photo{
+  width: 450px;
+  height: 250px;
+  left: 0;
+  position: relative;
+  flex-shrink: 0;
+  background-color: #A37A49;
+  border-radius: 25px;
   }
   
   /* Slider contenu */
@@ -81,7 +111,7 @@
   } 
   
   .js-nav img{
-    width: 30px;
+    width: 25px;
   }
   
   .js-nav-left, .js-nav-right{
