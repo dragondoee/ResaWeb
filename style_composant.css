@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Iceland&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Kite+One&display=swap');
 
 *,
@@ -10,11 +10,12 @@
 
 /* FONT */
 
-.itim-regular {
-  font-family: "Itim", cursive;
+.iceland-regular {
+  font-family: "Iceland", sans-serif;
   font-weight: 400;
   font-style: normal;
 }
+
 
 .kite-one-regular {
   font-family: "Kite One", sans-serif;
@@ -22,30 +23,28 @@
   font-style: normal;
 }
 
+body{
+  margin: 0;
+}
 
 /* Header */
 
 header {
-    font-family: "Itim", cursive, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    background-color: #A37A49;
+    font-family: "Iceland", sans-serif, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    background-color: #F4D1D1;
+    color: #4F0000;
     width: 100%;
     position: relative;
     padding: 0 50px; 
   }
   
-  .retourAccueil {
-    margin-top: 10px;
-    margin-right: auto;
-  }
-  
   header img{
-    width: 100px;
+    width: 70px;
   }
-  
   
   header nav{
     display: flex;
-    justify-content: flex-end;
+    align-items: center;
   }
   
   header ul {
@@ -54,21 +53,20 @@ header {
     align-items: center;
     justify-content: space-around;
     width: 380px;
-    background-color: #C8A379;
-    padding: 20px;
+    gap: 20px;
+    padding: 10px;
     border-radius: 15px;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
   
+  header h1{
+    margin-right: auto;
+
+  }
+
   header a {
     text-decoration: none;
-    color: #291503;
-  }
-  
-  header h1 {
-    text-align: center;
-    margin-top: 35vh;
-    font-size: 4rem;
+    color: #4F0000;
   }
   
   header li {
@@ -79,7 +77,7 @@ header {
     width: 100%;
     position: relative;
     z-index: -1;
-    top: -5vh;
+    top: -2vh;
   }
   
 @media(max-width:1100px) {
@@ -88,7 +86,7 @@ header {
     width: 100%;
     position: relative;
     z-index: -1;
-    top: -3vh;
+    top: -1vh;
   }
   
 }
@@ -96,38 +94,57 @@ header {
 
 /* Footer */
 
+.footerGouttes{
+  width: 100%;
+  position: relative;
+  z-index: -1;
+  bottom: -3vh;
+  transform: rotate(180deg);
+}
+
 footer{
-    margin-top: 100px;
-    background-color: #A37A49;
-    border-radius: 25px ;
-    width: 90%;
+    background-color: #F4D1D1;
+    color: #4F0000;
     margin-right: auto;
+    margin-bottom: -50px;
     margin-left: auto;
     font-family: "Itim", cursive, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     text-align: center;
   }
   
-  footer img{
-    width: 90px;
+  .footerlogo{
+    width: 70px;
+    margin-left: 50px;
   }
   
   footer h4{
     font-size: 1.2rem;
+    margin-right: auto;
   }
   
   footer a{
     text-decoration: none;
-    color: #291503;
+    color: #4F0000;
   }
   
-  footer ul{
+  footer div{
     display: flex;
     justify-content: space-around;
     align-items: center;
     gap: 30px;
     margin-right: 10%;
   }
-  
-  footer li{
-    list-style-type: none;
+
+  footer p{
+    padding: 10px;
   }
+
+  footer span{
+    margin-right: auto;
+    display: flex;
+    gap: 20px;
+  }
+
+ footer span img{
+  width: 30px;
+ }

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Iceland&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Kite+One&display=swap');
 
 *,
@@ -7,13 +7,15 @@
   box-sizing: border-box;
 }
 
+
 /* FONT */
 
-.itim-regular {
-  font-family: "Itim", cursive;
+.iceland-regular {
+  font-family: "Iceland", sans-serif;
   font-weight: 400;
   font-style: normal;
 }
+
 
 .kite-one-regular {
   font-family: "Kite One", sans-serif;
@@ -21,298 +23,226 @@
   font-style: normal;
 }
 
-/* Header */
 
-header {
-  font-family: "Itim", cursive, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  background-color: #A37A49;
-  width: 100%;
-  height: 100vh;
-  position: relative;
-  padding: 0 50px; 
-}
-
-.retourAccueil {
-  margin-top: 10px;
-  margin-right: auto;
-}
-
-header img{
-  width: 100px;
-}
-
-header nav{
-  display: flex;
-  justify-content: flex-end;
-}
-
-header ul {
-  display: flex;
-  gap: 60px;
-  align-items: center;
-  justify-content: space-around;
-  width: 380px;
-  background-color: #C8A379;
-  padding: 20px;
-  border-radius: 15px;
-  font-size: 1.1rem;
-}
-
-header a {
-  text-decoration: none;
-  color: #291503;
-}
-
-header h1 {
-  text-align: center;
-  margin-top: 35vh;
-  font-size: 4rem;
-}
-
-header li {
-  list-style-type: none;
-}
-
-.suite{
-  margin-left: auto;
-  margin-right: auto;
-  width: 35px;
-  margin-top: 30vh;
-  display: block;
-  transition: ease 1s;
-}
-
-.suite:hover{
-  width: 45px;
-  margin-top: 29vh;
-  transition: ease 2s;
-}
-
-/* Transition */
-
-.gouttes{
-  width: 100%;
-  position: absolute;
-  top: 98vh;
-}
 
 /* Main */
 
 main{
-  margin-top: 15%;
-}
-
-h3{
-  font-family: "Itim", cursive, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  font-size: 2rem;
-}
-
-h4{
-  font-family: "Itim", cursive, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  font-size: 1.3rem;
-}
-
-p{
-  font-family: "Kite One", sans-serif, Arial, Helvetica, sans-serif;
-  font-size: 1.1rem;
-}
-
-main li{
-  font-family: "Kite One", sans-serif, Arial, Helvetica, sans-serif;
-}
-
-/* Intro */
-
-h2{
-  font-family: "Itim", cursive, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  font-size: 2.5rem;
-  margin-left: 7%;
-}
-
-.intro img{
-  width: 20%;
-  margin-right: 5%;
-}
-
-.intro p{
-  width: 80%;
-  float: left;
-  margin-left: 10%;
-}
-
-.intro{
-  display: flex;
-  align-items: center;
-}
-/* -------------------------------------------------------------------------------------------------------- */
-/* Nouveauté */
-
-.nouveaute h3{
-  text-align: center;
-}
-
-.slider{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 50px;
-  position: relative;
-  overflow: hidden;
-}
-
-
-/* SLIDER */
-
-
-.js-slider{
-  width: 450px;
-  height: 250px;
-  position: relative;
-  border-radius: 25px;
-}
-
-.js-photos{
-  position: relative;
-  display: flex;
-  gap: 150px;
-  left: 0;
-  transition: left 1s ease;
-}
-
-
-.js-photo{
-  width: 450px;
-  height: 250px;
-  left: 0;
-  position: relative;
-  flex-shrink: 0;
-  background-color: #A37A49;
-  border-radius: 25px;
-}
-
-/* Slider contenu */
-
-.js-slider img{
-  width: 30%;
-  float: left;
-  border-radius: 10px;
-  margin-left: 20px;
-  margin-top: 20px;
-}
-
-.js-slider h4{
-  margin-left: 225px;
-}
-.js-slider ul{
-  margin-left: 180px ;
-  margin-top: -10px;
-}
-
-.js-slider p{
-  margin-left: 20px;
-  margin-top: 30px;
-}
-
-
-/* NAVIGATION SLIDER */
-
-.js-nav{
-  position: absolute;
-  bottom: 150px;
-  display: flex;
-  justify-content: center;
-  position: relative;
-  gap: 600px;
-}
-
-@media(max-width:700px) {
-
-    .js-nav{
+    margin-top: 15%;
+  }
+  
+  h3{
+    font-family: "Itim", cursive, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 2rem;
+  }
+  
+  h4{
+    font-family: "Itim", cursive, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 1.3rem;
+  }
+  
+  p{
+    font-family: "Kite One", sans-serif, Arial, Helvetica, sans-serif;
+    font-size: 1.1rem;
+  }
+  
+  main li{
+    font-family: "Kite One", sans-serif, Arial, Helvetica, sans-serif;
+  }
+  
+  /* Intro */
+  
+  h2{
+    font-family: "Itim", cursive, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 2.5rem;
+    margin-left: 7%;
+  }
+  
+  .intro img{
+    width: 20%;
+    margin-right: 5%;
+  }
+  
+  .intro p{
+    width: 80%;
+    float: left;
+    margin-left: 10%;
+  }
+  
+  .intro{
+    display: flex;
+    align-items: center;
+  }
+  /* -------------------------------------------------------------------------------------------------------- */
+  /* Nouveauté */
+  
+  .nouveaute h3{
+    text-align: center;
+  }
+  
+  .slider{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  
+  /* SLIDER */
+  
+  
+  .js-slider{
+    width: 450px;
+    height: 250px;
+    position: relative;
+    border-radius: 25px;
+  }
+  
+  .js-photos{
+    position: relative;
+    display: flex;
+    gap: 150px;
+    left: 0;
+    transition: left 1s ease;
+  }
+  
+  
+  .js-photo{
+    width: 450px;
+    height: 250px;
+    left: 0;
+    position: relative;
+    flex-shrink: 0;
+    background-color: #A37A49;
+    border-radius: 25px;
+  }
+  
+  /* Slider contenu */
+  
+  .js-slider img{
+    width: 30%;
+    float: left;
+    border-radius: 10px;
+    margin-left: 20px;
+    margin-top: 20px;
+  }
+  
+  .js-slider h4{
+    margin-left: 225px;
+  }
+  .js-slider ul{
+    margin-left: 180px ;
+    margin-top: -10px;
+  }
+  
+  .js-slider p{
+    margin-left: 20px;
+    margin-top: 30px;
+  }
+  
+  
+  /* NAVIGATION SLIDER */
+  
+  .js-nav{
     position: absolute;
     bottom: 150px;
     display: flex;
     justify-content: center;
     position: relative;
-    gap: 510px;
+    gap: 600px;
+  }
+  
+  @media(max-width:700px) {
+  
+      .js-nav{
+      position: absolute;
+      bottom: 150px;
+      display: flex;
+      justify-content: center;
+      position: relative;
+      gap: 510px;
+    } 
   } 
-} 
-
-.js-nav img{
-  width: 30px;
-}
-
-.js-nav-left, .js-nav-right{
-  cursor: pointer;
-  user-select: none;
-  border: none;
-  background-color: transparent;
-}
-
-.js-nav-right img{
-  rotate: 180deg;
-}
-
-/* ------------------------------------------------------------------------------------------------ */
-
-/* Plus d'infos */
-
-.infos h3{
-  text-align: center;
-}
-
-.infos img{
-  width: 20%;
-  margin-left: 5%;
-  border-radius: 25px;
-}
-
-.infos p{
-  width: 70%;
-  float: right;
-  margin-left: 10%;
-  margin-right: 10%;
-}
-
-.infos span{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row-reverse;
-}
-
-/* Main lien */
-
-#atelier{
-  margin-top: 5%;
-  display: flex;
-  justify-content: space-around;
-}
-
-#atelier{
-  font-family: "Itim", cursive, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif ;
-  list-style-type: none;
-  background-color: #A37A49;
-  border-radius: 15px;
-  padding: 10px;
-  font-size: 1.2rem;
-  width: 25%;
-  max-width: 270px;
-  text-align: center;
-}
-
-#atelier{
-  font-size: 1.5rem;
-  text-decoration: none;
-  color:#291503 ;
-}
-
-/* Blockquote */
-
-blockquote{
-  font-family: "Itim", cursive, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif ;
-  font-size: 1.2rem;
-  width: 80%;
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-}
+  
+  .js-nav img{
+    width: 30px;
+  }
+  
+  .js-nav-left, .js-nav-right{
+    cursor: pointer;
+    user-select: none;
+    border: none;
+    background-color: transparent;
+  }
+  
+  .js-nav-right img{
+    rotate: 180deg;
+  }
+  
+  /* ------------------------------------------------------------------------------------------------ */
+  
+  /* Plus d'infos */
+  
+  .infos h3{
+    text-align: center;
+  }
+  
+  .infos img{
+    width: 20%;
+    margin-left: 5%;
+    border-radius: 25px;
+  }
+  
+  .infos p{
+    width: 70%;
+    float: right;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+  
+  .infos span{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row-reverse;
+  }
+  
+  /* Main lien */
+  
+  #atelier{
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  #atelier{
+    font-family: "Itim", cursive, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif ;
+    list-style-type: none;
+    background-color: #A37A49;
+    border-radius: 15px;
+    padding: 10px;
+    font-size: 1.2rem;
+    width: 25%;
+    max-width: 270px;
+    text-align: center;
+  }
+  
+  #atelier{
+    font-size: 1.5rem;
+    text-decoration: none;
+    color:#4F0000 ;
+  }
+  
+  /* Blockquote */
+  
+  blockquote{
+    font-family: "Itim", cursive, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif ;
+    font-size: 1.2rem;
+    width: 80%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  

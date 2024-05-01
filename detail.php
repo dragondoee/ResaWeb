@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="style_detail.css">
-    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
     <?php require "connexion.php";
-    $id_atelier=$_GET["id_atelier"];
-    $requete="SELECT * FROM atelier WHERE id_atelier=$id_atelier";
+    $id_salle=$_GET["id_salle"];
+    $requete="SELECT * FROM salle WHERE id_salle=$id_salle";
     $stmt=$db->query($requete);
     $result=$stmt->fetch(PDO::FETCH_ASSOC);
     ?>
-    <title><?= $result["nom_atelier"];?> - Coffee Studio</title>
+    <title><?= $result["nom_salle"];?> - Coffee Studio</title>
 </head>
 <body>
 
@@ -21,64 +21,28 @@
 
 <!-- Contenu -->
 
-<h1><?= $result["nom_atelier"];?></h1>
+<h1><?= $result["nom_salle"];?></h1>
 
-<!-- Slider Images -->
-    <div class="slider">
-        <div class="js-slider">
-            <div class="js-photos">  
-                <div class=" js-photo photo4 clone">
-                            <img src="images/tableau.jpg" alt="">
-                        </div>
-                        <!-- Page actuelle : changement avec une autre classe, qui se déplace avec le js -->
-                        <div class="js-photo photo1"> 
-                            <img src="images/pinguin.jpg" alt="">
-                        </div>
+<!-- Images -->
 
-                        <div class="js-photo photo2">
-                            <img src="images/chat.jpg" alt="">
-                        </div>
-                        
-                        <div class=" js-photo photo3">
-                            <img src="images/nounours.jpg" alt="">
-                        </div>
-
-                        <div class=" js-photo photo4 clone">
-                            <img src="images/tableau.jpg" alt="">
-                        </div>
-
-                        <div class="js-photo photo1 clone">
-                            <img src="images/pinguin.jpg" alt="">
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-                <nav class="js-nav"> 
-                    <button class="js-nav-left" ><img src="images/fleche.svg" alt="Voir l'image de gauche"> </button>
-                    <button class="js-nav-right" ><img src="images/fleche.svg" alt="Voir l'image de gauche"> </button>
-                </nav>
+<img src="<?= $result["photo_salle"];?>" alt="">
+<img src="<?= $result["perso_salle"];?>" alt="">
+    
 <!-- Description -->
 
 <h2>Description : </h2>
-<p><?= $result["description_atelier"];?></p>
+<p><?= $result["description_salle"];?></p>
 
-<!-- Planning Atelier -->
-<?php 
-$requetePlanning="SELECT * FROM planning";
+<!-- Lien -->
 
-$stmt=$db->query($requetePlanning);
-$result=$stmt->fetchall(PDO::FETCH_ASSOC);
-    foreach($result as $planning){
-?>
+<a href="reservation.php">Réserver une salle</a>
+<a href="https://store.steampowered.com/?l=french">Découvrir le jeu</a>
 
-<a href="reservation.php?planning=<?= $planning["id_planning"];?>"><?= $planning["date"];?></a> <br>
+<!-- Prix -->
+<h2>Prix : </h2>
+<p><?= $result["prix_salle"];?>€</p>
+<p>Le prix des salles varies selon la demande, les boissons ne sont pas inclues dans la réservation</p>
 
-<?php
-    }
-?>
-
-<a href="reservation.php">réserver</a>
 
 <!-- Footer -->
 <?php require "footer.php"; ?>

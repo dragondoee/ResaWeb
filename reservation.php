@@ -2,64 +2,31 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulaire de réservation - Coffee Studio</title>
+    <title>Réservation - Quest & Coffee</title>
 </head>
 <body>
+    <!-- Header -->
+    <?php require "header.php"; ?>
 
-<?php require "connexion.php"; ?>
 
-<form action="insert_film.php">
+<form action="traitement.php">
 
     <!-- Nom -->
         <label for="nom">Nom</label>
-        <input type="text" id="nom" name="nom">
+        <input type="text" id="nom" name="nom" required>
         <br> <br>
 
     <!-- Prénom -->
         <label for="prenom">Prénom</label>
-        <input type="text" id="prenom" name="prenom" >
+        <input type="text" id="prenom" name="prenom" required>
         <br> <br>
 
     <!-- Adresse mail -->
         <label for="mail">Adresse mail</label>
-        <input type="mail" id="mail" name="mail" >
+        <input type="email" id="mail" name="mail" required>
         <br> <br>
-
-    <!-- Réalisateur -->
-        <label for="atelier">Atelier</label>
-        <select name="atelier" id="atelier">
-            <option value="">Choisir...</option>
-            <?php
-            $requeteAtelier="SELECT * FROM atelier ";
-            $stmtAtelier=$db->query($requeteAtelier);
-            $resultAtelier=$stmtReal->fetchall(PDO::FETCH_ASSOC);
-            foreach($resultAtelier as $atelier){
-            ?>
-                <option value="<?= $atelier["id_atelier"]; ?>"><?= $atelier["nom_atelier"]; ?></option>
-            <?php
-                };
-            ?>
-        </select>
-        <br> <br>
-
-    <!-- Date -->
-        <label for="date">Date</label>
-        <select name="date" id="date">
-            <option value="">Choisir...</option>
-            <?php
-            $requeteDate="SELECT date FROM planning ";
-            $stmtDate=$db->query($requeteDate);
-            $resultDate=$stmtDate->fetchall(PDO::FETCH_ASSOC);
-            foreach($resultDate as $date){
-            ?>
-                <option value="<?= $date["id_planning"]; ?>"><?= $date["date"]; ?></option>
-            <?php
-                };
-            ?>
-        </select>
-        <br> <br>
-
 
         <input type="submit" name="bouton_soumettre" value="Envoyer">
 </form>
