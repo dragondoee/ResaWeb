@@ -1,0 +1,77 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+
+/* FONT */
+
+.iceland-regular {
+    font-family: "Iceland", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+.itim-regular {
+    font-family: "Itim", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+}
+
+/* Style main */
+
+main h1 {
+    font-family: "Iceland", sans-serif, Impact;
+    text-align: center;
+    color: #4F0000;
+    font-size: 3rem;
+}
+
+main h2 {
+    font-family: "Iceland", sans-serif, Impact;
+    color: #4F0000;
+    font-size: 2rem;
+}
+
+main p {
+    font-family: "Itim", cursive;
+    font-size: 1.15rem;
+}
+
+/* Mentions légales */
+main{
+    display: grid;
+    grid-template: 150px 1fr/1fr 3fr ;
+    width: 90%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  
+  h1{
+    grid-column: 1/-1;
+  }
+  
+  main nav{
+    grid-row: 2/-1 ;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 200px;
+    border-radius: 10px;
+    background-color: #F4D1D1;
+    height: 300px;
+    margin-right: auto;
+  }
+  
+  main nav h2{
+    text-align: center;
+  }
+  main nav a{
+    margin-left: 30px;
+  }

@@ -1,13 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Kite+One&display=swap');
-
 *,
 *::after,
 *::before {
   box-sizing: border-box;
 }
 
+
 /* FONT */
+
+.iceland-regular {
+  font-family: "Iceland", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
 
 .itim-regular {
   font-family: "Itim", cursive;
@@ -15,44 +19,45 @@
   font-style: normal;
 }
 
-.kite-one-regular {
-  font-family: "Kite One", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
 
 /* BODY */
 
-body{
+body {
   position: relative;
   margin: 0;
-  /* color:#291503 ; */
 }
 
 
 
 /* Générale */
 
-hr{
-  /* border: #A37A49 solid 1px; */
+hr {
   width: 85%;
   margin-top: 70px;
   margin-bottom: 70px;
 }
 
+h1, h2, h3, h4{
+  font-family: "Iceland", sans-serif, Impact, Impact,'Arial Narrow Bold', sans-serif;
+  color: #4F0000;
+}
+
+p{
+  font-family: "Itim", cursive, Arial, Helvetica, sans-serif;
+  font-size: 1.15rem;
+}
+
 
 /* Skip Link */
 .skip-link {
-  /* background-color: #C8A379; */
-  /* border: solid 3px #291503 ; */
-  color:#291503 ;
+  color: #4F0000;
   padding: 0.625em 0.9375em;
   text-decoration: none;
   margin-left: 170px;
   margin-top: 35px;
   font-size: 1.1rem;
 }
+
 .skip-link:not(:focus):not(:active) {
   border: 0;
   clip: rect(0 0 0 0);
@@ -65,6 +70,7 @@ hr{
   white-space: nowrap;
   width: 1px;
 }
+
 .skip-link:focus {
   left: 0;
   position: absolute;
@@ -74,23 +80,25 @@ hr{
 
 /* SR-Only */
 .sr-only {
-	border: 0 !important;
-	clip: rect(1px, 1px, 1px, 1px) !important;
-	-webkit-clip-path: inset(50%) !important;
-			clip-path: inset(50%) !important;
-	height: 1px !important;
-	overflow: hidden !important;
-	padding: 0 !important;
-	position: absolute !important;
-	width: 1px !important;
-	white-space: nowrap !important;
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  -webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  white-space: nowrap !important;
 }
+
 /* Focus */
-:focus-visible{
+/* :focus-visible {
   padding: 10px;
   text-align: center;
-  border: #291503 2px solid;
-}
+  border: #4F0000;
+ 2px solid;
+} */
 
 /* RESPONSIVE */
 
@@ -101,4 +109,3 @@ hr{
   }
   
 } */
-

@@ -1,0 +1,23 @@
+
+/* Main */
+
+
+main{
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+  }
+  
+  .cache{
+    display: none;
+  }
+  
+  main :focus-visible {
+    padding: 0;
+    text-align: center;
+    border: #291503 2px solid;
+  }

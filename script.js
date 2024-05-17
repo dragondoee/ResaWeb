@@ -67,3 +67,72 @@ function decaleDroite(){
 };
 
 // setInterval(decaleGauche,7000)
+
+//-----------------------------------------------------
+
+// FORMULAIRE
+// ! Modifier et adapter le code pour faire le formulaire
+
+    // Ajouter la classe "cache" à toutes les pages
+
+    var pages = document.querySelectorAll(".cache");
+    pages.forEach(function (page) {
+      page.classList.add("cache");
+    });
+
+    // Pour changer de page
+
+    // Afficher les différentes pages
+    var navigation = document.querySelectorAll("nav li");
+    navigation.forEach(function (bouton) {
+      bouton.addEventListener("click", function () {
+
+        // récupérer la classe de la page à afficher
+        var pageClass = bouton.getAttribute("class");
+
+        // Masquer toutes les pages
+        pages.forEach(function (page) {
+          page.classList.add("cache");
+        });
+
+        // Afficher la page sélectionnée
+        var pageAffichage = document.querySelector("#" + pageClass);
+        pageAffichage.classList.remove("cache");
+        
+        // Afficher le rond
+        if(document.querySelector("#" + pageClass+" .circleBottom")<document.querySelector("main")){
+        document.querySelector("#" + pageClass+" .circleBottom").classList.remove("cache");
+        };
+
+      });
+    });
+    
+// -------------------------------------------------------------------------------------------------------------------------
+
+// ! A faire : Bouton précédent et suivant
+// Bouton Découvrir
+
+// Pour passer de la page d'accueil aux différentes pages du portrait chinois
+
+var boutonDecouvrir = document.querySelector("#decouvrir");
+boutonDecouvrir.addEventListener("click", function () {
+  // récupérer la classe de la page à afficher
+  var pageClass = boutonDecouvrir.getAttribute("class");
+  
+  // Masquer la page header
+  document.querySelector("header").classList.add("cache");
+
+  // Afficher la page et la barre de navigation
+  var pageDebut = document.querySelector("#" + pageClass);
+  pageDebut.classList.remove("cache");
+  document.querySelector("#" + pageClass+" .circleBottom").classList.remove("cache");
+
+  var Nav = document.querySelector("nav");
+  Nav.classList.remove("cache");
+  Nav.classList.add("visible");
+
+  // Afficher le bouton retour à l'accueil
+  document.querySelector(".maison").classList.remove("cache");
+  document.querySelector(".maison").classList.add("visible");
+
+});

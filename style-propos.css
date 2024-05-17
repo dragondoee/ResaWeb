@@ -1,0 +1,124 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+
+/* FONT */
+
+.iceland-regular {
+  font-family: "Iceland", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.itim-regular {
+  font-family: "Itim", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+/* Style main */
+
+main h1{
+    font-family: "Iceland", sans-serif, Impact;
+    text-align: center;
+    color: #4F0000;
+    font-size: 3rem;
+  }
+  
+  main h2{
+    font-family: "Iceland", sans-serif, Impact;
+    color: #4F0000;
+    font-size: 2rem;
+  }
+  
+  main  p{
+    font-family: "Itim", cursive;
+    font-size: 1.15rem;
+  }
+  
+  main  img{
+    width: 30%;
+    border-radius: 120px;
+  }
+  
+  main .propos-infos div{
+    margin: 170px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10%;
+  }
+  
+  main .propos-infos span{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  main  .propos-moi{
+    flex-direction: row-reverse;
+  }
+
+.faq {
+    flex-direction: column;
+    margin: 200px;
+    gap: 20px;
+  }
+
+
+  summary {
+    position: relative;
+}
+summary::marker {
+    content: none;
+}
+summary::before,
+summary::after {
+    content: '';
+}
+summary::before,
+summary::after {
+    width: .75em;
+    height: 0;
+    border-bottom: 2px solid;
+    position: absolute;
+    top: calc(50% - 1px);
+    right: 0;
+    transform: translateY(-50%);
+}
+summary::after {
+    transform: rotate(90deg);
+    transform-origin: 50% 50%;
+}
+[open] summary::after {
+    transform: rotate(0deg);
+}
+
+
+/* styles ported over from the second example */
+@layer step2styles {
+    details {
+        border: 1px solid;
+        padding: 0 1rem;
+        background: white;
+        width: 100%;
+    }
+    
+    details[open] {
+        padding-bottom: 1em;
+    }  
+    summary {
+        padding: 1rem 2em 1rem 0;
+        font-size: 1.25rem;
+        font-weight: bold;
+        cursor: pointer;
+    }
+  }
+
+  details[open] > summary {
+    color: #4F0000;
+  }
+  
