@@ -3,9 +3,11 @@
         <a href="#content" class="skip-link">Aller au contenu</a>
         <nav>
             <a class="retourAccueil" href="index.php"><img src="img/logo.png" alt="retour à l'accueil"></a>
-            <!-- <h1>Quest & Coffee</h1> -->
+            <form action="salles.php">
+                <input type="text" name="search" id="search" placeholder="Rechercher....">
+                <input type="submit" name="" id="">
+            </form> 
             <ul>
-                <!-- <li><a href="index.php">Accueil</a></li> -->
                 <li><a href="salles.php">Salles</a></li>
                 <li><a href="reservation.php">Réserver</a></li>
                 <li><a href="propos.php">À propos</a></li>
@@ -13,3 +15,7 @@
         </nav>
     </header>
     <img class="gouttes" src="img/header-background.svg" alt=""> 
+
+    
+
+   

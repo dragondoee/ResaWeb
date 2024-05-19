@@ -35,8 +35,10 @@
         <span class="filtre">
             <button>Filtre 1 </button>
             <button>Filtre 2</button>
-            <button>Trie 1</button>
-            <button>Trie 2</button>
+            <a href="salles.php?tri=nom_salle">Nom de la salle</a>
+            <!-- J'affiche pas les infos donc c'est bizarre -->
+            <a href="salles.php?tri=prix_salle">Prix</a>
+            <a href="salles.php?tri=ambiance">Ambiance</a>
         </span>
 
         <!-- Liste salles -->
@@ -45,24 +47,35 @@
 
             $requete = "SELECT * FROM salle";
 
-            if (isset($_GET["tri"])) {
+           
+            // Barre de recherche
+            if (isset($_GET["search"])) {
+                $requete = $requete . ' WHERE CONCAT(nom_salle, description_salle, jeu) LIKE "%' . $_GET["search"] . '%"';
+            }
+
+             // Tri PHP
+             if (isset($_GET["tri"])) {
                 $requete = $requete . ' ORDER BY ' . $_GET["tri"];
             }
 
             $stmt = $db->query($requete);
             $result = $stmt->fetchall(PDO::FETCH_ASSOC);
-            foreach ($result as $salle) {
-                ?>
+            if (count($result) > 0) {
+                foreach ($result as $salle) {
+                    ?>
 
-                <div>
-                    <a href="detail.php?id_salle=<?= $salle["id_salle"]; ?>"><img
-                            src="img/salle/<?= $salle["photo_salle"]; ?>"
-                            alt="lien vers les détails de la salle <?= $salle["nom_salle"]; ?> "></a>
-                    <a href="detail.php?id_salle=<?= $salle["id_salle"]; ?>"><?= $salle["nom_salle"]; ?></a>
-                </div>
+                    <div>
+                        <a href="detail.php?id_salle=<?= $salle["id_salle"]; ?>"><img
+                                src="img/salle/<?= $salle["photo_salle"]; ?>"
+                                alt="lien vers les détails de la salle <?= $salle["nom_salle"]; ?> "></a>
+                        <a href="detail.php?id_salle=<?= $salle["id_salle"]; ?>"><?= $salle["nom_salle"]; ?></a>
+                    </div>
 
 
-                <?php
+                    <?php
+                }
+            } else {
+                echo "Aucun résultat trouvé";
             }
             ?>
         </span>

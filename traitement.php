@@ -8,10 +8,9 @@ $salle = $_GET['salle'];
 $date = $_GET['date'];
 $horaire = $_GET['horaire'];
 $duree = $_GET['duree'];
-// $duree = 2;
 $participant = $_GET['participant'];
 
-// $datetime = '2024-05-14';
+
 
 // * Ajouter les informations de l'user dans la bdd
 // * Test l'existance de l'user dans la bdd

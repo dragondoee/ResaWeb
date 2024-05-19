@@ -99,30 +99,30 @@ h2 {
 /* -------------------------------------------------------------------------------------------------------- */
 /* Nouveauté */
 
-.nouveaute h3 {
+/* .nouveaute h3 {
   text-align: center;
-}
+} */
 
-.slider {
+/* .slider {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 50px;
   position: relative;
   overflow: hidden;
-}
+} */
 
 
 /* SLIDER */
 
 
-.js-slider {
+/* .js-slider {
   width: 450px;
   height: 250px;
   position: relative;
   border-radius: 25px;
   overflow: hidden;
-}
+} */
 
 .js-photos {
   position: relative;

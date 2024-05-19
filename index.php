@@ -51,45 +51,95 @@
             <img src="img/mascotte.png" alt="">
         </div>
         <hr>
+        <!-- Slider des nouveautés-->
         <div class="nouveaute">
-            <!-- Slider des jeux Top ventes -->
             <h3> Nouveauté </h3>
-            <!-- Slider des nouveautés-->
-            <!-- Zone PHP  -->
+            
             <div class="slider">
                 <div class="js-slider">
-                    <div class="js-photos">
+                    <div class="js-photos"></div>
+                    <?php require "connexion.php";
 
-                        <div class=" js-photo photo4 clone">
-                            <img src="img/chat.jpg" alt="">
-                            <h4> Chat </h4>
+                    $requete = "SELECT * FROM salle WHERE nouveaute=1;";
+                    
+                    $compteur = 1;
+                    $stmt = $db->query($requete);
+                    $result = $stmt->fetchall(PDO::FETCH_ASSOC);
+                    foreach ($result as $salle) {
+                        
+                        ?>
+
+                        <div class=" js-photo photo<?= $compteur ?> ">
+                            <a href="detail.php?id_salle=<?= $salle["id_salle"]; ?>">
+                                <img
+                                src="img/salle/<?= $salle["photo_salle"]; ?>"
+                                alt="lien vers les détails de la salle <?= $salle["nom_salle"]; ?> "
+                                >
+                            </a>
+                            <a href="detail.php?id_salle=<?= $salle["id_salle"]; ?>"><?= $salle["nom_salle"]; ?></a>
                         </div>
 
-                        <div class="js-photo photo1">
-                            <img src="img/pinguin.jpg" alt="">
-                            <h4> Pinguin </h4>
-                        </div>
-
-                        <div class="js-photo photo2">
-                            <img src="img/chat.jpg" alt="">
-                            <h4> Chat </h4>
-                        </div>
-
-
-                        <div class="js-photo photo1 clone">
-                            <img src="img/pinguin.jpg" alt="">
-                            <h4> Pinguin </h4>
-                        </div>
-
-                    </div>
+                    <?php
+                    $compteur += 1;
+                    }
+                    ?>
                 </div>
             </div>
-            <nav class="js-nav">
-                <button class="js-nav-left"><img src="img/fleche.svg" alt="Voir l'image de gauche"> </button>
-                <button class="js-nav-right"><img src="img/fleche.svg" alt="Voir l'image de droite"> </button>
-            </nav>
+        </div>
+
+        <!-- <nav class="js-nav">
+            <button class="js-nav-left"><img src="img/fleche_old.svg" alt="Voir l'image de gauche"> </button>
+            <button class="js-nav-right"><img src="img/fleche_old.svg" alt="Voir l'image de droite"> </button>
+        </nav> -->
 
         </div>
+        <button> Voir des tendances </button>
+        <!-- Slider des tendances-->
+        <div class="tendance">
+            <h3> Tendances </h3>
+            <div class="slider">
+                <div class="js-slider">
+                    <div class="js-photos"></div>
+                    <?php
+
+                    $requete = "SELECT *,COUNT(id_resa) FROM salle,reservation WHERE salle=id_salle ORDER BY COUNT(id_resa) LIMIT 2;";
+                    
+                    $compteur = 1;
+                    $stmt = $db->query($requete);
+                    $result = $stmt->fetchall(PDO::FETCH_ASSOC);
+                    foreach ($result as $salle) {
+                        
+                        ?>
+
+                        <div class=" js-photo photo<?= $compteur ?> ">
+                            <a href="detail.php?id_salle=<?= $salle["id_salle"]; ?>">
+                                <img
+                                src="img/salle/<?= $salle["photo_salle"]; ?>"
+                                alt="lien vers les détails de la salle <?= $salle["nom_salle"]; ?> "
+                                >
+                            </a>
+                            <a href="detail.php?id_salle=<?= $salle["id_salle"]; ?>"><?= $salle["nom_salle"]; ?></a>
+                        </div>
+
+                    <?php
+                    $compteur += 1;
+                    }
+                    ?>
+                </div>
+            </div>
+        </div>
+
+        <!-- <nav class="js-nav">
+            <button class="js-nav-left"><img src="img/fleche_old.svg" alt="Voir l'image de gauche"> </button>
+            <button class="js-nav-right"><img src="img/fleche_old.svg" alt="Voir l'image de droite"> </button>
+        </nav> -->
+
+        </div>
+
+
+
+
+
         <hr>
         <!-- Plus d'infos -->
         <div class="infos">
