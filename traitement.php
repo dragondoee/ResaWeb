@@ -46,7 +46,7 @@ if (empty($result_IdUser)) {
 // * Ajouter les informations de réservation dans la bdd
 // *Test l'existance de la réservation dans la bdd
 
-$sql_check_Resa = "SELECT * FROM reservation WHERE responsable={$result_IdUser['id_user']} AND date_resa='$date';";
+$sql_check_Resa = "SELECT * FROM reservation WHERE responsable={$result_IdUser['id_user']} AND date_resa='$date' AND horaire='$horaire' AND salle=$salle;";
 $stmt_check_Resa = $db->query($sql_check_Resa);
 $result_check_Resa = $stmt_check_Resa->fetchall(PDO::FETCH_ASSOC);
 // print_r($result_check_Resa).", ";
@@ -59,6 +59,36 @@ if (empty($result_check_Resa)) {
 } else {
     echo "Resa pas ajouté dans la bdd, ";
 }
+
+// * Récupère l'id de la réservation
+
+$sql_IdResa = "SELECT id_resa FROM reservation WHERE responsable={$result_IdUser['id_user']} AND date_resa='$date';";
+$stmt_IdResa = $db->query($sql_IdResa);
+$result_IdResa = $stmt_IdResa->fetch(PDO::FETCH_ASSOC);
+
+// print_r($result_IdResa) ;
+if (empty($result_IdResa)) {
+    echo "Pas d'id trouvé";
+} else {
+    echo "id trouvé  ";
+    // echo $result_IdResa["id_resa"].", ";
+}
+
+// * Information boisson
+
+$boisson= $_GET["boisson"];
+$quantite= $_GET["quantite"];
+
+// * Ajouter les informations de la commande dans la bdd
+$requeteCommande = "INSERT INTO commande VALUES (NULL, {$result_IdUser['id_user']} , $boisson , {$result_IdResa['id_resa']}, $quantite) ";
+$stmt = $db->query($requeteCommande);
+
+
+
+
+
+// ! MAIL
+
 
 // * Configuration de l'e-mail pour l'utilisateur qui a réservé
 $sujet = "Confirmation de réservation - Quest & Coffee";
