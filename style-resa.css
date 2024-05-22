@@ -1,23 +1,46 @@
-
 /* Main */
 
 
-main{
-    width: 500px;
-    margin-left: auto;
-    margin-right: auto;
-    border: 1px solid black;
-    border-radius: 10px;
-    padding: 30px;
-    text-align: center;
-  }
-  
-  .cache{
-    display: none;
-  }
-  
-  main :focus-visible {
-    padding: 0;
-    text-align: center;
-    border: #291503 2px solid;
-  }
+main {
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  padding: 30px;
+  text-align: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+main :focus-visible {
+  padding: 0;
+  text-align: center;
+  border: #291503 2px solid;
+}
+
+/* Slider formulaire */
+
+.slider {
+  width: 500px;
+  height: 300px;
+  position: relative;
+  border: black solid 3px;
+  overflow: hidden;
+}
+
+.slider-content {
+  position: relative;
+  display: flex;
+  left: 0;
+  transition: left 0.3s ease;
+}
+
+fieldset {
+  width: 500px;
+  border: 0;
+  height: 300px;
+  position: relative;
+  flex-shrink: 0;
+}

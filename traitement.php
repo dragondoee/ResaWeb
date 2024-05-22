@@ -95,16 +95,19 @@ $sujet = "Confirmation de réservation - Quest & Coffee";
 $message = "Votre réservation a été confirmée. On se voit plus tard $prenom";
 
 // * Mail pour l'utilisateur qui a réservé
-// mail($email, $sujet, $message);
+mail($email, $sujet, $message);
 
 // * Configuration de l'e-mail pour le gestionnaire
 $sujetG = "Notification de réservation - Quest & Coffee";
 $messageG = "$prenom $nom a réserver la salle $salle le $date pour $participant personne.s., Contact responsable: $email";
 
 // * Mail pour le gestionnaire
-// mail(emilie.desgranges78@gmail, $sujetG, $messageG);
+// mail('emilie.desgranges78@gmail.com', $sujetG, $messageG);
 
 
 // * Redirection vers une page de confirmation
 // header("Location: confirmation.php");
 exit;
+
+// Voir le cours pour sécuriser le code des injections SQL
+// Prepare, bind, execute

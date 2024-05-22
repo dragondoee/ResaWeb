@@ -1,8 +1,11 @@
-
+"use strict"
 //-----------------------------------------------------
 
 // ! Détection adresse mail temporaire
 // TODO : Voir tp 
+
+
+// Avec un split, vérifier après le @ s'il est dans la liste ou pas 
 
 //-----------------------------------------------------
 
@@ -10,45 +13,76 @@
 
 
 //-----------------------------------------------------
+// ! Affiche formulaire 1 page : Slider
 
+// Variables
+const boutonsRight = document.querySelectorAll(".button-next");
+const boutonsLeft = document.querySelectorAll(".button-before");
+const photos = document.querySelector(".slider-content");
+var position = 0;
+var image = 0;
+var compteur = 0;
+
+// Événement 
+boutonsRight.forEach(function (bouton) {
+  bouton.addEventListener("click", decaleGauche);
+})
+boutonsLeft.forEach(function (bouton) {
+  bouton.addEventListener("click", decaleDroite);
+})
+
+// Fonction de déplacement
+function decaleGauche() {
+  position -= 500
+  image += 1
+  photos.style.left = position + "px"
+};
+
+function decaleDroite() {
+  position += 500
+  image -= 1
+  photos.style.left = position + "px"
+};
+
+
+// ----------------------------------------------------
 // ! Choix de boissons dans le formulaire
 
 
-//-----------------------------------------------------
+// Variables
+const formBoisson = document.querySelector(".form-boisson");
+const boutonAdd = document.querySelector(".add-drink");
+const boutonsRemove = document.querySelectorAll(".remove-drink");
 
-// FORMULAIRE 1 page
-// ! Modifier et adapter le code pour faire le formulaire
+boutonAdd.addEventListener("click", ajouterBoisson);
 
-    // Ajouter la classe "cache" à toutes les pages
 
-    var pages = document.querySelectorAll(".cache");
-    pages.forEach(function (page) {
-      page.classList.add("cache");
-    });
+function ajouterBoisson() {
+  // console.log("ajouter bouton");
+  const boissonsDiv = document.getElementById('boissons');
+  const nouvelleBoisson = document.createElement('div');
+  nouvelleBoisson.classList.add('boisson-container');
+  nouvelleBoisson.innerHTML = `
+      <label>Boisson: <input type="text" name="boisson[]"></label>
+      <label>Quantité: <input type="number" name="quantite[]" min="1"></label>
+      <button type="button" class="remove-drink" >Retirer</button>
+  `;
+  boissonsDiv.appendChild(nouvelleBoisson);
+  // Ajout de l'événement de retrait au nouveau bouton "Retirer"
+  nouvelleBoisson.querySelector('.remove-drink').addEventListener('click', function() {
+    retirerBoisson(this);
+});
+};
 
-    // Pour changer de page
 
-    // Afficher les différentes pages
-    var navigation = document.querySelectorAll("nav li");
-    navigation.forEach(function (bouton) {
-      bouton.addEventListener("click", function () {
+function retirerBoisson(button) {
+  // console.log("retirer la boisson");
+  const boissonContainer = button.closest('.boisson-container');
+  if (boissonContainer) {
+    boissonContainer.remove();
+  }
+};
 
-        // récupérer la classe de la page à afficher
-        var pageClass = bouton.getAttribute("class");
-
-        // Masquer toutes les pages
-        pages.forEach(function (page) {
-          page.classList.add("cache");
-        });
-
-        // Afficher la page sélectionnée
-        var pageAffichage = document.querySelector("#" + pageClass);
-        pageAffichage.classList.remove("cache");
-        
-
-      });
-    });
-    
 // -------------------------------------------------------------------------------------------------------------------------
 
 // Slider nouveauté
