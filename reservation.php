@@ -97,9 +97,23 @@
                         <legend>Commander des boissons</legend>
                         <br>
                         <div id="boissons">
-                            <div class="boisson-container">
-                                <label>Boisson: <input type="text" name="boisson[]"></label>
-                                <label>Quantité: <input type="number" name="quantite[]" min="1"></label>
+                            <div class="boisson">
+                                <label> Boisson
+                                <select name="boisson[]">
+                                    <option value="">Choisir une boisson</option>
+                                    <?php require "connexion.php";
+                                    $requete = "SELECT * FROM boisson";
+                                    $stmt = $db->query($requete);
+                                    $result = $stmt->fetchall(PDO::FETCH_ASSOC);
+                                    foreach ($result as $boisson) {
+                                        ?>
+                                        <option value="<?= $boisson["id_boisson"]; ?>"><?= $boisson["nom_boisson"]; ?></option>
+                                        <?php
+                                    }
+                                    ?>
+                                </select>
+                                </label>
+                                <label> <input type="text" name="quantite[]" id="quantite"> Quantité </label>
                             </div>
                         </div>
                         <button type="button" class="add-drink">Ajouter une boisson</button>

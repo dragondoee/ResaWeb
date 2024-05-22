@@ -61,17 +61,14 @@ function ajouterBoisson() {
   // console.log("ajouter bouton");
   const boissonsDiv = document.getElementById('boissons');
   const nouvelleBoisson = document.createElement('div');
+  const boisson1 = document.querySelector(".boisson");
   nouvelleBoisson.classList.add('boisson-container');
-  nouvelleBoisson.innerHTML = `
-      <label>Boisson: <input type="text" name="boisson[]"></label>
-      <label>Quantité: <input type="number" name="quantite[]" min="1"></label>
-      <button type="button" class="remove-drink" >Retirer</button>
-  `;
+  nouvelleBoisson.innerHTML = boisson1.innerHTML + ` <button type="button" class="remove-drink" >Retirer</button>`;
   boissonsDiv.appendChild(nouvelleBoisson);
   // Ajout de l'événement de retrait au nouveau bouton "Retirer"
-  nouvelleBoisson.querySelector('.remove-drink').addEventListener('click', function() {
+  nouvelleBoisson.querySelector('.remove-drink').addEventListener('click', function () {
     retirerBoisson(this);
-});
+  });
 };
 
 

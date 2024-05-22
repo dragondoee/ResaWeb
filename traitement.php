@@ -23,10 +23,10 @@ $result_check = $stmt_check->fetchall(PDO::FETCH_ASSOC);
 if (empty($result_check)) {
     // * Si l'email n'existe pas, insérer le nouvel utilisateur
     $requeteUser = "INSERT INTO user VALUES (NULL, '$nom', '$prenom', '$email' );";
-    echo "User ajouté dans la bdd, ";
+    // echo "User ajouté dans la bdd, ";
     $stmt = $db->query($requeteUser);
 } else {
-    echo "User pas ajouté dans la bdd, ";
+    // echo "User pas ajouté dans la bdd, ";
 }
 
 // * Récupère l'id de l'user
@@ -37,7 +37,7 @@ $result_IdUser = $stmt_IdUser->fetch(PDO::FETCH_ASSOC);
 
 // print_r($result_IdUser) ;
 if (empty($result_IdUser)) {
-    echo "Pas d'id trouvé";
+    // echo "Pas d'id trouvé";
 } else {
     // echo "id trouvé : ";
     // echo $result_IdUser["id_user"].", ";
@@ -55,9 +55,9 @@ if (empty($result_check_Resa)) {
     // * Si la réservation n'existe pas, insérer la nouvelle réservation 
     $requeteResa = "INSERT INTO reservation VALUES (NULL, {$result_IdUser['id_user']} , '$date' , '$horaire', '$duree' , $participant , $salle ) ";
     $stmt = $db->query($requeteResa);
-    echo "Resa ajouté dans la bdd";
+    // echo "Resa ajouté dans la bdd";
 } else {
-    echo "Resa pas ajouté dans la bdd, ";
+    // echo "Resa pas ajouté dans la bdd, ";
 }
 
 // * Récupère l'id de la réservation
@@ -68,23 +68,45 @@ $result_IdResa = $stmt_IdResa->fetch(PDO::FETCH_ASSOC);
 
 // print_r($result_IdResa) ;
 if (empty($result_IdResa)) {
-    echo "Pas d'id trouvé";
+    // echo "Pas d'id trouvé";
 } else {
-    echo "id trouvé  ";
+    // echo "id trouvé  ";
     // echo $result_IdResa["id_resa"].", ";
-}
+};
 
 // * Information boisson
 
-$boisson= $_GET["boisson"];
-$quantite= $_GET["quantite"];
+$boisson = $_GET["boisson"];
+$quantite = $_GET["quantite"];
+// print_r($boisson).", ";
+// print_r($quantite).", ";
+echo $boisson[0];
 
 // * Ajouter les informations de la commande dans la bdd
-$requeteCommande = "INSERT INTO commande VALUES (NULL, {$result_IdUser['id_user']} , $boisson , {$result_IdResa['id_resa']}, $quantite) ";
-$stmt = $db->query($requeteCommande);
+// Vérifie que boisson est vide
+function validateArray($array) {
+    foreach ($array as $item) {
+        if (empty(trim($item))) {
+            return false;
+        }
+    }
+    return true;
+}
 
-
-
+if (validateArray($boisson)) {
+    // echo "commande ajouté";
+    $i = 0;
+    foreach ($boisson as $key => $value) {
+        // echo $boisson[$i];
+        // echo $quantite[$i];
+        $requeteCommande = "INSERT INTO commande VALUES (NULL, {$result_IdUser['id_user']} , $boisson[$i] , {$result_IdResa['id_resa']}, $quantite[$i]) ";
+        $stmt = $db->query($requeteCommande);
+        $i += 1;
+    }
+    ;
+} else {
+    // echo "pas de boisson";
+};
 
 
 // ! MAIL
@@ -95,7 +117,7 @@ $sujet = "Confirmation de réservation - Quest & Coffee";
 $message = "Votre réservation a été confirmée. On se voit plus tard $prenom";
 
 // * Mail pour l'utilisateur qui a réservé
-mail($email, $sujet, $message);
+// mail($email, $sujet, $message);
 
 // * Configuration de l'e-mail pour le gestionnaire
 $sujetG = "Notification de réservation - Quest & Coffee";
@@ -108,6 +130,9 @@ $messageG = "$prenom $nom a réserver la salle $salle le $date pour $participant
 // * Redirection vers une page de confirmation
 // header("Location: confirmation.php");
 exit;
+
+
+
 
 // Voir le cours pour sécuriser le code des injections SQL
 // Prepare, bind, execute
