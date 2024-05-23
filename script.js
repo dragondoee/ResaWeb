@@ -1,5 +1,15 @@
 "use strict"
 
+// * Sommaire : 
+
+// 1. Vérification des infos du formulaire
+// 2. Détection adresse mail temporaire
+// 3. Affiche formulaire 1 page : Slider
+// 4. Choix de boissons dans le formulaire
+// 5. Filtre
+// 6. Fonctionnalité Bonus
+
+
 //-----------------------------------------------------
 
 // ! Vérification des infos du formulaire
@@ -22,18 +32,19 @@ boutonUser.addEventListener("click", function () {
   } else {
     console.log("all good");
     manualVerifMail(mail)
-    verifMail(mail);
+    // verifMail(mail);
   }
 });
 
 
 // Réservation
-
+// TODO : vérifier que les champs obligatoires ont été remplis
 
 //-----------------------------------------------------
 
 // ! Détection adresse mail temporaire
 
+// Liste des nom de domaine d'adresse mail temporaire
 var mailTempo = ["uooos.com", "doolk.com", "nthrw.com", "bbitq.com", "ckptr.com", "alldrys.com", "moabuild.com", "moongit.com", "20minutemail.it", "diolang.com", "aosod.com", "huleos.com", "sharklasers.com", "guerrillamail.info", "grr.la", "guerrillamail.biz", "guerrillamail.com", "guerrillamail.de", "guerrillamail.net", "guerrillamail.org", "guerrillamailblock.com", "pokemail.net", "spam4.me", "musiccode.me", "lyricspad.net", "citmo.net", "vusra.com", "gufum.com", "best-john-boats.com", "pirolsnet.com", "trickyfucm.com", "entipat.com", "smartinbox.online", "goonby.com", "plexfirm.com", "neixos.com", "10mail.org", "firste.ml", "zeroe.ml", "dropmail.me", "vintomaper.com", "labworld.org", "fillallin.com", "dockleafs.com", "mailsac.com", "mails.omvvim.edu.in", "onetimeusemail.com", "midiharmonica.com", "fthcapital.com", "yopmail.com", "crazymailing.com", "exbts.com", "wemel.site", "mybx.site", "emeil.top", "mywrld.top", "matra.top", "memsg.site", "mybx.site", "emailnax.com", "emailbbox.pro", "inboxbear.com", "getnada.com", "guysmail.com", "guysmail.com", "trashmail.fr", "trashmail.se", "my10minutemail.com"]
 
 function manualVerifMail(mail) {
@@ -85,9 +96,7 @@ var compteur = 0;
 
 // Événement 
 boutonsNext.forEach(function (bouton) {
-
   bouton.addEventListener("click", decaleGauche);
-
 })
 boutonsBefore.forEach(function (bouton) {
   bouton.addEventListener("click", decaleDroite);
