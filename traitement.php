@@ -80,7 +80,6 @@ $boisson = $_GET["boisson"];
 $quantite = $_GET["quantite"];
 // print_r($boisson).", ";
 // print_r($quantite).", ";
-echo $boisson[0];
 
 // * Ajouter les informations de la commande dans la bdd
 // Vérifie que boisson est vide

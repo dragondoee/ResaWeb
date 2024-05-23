@@ -40,7 +40,7 @@
                         <label for="mail">Adresse mail</label>
                         <input type="email" id="mail" name="mail" required>
                         <br> <br>
-                        <input type="button" class="button-next" value="Suivant">
+                        <input type="button" class="button-next user" value="Suivant">
                     </fieldset>
                     <!-- ------------------------------------------------------------------- -->
                     <fieldset>
