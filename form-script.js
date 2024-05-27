@@ -12,7 +12,7 @@
 
 //-----------------------------------------------------
 
-// ! Vérification des infos du formulaire
+// Vérification des infos du formulaire
 
 // Variable pour vérifier que les infos obligatoires sont données et correct avant de passé à la page suivante
 var pageValide = 'False';
@@ -26,29 +26,28 @@ boutonUser.addEventListener("click", function () {
   localStorage.setItem('prenom', document.querySelector("#prenom").value);
   localStorage.setItem('mail', document.querySelector("#mail").value);
   // Vérification Champs Obligatoire
-  if ( /\d/.test(localStorage.getItem('nom')) ){
-    alert('Le champs nom ne peut pas contenir de chiffre')
-   }
-  if (localStorage.getItem('nom')== "" || localStorage.getItem('prenom')== "" || localStorage.getItem('mail') == "") {
+  if (localStorage.getItem('nom') == "" || localStorage.getItem('prenom') == "" || localStorage.getItem('mail') == "") {
     // TODO: À modifier ? : Si l'utilisateur met un espace ça fonctionne
     // TODO : Prévenir user de l'erreur d'une meilleure façon
-    if (localStorage.getItem('nom')== "") {
+    if (localStorage.getItem('nom') == "") {
       alert('Veuillez remplir le champs nom');
-     } if (localStorage.getItem('prenom')== "") {
+    } if (localStorage.getItem('prenom') == "") {
       alert('Veuillez remplir le champ prenom');
-     } if (localStorage.getItem('mail')== "") {
+    } if (localStorage.getItem('mail') == "") {
       alert('Veuillez remplir le champs mail');
-     }
-     // Expression régulière pour vérifier si une chaîne contient des chiffres
-      
-    // TODO : Vérifier que le nom et prénom n'ont pas de chiffres
-    // console.log("il manque un truc là");
-    
+    }
+  
     pageValide = 'False';
   } else {
-    console.log("all good");
+    // Vérifier si une chaîne contient des chiffres
+    if (/\d/.test(localStorage.getItem('nom'))) {
+      alert('Le champs nom ne peut pas contenir de chiffre')
+    } if (/\d/.test(localStorage.getItem('prenom'))) {
+      alert('Le champs prenom ne peut pas contenir de chiffre')
+    }
     manualVerifMail(localStorage.getItem('mail'));
-    
+    // console.log("all good");
+
   }
 });
 
@@ -85,19 +84,19 @@ const pageRecap = document.querySelector(".recap");
 function recapitulatif() {
   // TODO : Traiter les infos : salle, date, horaire et duree pour changer leur format
   pageRecap.innerHTML = '<legend>Récapitulatif</legend>'
-    + '<p><strong>Vos informations : </strong>'+ localStorage.getItem('prenom') +" "+ localStorage.getItem('nom') +'</p>'
-    + '<p><strong>Adresse mail : </strong>'+ localStorage.getItem('mail') +'</p>'
+    + '<p><strong>Vos informations : </strong>' + localStorage.getItem('prenom') + " " + localStorage.getItem('nom') + '</p>'
+    + '<p><strong>Adresse mail : </strong>' + localStorage.getItem('mail') + '</p>'
 
-    + '<p><strong>La salle : </strong>'+ localStorage.getItem('salle')+'</p>'
-    + '<p><strong>Réservation : </strong> le '+ localStorage.getItem('date') + ' à ' + localStorage.getItem('horaire') + ' pour '+ localStorage.getItem('duree') +'</p>'
-    + '<p><strong>Nombre de personne.s : </strong>'+ localStorage.getItem('participant') +'</p>'
+    + '<p><strong>La salle : </strong>' + localStorage.getItem('salle') + '</p>'
+    + '<p><strong>Réservation : </strong> le ' + localStorage.getItem('date') + ' à ' + localStorage.getItem('horaire') + ' pour ' + localStorage.getItem('duree') + '</p>'
+    + '<p><strong>Nombre de personne.s : </strong>' + localStorage.getItem('participant') + '</p>'
 
     // + '<p><strong>Les boissons</strong></p>'
 
     // TODO : Rendre le bouton précédent fonctionnel
     + '<input type="button" class="button-before" value="Précédendent">'
     + '<input type="submit" name="bouton_soumettre" value="Envoyer">';
-    
+
 };
 
 //-----------------------------------------------------
