@@ -40,7 +40,7 @@
                         <label for="mail">Adresse mail</label>
                         <input type="email" id="mail" name="mail" required>
                         <br> <br>
-                        <input type="button" class="button-next user" value="Suivant">
+                        <input type="button" class="button-next userButton" value="Suivant">
                     </fieldset>
                     <!-- ------------------------------------------------------------------- -->
                     <fieldset>
@@ -90,7 +90,7 @@
                         <input type="number" id="participant" name="participant" required>
                         <br> <br>
                         <input type="button" class="button-before" value="Précédendent">
-                        <input type="button" class="button-next" value="Suivant">
+                        <input type="button" class="button-next resaButton" value="Suivant">
                     </fieldset>
                     <!-- ------------------------------------------------------------------- -->
                     <fieldset class="form-boisson">
@@ -99,19 +99,20 @@
                         <div id="boissons">
                             <div class="boisson">
                                 <label> Boisson
-                                <select name="boisson[]">
-                                    <option value="">Choisir une boisson</option>
-                                    <?php require "connexion.php";
-                                    $requete = "SELECT * FROM boisson";
-                                    $stmt = $db->query($requete);
-                                    $result = $stmt->fetchall(PDO::FETCH_ASSOC);
-                                    foreach ($result as $boisson) {
+                                    <select name="boisson[]">
+                                        <option value="">Choisir une boisson</option>
+                                        <?php require "connexion.php";
+                                        $requete = "SELECT * FROM boisson";
+                                        $stmt = $db->query($requete);
+                                        $result = $stmt->fetchall(PDO::FETCH_ASSOC);
+                                        foreach ($result as $boisson) {
+                                            ?>
+                                            <option value="<?= $boisson["id_boisson"]; ?>"><?= $boisson["nom_boisson"]; ?>
+                                            </option>
+                                            <?php
+                                        }
                                         ?>
-                                        <option value="<?= $boisson["id_boisson"]; ?>"><?= $boisson["nom_boisson"]; ?></option>
-                                        <?php
-                                    }
-                                    ?>
-                                </select>
+                                    </select>
                                 </label>
                                 <label> <input type="text" name="quantite[]" id="quantite"> Quantité </label>
                             </div>
@@ -122,11 +123,8 @@
                         <input type="button" class="button-next" value="Suivant">
                     </fieldset>
                     <!-- ------------------------------------------------------------------- -->
-                    <fieldset>
-                        <legend>Récapitulatif</legend>
-
-                        <input type="button" class="button-before" value="Précédendent">
-                        <input type="submit" name="bouton_soumettre" value="Envoyer">
+                    <fieldset class="recap">
+                        
                     </fieldset>
                     <!-- ------------------------------------------------------------------- -->
                 </div>
@@ -140,7 +138,7 @@
     <?php require "footer.php"; ?>
 
 
-    <script src="script.js"></script>
+    <script src="form-script.js"></script>
 </body>
 
 </html>

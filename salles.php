@@ -33,8 +33,15 @@
 
         <!-- Zone filtre -->
         <span class="filtre">
-            <button>Filtre 1 </button>
-            <button>Filtre 2</button>
+            <form action="">
+                <select name="filtre" id="filtre">
+                    <option value="0">Tout voir</option>
+                    <option value="1">Aventure</option>
+                    <option value="2">Horreur</option>
+                    <option value="3">Cozy</option>
+                </select>
+                <input type="button" name="filtrer" id="filtrer" value="Filtrer">
+            </form>
             <a href="salles.php?tri=nom_salle">Nom de la salle</a>
             <!-- J'affiche pas les infos donc c'est bizarre -->
             <a href="salles.php?tri=prix_salle">Prix</a>
@@ -64,27 +71,32 @@
                 foreach ($result as $salle) {
                     ?>
 
-                    <div>
+                    <div class="salle" data-ambiance="<?= $salle["ambiance"]; ?>">
                         <a href="detail.php?id_salle=<?= $salle["id_salle"]; ?>"><img
                                 src="img/salle/<?= $salle["photo_salle"]; ?>"
                                 alt="lien vers les détails de la salle <?= $salle["nom_salle"]; ?> "></a>
                         <a href="detail.php?id_salle=<?= $salle["id_salle"]; ?>"><?= $salle["nom_salle"]; ?></a>
                     </div>
 
+                    
 
                     <?php
                 }
             } else {
                 echo "Aucun résultat trouvé";
+                echo '<a href="salles.php">Voir toutes les salles</a>'  ;
             }
             ?>
         </span>
+
 
     </main>
 
     <!-- Footer -->
     <?php require "footer.php"; ?>
-
+        
+    <!-- JS -->
+    <script src="salles-script.js"></script>
 </body>
 
 </html>

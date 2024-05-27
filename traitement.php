@@ -127,7 +127,7 @@ $messageG = "$prenom $nom a réserver la salle $salle le $date pour $participant
 
 
 // * Redirection vers une page de confirmation
-// header("Location: confirmation.php");
+header("Location: confirmation.php");
 exit;
 
 
