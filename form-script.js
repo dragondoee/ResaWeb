@@ -12,7 +12,7 @@
 
 //-----------------------------------------------------
 
-// Vérification des infos du formulaire
+// ! Vérification des infos du formulaire
 
 // Variable pour vérifier que les infos obligatoires sont données et correct avant de passé à la page suivante
 var pageValide = 'False';
@@ -38,16 +38,14 @@ boutonUser.addEventListener("click", function () {
     }
   
     pageValide = 'False';
-  } else {
+  } else if(/\d/.test(localStorage.getItem('nom')) || /\d/.test(localStorage.getItem('prenom')) ) {
     // Vérifier si une chaîne contient des chiffres
-    if (/\d/.test(localStorage.getItem('nom'))) {
-      alert('Le champs nom ne peut pas contenir de chiffre')
-    } if (/\d/.test(localStorage.getItem('prenom'))) {
-      alert('Le champs prenom ne peut pas contenir de chiffre')
-    }
+      alert('Les champs nom et prenom ne peuvent pas contenir de chiffre')
+      pageValide = 'False';
+
+  } else {
     manualVerifMail(localStorage.getItem('mail'));
     // console.log("all good");
-
   }
 });
 
@@ -68,7 +66,7 @@ boutonResa.addEventListener("click", function () {
   if (localStorage.getItem('salle') == "" || localStorage.getItem('date') == "" || localStorage.getItem('horaire') == "" || localStorage.getItem('duree') == "" || localStorage.getItem('participant') == "") {
     console.log("il manque un truc là");
     pageValide = 'False';
-    // TODO : Prévenir user de l'erreur
+    alert('Tous les champs sont obligatoires, veuillez vérifier que vous les avez tous remplis.');
   } else {
     console.log("all good");
     pageValide = 'True';
