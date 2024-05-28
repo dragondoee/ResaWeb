@@ -30,10 +30,11 @@
         var mail = localStorage.getItem('mail');
         var date = localStorage.getItem('date');
         var horaire = localStorage.getItem('horaire');
-        document.querySelector("main").innerHTML += '<p>Un mail de confirmation vous a été envoyé à l\'adresse mail '+ mail +', '
+        document.querySelector("main").innerHTML += '<p> Réservation réussite. </p>'
+        +'<p>Un mail de confirmation vous a été envoyé à l\'adresse mail '+ mail +', '
         +'n\'hésitez pas à vérifier vos SPAMs</p>'
             + '<p>Merci '+ prenom +' pour votre réservation, on se retrouve le '+ date +' à '+ horaire +'</p>'
-            + '<a href="index.php">retour à l\'accueil</a>';    
+            + '<a href="index.php" id="content">retour à l\'accueil</a>';    
 
 
     </script>
