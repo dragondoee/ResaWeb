@@ -4,8 +4,9 @@
         <nav>
             <a class="retourAccueil" href="index.php"><img src="img/logo.png" alt="retour à l'accueil"></a>
             <form action="salles.php">
+                <label for="search" class="sr-only">Rechercher</label>
                 <input type="text" name="search" id="search" placeholder="Rechercher....">
-                <input type="submit" name="" id="">
+                <input type="submit" name="envoyer" id="envoyer" value="chercher">
             </form> 
             <ul>
                 <li><a href="salles.php">Salles</a></li>

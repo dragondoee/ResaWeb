@@ -38,8 +38,9 @@ boutonUser.addEventListener("click", function () {
     }
   
     pageValide = 'False';
-  } else if(/\d/.test(localStorage.getItem('nom')) || /\d/.test(localStorage.getItem('prenom')) ) {
-    // Vérifier si une chaîne contient des chiffres
+  } 
+  // Vérifier si une chaîne contient des chiffres
+  else if(/\d/.test(localStorage.getItem('nom')) || /\d/.test(localStorage.getItem('prenom')) ) {
       alert('Les champs nom et prenom ne peuvent pas contenir de chiffre')
       pageValide = 'False';
 
@@ -64,14 +65,15 @@ boutonResa.addEventListener("click", function () {
 
   //* Vérification Champs obligatoire
   if (localStorage.getItem('salle') == "" || localStorage.getItem('date') == "" || localStorage.getItem('horaire') == "" || localStorage.getItem('duree') == "" || localStorage.getItem('participant') == "") {
-    console.log("il manque un truc là");
-    pageValide = 'False';
     alert('Tous les champs sont obligatoires, veuillez vérifier que vous les avez tous remplis.');
+    pageValide = 'False';
   } else {
-    console.log("all good");
     pageValide = 'True';
     recapitulatif()
-  }
+  } if(parseInt(localStorage.getItem('participant')) <= 0){ 
+    pageValide = 'False';
+    alert('Il doit y avoir au moins 1 personne pour faire une réservation');
+  } 
 });
 
 //-----------------------------------------------------
@@ -88,7 +90,8 @@ function recapitulatif() {
     + '<p><strong>La salle : </strong>' + localStorage.getItem('salle') + '</p>'
     + '<p><strong>Réservation : </strong> le ' + localStorage.getItem('date') + ' à ' + localStorage.getItem('horaire') + ' pour ' + localStorage.getItem('duree') + '</p>'
     + '<p><strong>Nombre de personne.s : </strong>' + localStorage.getItem('participant') + '</p>'
-
+    
+    // TODO : Ajouter les boissons
     // + '<p><strong>Les boissons</strong></p>'
 
     // TODO : Rendre le bouton précédent fonctionnel
@@ -105,11 +108,8 @@ function recapitulatif() {
 var mailTempo = ["uooos.com", "doolk.com", "nthrw.com", "bbitq.com", "ckptr.com", "alldrys.com", "moabuild.com", "moongit.com", "20minutemail.it", "diolang.com", "aosod.com", "huleos.com", "sharklasers.com", "guerrillamail.info", "grr.la", "guerrillamail.biz", "guerrillamail.com", "guerrillamail.de", "guerrillamail.net", "guerrillamail.org", "guerrillamailblock.com", "pokemail.net", "spam4.me", "musiccode.me", "lyricspad.net", "citmo.net", "vusra.com", "gufum.com", "best-john-boats.com", "pirolsnet.com", "trickyfucm.com", "entipat.com", "smartinbox.online", "goonby.com", "plexfirm.com", "neixos.com", "10mail.org", "firste.ml", "zeroe.ml", "dropmail.me", "vintomaper.com", "labworld.org", "fillallin.com", "dockleafs.com", "mailsac.com", "mails.omvvim.edu.in", "onetimeusemail.com", "midiharmonica.com", "fthcapital.com", "yopmail.com", "crazymailing.com", "exbts.com", "wemel.site", "mybx.site", "emeil.top", "mywrld.top", "matra.top", "memsg.site", "mybx.site", "emailnax.com", "emailbbox.pro", "inboxbear.com", "getnada.com", "guysmail.com", "guysmail.com", "trashmail.fr", "trashmail.se", "my10minutemail.com"]
 
 function manualVerifMail(mail) {
-  // console.log("manuel Check")
   var positionArobase = mail.indexOf("@");
   var urlMail = mail.substring(positionArobase + 1, mail.length);
-  // console.log(urlMail);
-  // console.log(mailTempo);
 
   var i = 0;
   while (i < mailTempo.length) {

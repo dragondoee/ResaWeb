@@ -20,7 +20,7 @@
     <!-- Header -->
     <?php require "header.php"; ?>
     <div class="container">
-        <h1>Quest & Coffee</h1>
+        <h1 id="content">Quest & Coffee</h1>
         <p>Là où le jeu rencontre le gourmand</p>
         <div class="buttons">
             <a href="salles.php">Découvrir les salles</a>
@@ -38,7 +38,7 @@
         <!-- Introduction -->
         <div class="intro">
             <spawn>
-                <h2 id="content">Notre café</h2>
+                <h2>Notre café</h2>
                 <p>Plongez dans un univers où la passion du jeu vidéo rencontre le plaisir de la dégustation. Chez Quest
                     & Coffee, chaque salle est une invitation à l'aventure, un café où les amateurs de jeux peuvent se
                     retrouver pour explorer de nouveaux mondes tout en savourant des boissons artisanales et des délices

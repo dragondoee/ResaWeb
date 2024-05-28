@@ -24,7 +24,7 @@
     <!-- Main -->
     <main>
 
-        <h1>Salles</h1>
+        <h1 id="content">Salles</h1>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium quis adipisci vero? Sapiente rem
             voluptatum magni dicta distinctio consequuntur fugit. Debitis voluptatem, expedita repellat accusamus
             nesciunt est inventore ipsam quibusdam!</p>

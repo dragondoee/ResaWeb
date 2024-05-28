@@ -23,7 +23,7 @@
 
     <!-- Main -->
     <main>
-    <h1>À propos</h1>
+    <h1 id="content">À propos</h1>
 
     <span class="propos-infos">
         <div class="propos-quest">

@@ -27,30 +27,34 @@
             <div class="slider">
                 <div class="slider-content">
                     <fieldset>
-                        <legend>Responsable</legend>
+                        <legend id="content">Responsable</legend>
+                        <p>Tous les champs sont obligatoires</p>
                         <!-- Nom -->
                         <label for="nom">Nom</label>
-                        <input type="text" id="nom" name="nom" required>
+                        <input type="text" id="nom" name="nom" required placeholder="Nom">
+                        <p>Limite de 50 caractères</p>
                         <br> <br>
                         <!-- Prénom -->
                         <label for="prenom">Prénom</label>
-                        <input type="text" id="prenom" name="prenom" required>
+                        <input type="text" id="prenom" name="prenom" required placeholder="Prénom">
+                        <p>Limite de 50 caractères</p>
                         <br> <br>
                         <!-- Adresse mail -->
                         <label for="mail">Adresse mail</label>
-                        <input type="email" id="mail" name="mail" required>
+                        <input type="email" id="mail" name="mail" required placeholder="exemple@mail.com">
                         <br> <br>
                         <input type="button" class="button-next userButton" value="Suivant">
                     </fieldset>
                     <!-- ------------------------------------------------------------------- -->
                     <fieldset>
                         <legend>Réservation d'une table</legend>
+                        <p>Tous les champs sont obligatoires</p>
                         <!-- Salle -->
                         <label for="salle">Salle</label>
                         <select name="salle" id="salle">
                             <option value="">Choisir une salle</option>
                             <?php require "connexion.php";
-                            $requete = "SELECT * FROM salle";
+                            $requete = "SELECT * FROM salle ORDER BY nom_salle ASC;";
                             $stmt = $db->query($requete);
                             $result = $stmt->fetchall(PDO::FETCH_ASSOC);
                             foreach ($result as $salle) {
@@ -86,7 +90,7 @@
                         </select>
                         <br><br>
                         <!-- Participant -->
-                        <label for="participant">Participant</label>
+                        <label for="participant">Nombre de personne</label>
                         <input type="number" id="participant" name="participant" required>
                         <br> <br>
                         <input type="button" class="button-before" value="Précédendent">
@@ -95,6 +99,7 @@
                     <!-- ------------------------------------------------------------------- -->
                     <fieldset class="form-boisson">
                         <legend>Commander des boissons</legend>
+                        <p>Les champs sont facultatifs</p>
                         <br>
                         <div id="boissons">
                             <div class="boisson">
@@ -102,7 +107,7 @@
                                     <select name="boisson[]">
                                         <option value="">Choisir une boisson</option>
                                         <?php require "connexion.php";
-                                        $requete = "SELECT * FROM boisson";
+                                        $requete = "SELECT * FROM boisson ORDER BY nom_boisson ASC;";
                                         $stmt = $db->query($requete);
                                         $result = $stmt->fetchall(PDO::FETCH_ASSOC);
                                         foreach ($result as $boisson) {
@@ -114,7 +119,7 @@
                                         ?>
                                     </select>
                                 </label>
-                                <label> <input type="text" name="quantite[]" id="quantite"> Quantité </label>
+                                <label> <input type="number" name="quantite[]" id="quantite"> Quantité </label>
                             </div>
                         </div>
                         <button type="button" class="add-drink">Ajouter une boisson</button>
