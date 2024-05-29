@@ -2,12 +2,23 @@
 
 // * Sommaire : 
 
-// Vérification des infos du formulaire
+// Alert perte infos formulaire
+// Vérification des infos du formulaire // TODO
 // Récapitulatif de la réservation
 // Détection adresse mail temporaire
 // Affiche formulaire 1 page : Slider
 // Choix de boissons dans le formulaire
-// Fonctionnalité Bonus
+
+
+//-----------------------------------------------------
+
+// ! Alert perte infos formulaire
+
+window.addEventListener('beforeunload', function (e) {
+  var message = "Les données ne seront pas enregistrées si vous quittez cette page";
+  e.preventDefault(); 
+  return message; 
+});
 
 
 //-----------------------------------------------------
@@ -17,7 +28,7 @@
 // Variable pour vérifier que les infos obligatoires sont données et correct avant de passé à la page suivante
 var pageValide = 'False';
 
-// User
+// ! User
 const boutonUser = document.querySelector(".userButton")
 
 boutonUser.addEventListener("click", function () {
@@ -36,13 +47,13 @@ boutonUser.addEventListener("click", function () {
     } if (localStorage.getItem('mail') == "") {
       alert('Veuillez remplir le champs mail');
     }
-  
+
     pageValide = 'False';
-  } 
+  }
   // Vérifier si une chaîne contient des chiffres
-  else if(/\d/.test(localStorage.getItem('nom')) || /\d/.test(localStorage.getItem('prenom')) ) {
-      alert('Les champs nom et prenom ne peuvent pas contenir de chiffre')
-      pageValide = 'False';
+  else if (/\d/.test(localStorage.getItem('nom')) || /\d/.test(localStorage.getItem('prenom'))) {
+    alert('Les champs nom et prenom ne peuvent pas contenir de chiffre')
+    pageValide = 'False';
 
   } else {
     manualVerifMail(localStorage.getItem('mail'));
@@ -51,16 +62,29 @@ boutonUser.addEventListener("click", function () {
 });
 
 
-// Réservation
+// ! Réservation
 
 const boutonResa = document.querySelector(".resaButton")
 
 boutonResa.addEventListener("click", function () {
   //* Stockage des informations
-  localStorage.setItem('salle', document.querySelector("#salle").value);
-  localStorage.setItem('date', document.querySelector("#date").value);
-  localStorage.setItem('horaire', document.querySelector("#horaire").value);
-  localStorage.setItem('duree', document.querySelector("#duree").value);
+  // Récupère l'option actuellement sélectionnée dans le <select> en utilisant son index sélectionné.
+  var selectSalle = document.querySelector("#salle");
+  var salleOption = selectSalle.options[selectSalle.selectedIndex];
+  localStorage.setItem('salle', salleOption.innerHTML);
+  // Date
+  var parts = document.querySelector("#date").value.split("-");
+  var formattedDate = parts[2] + "/" + parts[1] + "/" + parts[0];
+  localStorage.setItem('date', formattedDate);
+  // Horaire
+  var selectHoraire = document.querySelector("#horaire");
+  var horaireOption = selectHoraire.options[selectHoraire.selectedIndex];
+  localStorage.setItem('horaire', horaireOption.innerHTML);
+  // Durée
+  var selectDuree = document.querySelector("#duree");
+  var dureeOption = selectDuree.options[selectDuree.selectedIndex];
+  localStorage.setItem('duree', dureeOption.innerHTML);
+  // Participant
   localStorage.setItem('participant', document.querySelector("#participant").value);
 
   //* Vérification Champs obligatoire
@@ -69,36 +93,101 @@ boutonResa.addEventListener("click", function () {
     pageValide = 'False';
   } else {
     pageValide = 'True';
-    recapitulatif()
-  } if(parseInt(localStorage.getItem('participant')) <= 0){ 
+    // recapitulatif()
+  } if (parseInt(localStorage.getItem('participant')) <= 0) {
     pageValide = 'False';
     alert('Il doit y avoir au moins 1 personne pour faire une réservation');
-  } 
+  }
 });
+
+// ! Boissons
+const boutonDrink = document.querySelector(".drinkButton")
+
+boutonDrink.addEventListener("click", function () {
+  // remise à 0 des variables
+  var boissons = [];
+  var quantites = [];
+  var i = 0
+  // Récupération des boissons
+  document.querySelectorAll(".choixBoisson").forEach(function (boisson) {
+    var boissonOption = boisson.options[boisson.selectedIndex];
+    boissons[i] = boissonOption.innerHTML;
+    i++;
+  })
+  i = 0
+  // Récupération des quantités
+  document.querySelectorAll(".quantite").forEach(function (quantite) {
+    quantites[i] = quantite.value;
+    i++;
+  })
+  i = 0
+
+  localStorage.setItem('boissons', JSON.stringify(boissons));
+  localStorage.setItem('quantite', JSON.stringify(quantites));
+ 
+  // Vérification du bon remplissage des champs
+  var champsCheck = 0
+  if (boissons[0] == "Choisir une boisson" & quantites[0] == "" & boissons.length == 1) {
+    pageValide = 'True';
+    recapitulatif()
+  } else {
+    while (i < boissons.length) {
+      if (boissons[i] == "Choisir une boisson" || quantites[i] == "") {
+        pageValide = 'False';
+        alert('Chaque choix de boissons doit avoir une boisson séléctionnée et une quantité, sinon retirez la boisson');
+      } else if (boissons[i - 1] == boissons[i]) {
+        pageValide = 'False';
+        alert('Veuillez réunir les même boissons dans un seul champs'); // Ça veut rien dire ? Demander avis
+        console.log(boissons)
+      } else {
+        champsCheck++;
+      }
+      i++;
+    };
+    if (champsCheck == boissons.length) {
+      pageValide = 'True';
+      recapitulatif()
+    }
+
+  };
+
+
+});
+
 
 //-----------------------------------------------------
 
-// ! Récapitulatif de la réservation
+//  ! Récapitulatif de la réservation
 const pageRecap = document.querySelector(".recap");
 
+
 function recapitulatif() {
-  // TODO : Traiter les infos : salle, date, horaire et duree pour changer leur format
-  pageRecap.innerHTML = '<legend>Récapitulatif</legend>'
+  pageRecap.innerHTML = '<div><legend>Récapitulatif</legend>'
     + '<p><strong>Vos informations : </strong>' + localStorage.getItem('prenom') + " " + localStorage.getItem('nom') + '</p>'
     + '<p><strong>Adresse mail : </strong>' + localStorage.getItem('mail') + '</p>'
 
     + '<p><strong>La salle : </strong>' + localStorage.getItem('salle') + '</p>'
     + '<p><strong>Réservation : </strong> le ' + localStorage.getItem('date') + ' à ' + localStorage.getItem('horaire') + ' pour ' + localStorage.getItem('duree') + '</p>'
-    + '<p><strong>Nombre de personne.s : </strong>' + localStorage.getItem('participant') + '</p>'
-    
-    // TODO : Ajouter les boissons
-    // + '<p><strong>Les boissons</strong></p>'
+    + '<p><strong>Nombre de personne.s : </strong>' + localStorage.getItem('participant') + '</p></div>'
 
-    // TODO : Rendre le bouton précédent fonctionnel
-    + '<input type="button" class="button-before" value="Précédendent">'
+    + '<div><p><strong>Les boissons : </strong></p>'
+    + afficheBoissonRecap() + '</div>'
+
+    + '<input type="button" class="button-before" id="before-recap" value="Précédendent">'
     + '<input type="submit" name="bouton_soumettre" value="Envoyer">';
-
+  document.querySelector("#before-recap").addEventListener("click", decaleDroite);
 };
+
+function afficheBoissonRecap() {
+var boissons=JSON.parse(localStorage.getItem('boissons'));
+var quantites=JSON.parse(localStorage.getItem('quantite'));
+var boissonHTML=''
+  for (let i = 0; i < boissons.length; i++) {
+    boissonHTML += '<p>' + boissons[i] + ' x ' + quantites[i] + '</p>';
+  }
+  return boissonHTML;
+}
+
 
 //-----------------------------------------------------
 
@@ -117,7 +206,7 @@ function manualVerifMail(mail) {
       console.log(mailTempo[i]);
       console.log("mail pas valide")
       pageValide = 'False';
-      // TODO : Mettre un message pour avertir l'utilisateur de la non conformité de l'adresse mail
+      alert("L'adresse mail n'est pas conforme, les adresses mails temporaires ne sont pas acceptées ")
     } else {
       pageValide = 'True';
     }
@@ -142,7 +231,7 @@ function manualVerifMail(mail) {
 
 
 //-----------------------------------------------------
-// Affiche formulaire 1 page : Slider
+//!  Affiche formulaire 1 page : Slider
 
 // Variables
 const boutonsNext = document.querySelectorAll(".button-next");
@@ -151,6 +240,7 @@ const photos = document.querySelector(".slider-content");
 var position = 0;
 var image = 0;
 var compteur = 0;
+
 
 // Événement 
 boutonsNext.forEach(function (bouton) {
@@ -178,7 +268,7 @@ function decaleDroite() {
 
 
 // ----------------------------------------------------
-// Choix de boissons dans le formulaire
+// ! Choix de boissons dans le formulaire
 
 
 // Variables
@@ -190,7 +280,6 @@ boutonAdd.addEventListener("click", ajouterBoisson);
 
 
 function ajouterBoisson() {
-  // console.log("ajouter bouton");
   const boissonsDiv = document.getElementById('boissons');
   const nouvelleBoisson = document.createElement('div');
   const boisson1 = document.querySelector(".boisson");
@@ -205,7 +294,6 @@ function ajouterBoisson() {
 
 
 function retirerBoisson(button) {
-  // console.log("retirer la boisson");
   const boissonContainer = button.closest('.boisson-container');
   if (boissonContainer) {
     boissonContainer.remove();
@@ -213,17 +301,5 @@ function retirerBoisson(button) {
 };
 
 
-//-----------------------------------------------------
-
-// ! Filtre
-
 
 // -------------------------------------------------------------------------------------------------------------------------
-
-// BONUS
-
-// Slider nouveauté
-
-// Tri
-
-// Affichage des infos de tri

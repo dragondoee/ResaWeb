@@ -32,12 +32,10 @@
                         <!-- Nom -->
                         <label for="nom">Nom</label>
                         <input type="text" id="nom" name="nom" required placeholder="Nom">
-                        <p>Limite de 50 caractères</p>
                         <br> <br>
                         <!-- Prénom -->
                         <label for="prenom">Prénom</label>
                         <input type="text" id="prenom" name="prenom" required placeholder="Prénom">
-                        <p>Limite de 50 caractères</p>
                         <br> <br>
                         <!-- Adresse mail -->
                         <label for="mail">Adresse mail</label>
@@ -104,7 +102,7 @@
                         <div id="boissons">
                             <div class="boisson">
                                 <label> Boisson
-                                    <select name="boisson[]">
+                                    <select name="boisson[]" class="choixBoisson">
                                         <option value="">Choisir une boisson</option>
                                         <?php require "connexion.php";
                                         $requete = "SELECT * FROM boisson ORDER BY nom_boisson ASC;";
@@ -119,13 +117,13 @@
                                         ?>
                                     </select>
                                 </label>
-                                <label> <input type="number" name="quantite[]" id="quantite"> Quantité </label>
+                                <label> <input type="number" name="quantite[]" class="quantite"> Quantité </label>
                             </div>
                         </div>
                         <button type="button" class="add-drink">Ajouter une boisson</button>
                         <br><br>
                         <input type="button" class="button-before" value="Précédendent">
-                        <input type="button" class="button-next" value="Suivant">
+                        <input type="button" class="button-next drinkButton" value="Suivant">
                     </fieldset>
                     <!-- ------------------------------------------------------------------- -->
                     <fieldset class="recap">
