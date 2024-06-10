@@ -1,267 +1,151 @@
-
-
-/* Introduction de la page : container */
-
-
-.container {
-  width: 550px;
-  text-align: left;
-  margin-left: 7%;
-}
-
-h1 {
-  font-family: "Iceland", sans-serif, Impact;
-  color: #fff;
-  margin-bottom: 10px;
-  color: #4F0000;
-  font-size: 5rem;
-}
-
-p {
-  font-family: "Itim", cursive;
-  color: #4F0000;
-  font-size: 1.5rem;
-  margin-top: -2px;
-  margin-left: 5px;
-}
-
-.buttons {
-  display: flex;
-  justify-content: left;
-}
-
-.container a {
-  font-family: "Iceland", sans-serif, Impact;
-  text-decoration: none;
-  color: #fff;
-  font-size: 1.5rem;
-  background-color: #4F0000;
-  border: none;
-  border-radius: 20px;
-  padding: 20px 15px;
-  margin: 0 10px;
-  cursor: pointer;
-  margin-top: 50px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.689);
+:root {
+  --darkRed: #4F0000;
+  --lightPink: #F4D1D1;
 }
 
 
-
-/* Main */
-
-main {
-  margin-top: 15%;
+main a{
+  display: block;
 }
 
-h3 {
-  font-family: "Itim", cursive, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  font-size: 2rem;
-}
 
-h4 {
-  font-family: "Itim", cursive, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  font-size: 1.3rem;
-}
+/* intro */
 
-p {
-  font-family: "Kite One", sans-serif, Arial, Helvetica, sans-serif;
-  font-size: 1.1rem;
-}
-
-main li {
-  font-family: "Kite One", sans-serif, Arial, Helvetica, sans-serif;
-}
-
-/* Intro */
-
-h2 {
-  font-family: "Itim", cursive, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  font-size: 2.5rem;
-  margin-left: 7%;
-}
-
-.intro img {
-  width: 20%;
-  margin-right: 5%;
-}
-
-.intro p {
-  width: 80%;
-  float: left;
-  margin-left: 10%;
+header{
+  height: 100vh;
+  background-color: var(--lightPink);
 }
 
 .intro {
-  display: flex;
-  align-items: center;
-}
-
-/* -------------------------------------------------------------------------------------------------------- */
-/* Nouveauté */
-
-/* .nouveaute h3 {
+  padding-top: 15vh;
+  width: 550px;
   text-align: center;
-} */
-
-/* .slider {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 50px;
-  position: relative;
-  overflow: hidden;
-} */
-
-
-/* SLIDER */
-
-
-/* .js-slider {
-  width: 450px;
-  height: 250px;
-  position: relative;
-  border-radius: 25px;
-  overflow: hidden;
-} */
-
-.js-photos {
-  position: relative;
-  display: flex;
-  gap: 150px;
-  left: 0;
-  transition: left 1s ease;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-
-.js-photo {
-  width: 450px;
-  height: 250px;
-  left: 0;
-  position: relative;
-  flex-shrink: 0;
-  background-color: #A37A49;
-  border-radius: 25px;
+h1 {
+  margin-top: 0px;
+  margin-bottom: 10px;
+  font-size: 5rem;
 }
 
-/* Slider contenu */
-
-.js-slider img {
-  width: 30%;
-  float: left;
-  border-radius: 10px;
-  margin-left: 20px;
-  margin-top: 20px;
+.intro p {
+  color: var(--darkRed);
+  font-size: 1.5rem;
+  margin-top: -2px;
 }
 
-.js-slider h4 {
-  margin-left: 225px;
-}
-
-.js-slider ul {
-  margin-left: 180px;
-  margin-top: -10px;
-}
-
-.js-slider p {
-  margin-left: 20px;
-  margin-top: 30px;
-}
-
-
-/* NAVIGATION SLIDER */
-
-.js-nav {
-  position: absolute;
-  bottom: 150px;
-  display: flex;
-  justify-content: center;
-  position: relative;
-  gap: 600px;
-}
-
-@media(max-width:700px) {
-
-  .js-nav {
-    position: absolute;
-    bottom: 150px;
-    display: flex;
-    justify-content: center;
-    position: relative;
-    gap: 510px;
-  }
-}
-
-.js-nav img {
-  width: 30px;
-}
-
-.js-nav-left,
-.js-nav-right {
-  cursor: pointer;
-  user-select: none;
+.intro a {
+  text-decoration: none;
+  color: #fff;
+  text-align: center;
+  background-color: var(--darkRed);
   border: none;
-  background-color: transparent;
+  cursor: pointer;
+  box-shadow: 0 2px 5px #000000b0;
+  font-size: 1.5rem;
+  border-radius: 20px;
+  padding: 15px 10px;
+  width: 300px;
 }
 
-.js-nav-right img {
-  rotate: 180deg;
-}
-
-/* ------------------------------------------------------------------------------------------------ */
-
-/* Plus d'infos */
-
-.infos h3 {
-  text-align: center;
-}
-
-.infos img {
-  width: 20%;
-  margin-left: 5%;
-  border-radius: 25px;
-}
-
-.infos p {
-  width: 70%;
-  float: right;
-  margin-left: 10%;
-  margin-right: 10%;
-}
-
-.infos span {
+.intro nav {
+  margin-top: 15vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 25px;
+}
+
+
+/* Presentation */
+
+.presentation {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 80%;
+  max-width: 1200px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.presentation div {
+  width: 80%;
+  padding: 20px;
+}
+
+.presentation h2 {
+  font-size: 2.5rem;
+  margin-left: 3%;
+}
+
+.presentation img {
+  width: 40%;
+}
+
+.studio {
   flex-direction: row-reverse;
 }
 
-/* Main lien */
 
-#atelier {
-  margin-top: 5%;
-  display: flex;
-  justify-content: space-around;
+/* Section nouveauté tendance */
+
+section {
+  width: 1185px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
-#atelier {
-  font-family: "Itim", cursive, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  list-style-type: none;
-  background-color: #A37A49;
-  border-radius: 15px;
-  padding: 10px;
-  font-size: 1.2rem;
-  width: 25%;
-  max-width: 270px;
+.nouveaute {
+  display: flex;
+  justify-content: space-around;
+  border: #F4D1D1 5px solid;
+}
+
+.text {
+  width: 400px;
   text-align: center;
 }
 
-#atelier {
-  font-size: 1.5rem;
-  text-decoration: none;
-  color: #4F0000;
+/* Slider */
+
+.slider {
+  width: 300px;
 }
 
-/* Blockquote */
+.slider img {
+  width: 200px;
+}
+
+/* Form */
+
+.search-section{
+  text-align: center;
+  background-color: var(--lightPink);
+  height: 150px ;
+
+}
+.search-section h3{
+  font-size: 1.4rem;
+  padding-top: 30px ;
+  margin: 20px;
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#search{
+  border: var(--darkRed) 2px solid;
+  width: 200px;
+  height: 30px;
+  border-radius: 5px;
+}
+
+
+/* Autre */
 
 blockquote {
   font-family: "Itim", cursive, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -270,4 +154,17 @@ blockquote {
   text-align: center;
   margin-left: auto;
   margin-right: auto;
+}
+
+.cache {
+  display: none;
+}
+
+.visible {
+  display: block;
+}
+
+.presentation, section{
+  margin-top: 20vh;
+  margin-bottom: 20vh;
 }

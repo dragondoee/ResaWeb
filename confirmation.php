@@ -14,6 +14,15 @@
     <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
     <title>Confirmation - Quest & Coffee</title>
 </head>
+<style>
+    main {
+        text-align: center;
+    }
+
+    main a {
+        margin-top: 50px;
+    }
+</style>
 
 <body>
     <!-- Header -->
@@ -30,11 +39,11 @@
         var mail = localStorage.getItem('mail');
         var date = localStorage.getItem('date');
         var horaire = localStorage.getItem('horaire');
-        document.querySelector("main").innerHTML += '<p> Réservation réussite. </p>'
-        +'<p>Un mail de confirmation vous a été envoyé à l\'adresse mail '+ mail +', '
-        +'n\'hésitez pas à vérifier vos SPAMs</p>'
-            + '<p>Merci '+ prenom +' pour votre réservation, on se retrouve le '+ date +' à '+ horaire +'</p>'
-            + '<a href="index.php" id="content">retour à l\'accueil</a>';    
+        document.querySelector("main").innerHTML += '<h1> Réservation réussie </h1>'
+            + '<p>Un mail de confirmation vous a été envoyé à l\'adresse mail ' + mail + ', '
+            + 'n\'hésitez pas à vérifier vos SPAMs</p>'
+            + '<p>Merci ' + prenom + ' pour votre réservation, on se retrouve le ' + date + ' à ' + horaire + '</p>'
+            + '<a href="index.php" class="button-style centerElem " id="content">retour à l\'accueil</a>';
 
 
     </script>

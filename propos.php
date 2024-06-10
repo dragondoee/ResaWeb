@@ -23,63 +23,56 @@
 
     <!-- Main -->
     <main>
-    <h1 id="content">À propos</h1>
+        <h1 id="content">À propos</h1>
 
-    <span class="propos-infos">
-        <div class="propos-quest">
-            <span>
-                <h2>Quest & Coffee</h2>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti laboriosam illo dolorum, repudiandae
-                    eaque
-                    quasi itaque expedita, rerum atque, similique vitae labore? Amet eaque repellat quam illum magnam nulla
-                    odio.
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora nihil aperiam, nobis illo dolores
-                    molestiae
-                    officia, cupiditate itaque ratione dolorem modi doloremque hic enim iste ea? Vitae itaque voluptatibus
-                    ullam.
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </p>
-            </span>
-            <img src="img/mascotte.png" alt="">
-        </div>
-        <div class="propos-moi">
-            <span>
-                <h2>À propos de moi</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, quaerat quis. Voluptates nesciunt
-                    repudiandae ipsa velit similique, voluptas beatae. Deserunt molestias maxime aspernatur fuga ex eius qui
-                    iusto voluptas! Sapiente? Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam dignissimos
-                    adipisci temporibus
-                    praesentium inventore, quo neque maiores optio ipsum aperiam, aliquam eligendi expedita illo incidunt
-                    culpa esse tempora, omnis perspiciatis.
-                </p>
-            </span>
-            <img src="img/emilie.jpg" alt="">
-        </div>
-    </span>
+            <div class="propos-quest">
+                <span>
+                    <h2>Quest & Coffee</h2>
+                    <p>
+                    Chez Quest & Coffee, le jeu est au cœur de tout ce que nous faisons. Fondé par des passionnés de jeux vidéo, notre studio s'est rapidement imposé comme un créateur de jeux d'aventure parmi les plus appréciés de la communauté. Nous croyons en la puissance du jeu pour raconter des histoires uniques et éveiller des émotions profondes. Notre mission est de repousser les limites de l'imagination et de l'innovation pour offrir des expériences de jeu immersives et captivantes. Grâce à une collaboration étroite entre développeurs, artistes et storytellers, nous créons des mondes fantastiques où chaque détail compte. Rejoignez-nous dans cette aventure et découvrez comment nous transformons des idées en réalités ludiques inoubliables.
+                    </p>
+                </span>
+                <img src="img/mascotte.png" alt="">
+            </div>
 
+            <!-- Bandeau -->
 
+            <div class="bandeau">
+                <p>Polyvalents dans notre approche, nous explorons plusieurs genres de jeux pour repousser les limites de notre imagination et créativité, et pour tester de nouvelles idées.</p>
+            </div>
 
-    <div class="faq">
-        <!-- Ajouter le truc quand on passe la souris, il y a l'explication pour FAQ -->
-        <h2>F.A.Q</h2> 
-        <details>
-            <summary>Question 1 :  ?</summary>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, possimus laboriosam. Sequi, earum deserunt. Eveniet nesciunt nostrum quo rerum consectetur deserunt quae minima ratione dolore. Blanditiis quasi repellendus expedita nihil.</p>
-        </details>
-        <details>
-            <summary>Question 2 :  ?</summary>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur odit eius maiores quisquam dolor accusantium iste soluta esse molestias odio amet, praesentium, dignissimos error laudantium. Deleniti quisquam quis nisi suscipit.</p>
-        </details>
-        <details>
-            <summary>Question 3 :  ?</summary>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat, quis! Earum labore porro repellat est, quae necessitatibus dolorum neque obcaecati, adipisci fuga fugiat quis alias nulla, quasi enim tenetur quia?</p>
-        </details>
-        <details>
-            <summary>Question 4 :  ?</summary>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, ex repellendus quis quisquam veniam cumque excepturi a accusamus libero aliquid totam nisi nesciunt? Pariatur nemo architecto odit est enim at.</p>
-        </details>
-    </div>
+            <!-- Cases -->
+            <div class="cases">
+                <p>Aventure</p>
+                <p>Fantaisie</p>
+                <p>Ambiance chill</p>
+                <p>Horreur</p>
+            </div>
 
+            <hr>
+
+            <div class="propos-moi">
+                <span>
+                    <h2>À propos de moi</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, quaerat quis. Voluptates nesciunt
+                        repudiandae ipsa velit similique, voluptas beatae. Deserunt molestias maxime aspernatur fuga ex
+                        eius qui
+                        iusto voluptas! Sapiente? Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
+                        dignissimos
+                        adipisci temporibus
+                        praesentium inventore, quo neque maiores optio ipsum aperiam, aliquam eligendi expedita illo
+                        incidunt
+                        culpa esse tempora, omnis perspiciatis.
+                    </p>
+                </span>
+                <img src="img/emilie.jpg" alt="">
+            </div>
+            <!-- Cases -->
+            <div class="cases">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, possimus.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, possimus.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, possimus.</p>
+            </div>
 
 
 

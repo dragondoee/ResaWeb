@@ -1,5 +1,10 @@
 /* Main */
 
+:root{
+  --darkRed :#4F0000;
+  --lightPink : #F4D1D1;
+}
+
 
 main {
   margin-left: auto;
@@ -14,19 +19,18 @@ main {
 }
 
 
-main :focus-visible {
-  padding: 0;
-  text-align: center;
-  border: #291503 2px solid;
-}
+/* main :focus-visible {
+  border: var(--darkRed) 2px solid;
+} */
 
 /* Slider formulaire */
 
 .slider {
   width: 500px;
-  height: 500px;
+  /* height: 500px; */
   position: relative;
-  border: black solid 3px;
+  border: var(--darkRed) solid 1px;
+  border-radius: 10px;
   overflow: hidden;
 }
 
@@ -38,9 +42,40 @@ main :focus-visible {
 }
 
 fieldset {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 500px;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: auto;
   border: 0;
-  height: 300px;
-  position: relative;
   flex-shrink: 0;
+}
+
+legend{
+  font-size: 2rem;
+}
+
+.quantite{
+  width: 100px;
+}
+
+.boisson, .boisson-container{
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  gap: 2vw;
+  margin-bottom: 10px;
+}
+
+.remove-drink{
+  width: 100px;
+}
+
+.add-drink{
+  margin-top: 15px;
+  width: 200px;
 }

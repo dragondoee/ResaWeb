@@ -1,126 +1,101 @@
-@import url('https://fonts.googleapis.com/css2?family=Iceland&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
-
-*,
-*::after,
-*::before {
-  box-sizing: border-box;
+:root{
+  --darkRed :#4F0000;
+  --lightPink : #F4D1D1;
 }
 
-
-/* FONT */
-
-.iceland-regular {
-  font-family: "Iceland", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.itim-regular {
-  font-family: "Itim", cursive;
-  font-weight: 400;
-  font-style: normal;
-}
-
-
-
-/* SLIDER */
-
-.slider{
+.contenu{
+  margin-top: 30px;
+  border: var(--darkRed) 15px solid;
+  border-radius: 20px;
+  max-width: 1300px;
+  width: 90%;
+  max-height: 100vh;
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 50px;
-  position: relative;
-  overflow: hidden;
+  gap: 1%;
 }
 
-.js-slider{
-  width: 450px;
-  height: 250px;
-  position: relative;
-  border-radius: 5px;
+@media (width<=1070px){
+.contenu{
+
+  flex-direction: column;
+  max-height: none;
+}
+  
 }
 
-.js-photos{
-  overflow: hidden;
-  position: relative;
+h1{
+  font-size: 2.5rem;
+}
+
+main a{
+  font-size: 1.3rem;
+}
+
+main img{
+  width: 90%;
+  max-width: 600px;
+  border-radius: 10px;
+  align-self: center;
+  max-height: 75vh;
+}
+
+.contenu span:first-child{
+  max-height: 90vh;
   display: flex;
-  gap: 150px;
-  left: 0;
-  transition: left 1s ease;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 10px;
+  /* width: 60%; */
+  border-radius: 10px;
+  /* margin-left: 10px;
+  margin-right: 10px; */
+  margin: 30px 10px;
 }
 
+/* Description */
+.description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  gap: 40px;
+  width: 500px;
+  background-color: #F4D1D1;
+  padding: 40px;
+  border-radius: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 20px;
+}
 
-.js-photo{
-  width: 450px;
-  height: 250px;
-  left: 0;
-  position: relative;
-  flex-shrink: 0;
-  background-color: #A37A49;
-  border-radius: 25px;
-  }
-  
-  /* Slider contenu */
-  
-  .js-slider img{
-    width: 30%;
-    float: left;
-    border-radius: 10px;
-    margin-left: 20px;
-    margin-top: 20px;
-  }
-  
-  .js-slider h4{
-    margin-left: 225px;
-  }
-  .js-slider ul{
-    margin-left: 180px ;
-    margin-top: -10px;
-  }
-  
-  .js-slider p{
-    margin-left: 20px;
-    margin-top: 30px;
-  }
-  
-  
-  /* NAVIGATION SLIDER */
-  
-  .js-nav{
-    position: absolute;
-    bottom: 150px;
-    display: flex;
-    justify-content: center;
-    position: relative;
-    gap: 600px;
-  }
-  
-  @media(max-width:700px) {
-  
-      .js-nav{
-      position: absolute;
-      bottom: 150px;
-      display: flex;
-      justify-content: center;
-      position: relative;
-      gap: 510px;
-    } 
-  } 
-  
-  .js-nav img{
-    width: 25px;
-  }
-  
-  .js-nav-left, .js-nav-right{
-    cursor: pointer;
-    user-select: none;
-    border: none;
-    background-color: transparent;
-  }
-  
-  .js-nav-right img{
-    rotate: 180deg;
-  }
-  
+.lien{
+  display: flex;
+  gap: 5px;
+  width: 410px;
+}
+
+/* Cases */
+.cases p{
+  background-color: var(--darkRed);
+  padding: 20px;
+  text-align: center;
+  color: white;
+  border-radius: 10px;
+}
+
+.cases{
+  display: flex;
+  justify-content: space-evenly;
+  margin: 5% 12%;
+  gap: 7%;
+}
+
+/* Texte de fin */
+.end-txt{
+  text-align: center;
+  margin: 0px 30px;
+}

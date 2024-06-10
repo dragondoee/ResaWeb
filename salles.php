@@ -25,9 +25,7 @@
     <main>
 
         <h1 id="content">Salles</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium quis adipisci vero? Sapiente rem
-            voluptatum magni dicta distinctio consequuntur fugit. Debitis voluptatem, expedita repellat accusamus
-            nesciunt est inventore ipsam quibusdam!</p>
+        <p>Découvrez nos magnifiques salles thématiques, chacune offrant une ambiance unique et enchanteresse. Que vous cherchiez un endroit pour vous détendre, méditer ou savourer un café, nous avons la salle parfaite pour vous.</p>
 
         <hr>
 
@@ -40,13 +38,20 @@
                     <option value="2">Horreur</option>
                     <option value="3">Cozy</option>
                 </select>
-                <input type="button" name="filtrer" id="filtrer" value="Filtrer">
+                <input type="button" name="filtrer" id="filtrer" class="button-style small-button" value="Filtrer">
             </form>
-            <a href="salles.php?tri=nom_salle">Nom de la salle</a>
-            <!-- J'affiche pas les infos donc c'est bizarre -->
-            <a href="salles.php?tri=prix_salle">Prix</a>
-            <a href="salles.php?tri=ambiance">Ambiance</a>
+            <details>
+                <summary>Trier par </summary>
+            <div>
+                <a href="salles.php">Recommandé</a>
+                <a href="salles.php?tri=nom_salle">Nom de la salle</a>
+                <!-- J'affiche pas les infos donc c'est bizarre -->
+                <a href="salles.php?tri=ambiance">Ambiance</a>
+                <a href="salles.php?tri=prix_salle">Plus petit prix</a>
+            </div>
+            </details>
         </span>
+
 
         <!-- Liste salles -->
         <span class="liste-salles">
@@ -89,7 +94,7 @@
             ?>
         </span>
 
-
+            <a href="boissons.php" class="button-style centerElem">Voir la carte des boissons</a>
     </main>
 
     <!-- Footer -->

@@ -18,149 +18,155 @@
 
 <body>
     <!-- Header -->
-    <?php require "header.php"; ?>
-    <div class="container">
-        <h1 id="content">Quest & Coffee</h1>
-        <p>Là où le jeu rencontre le gourmand</p>
-        <div class="buttons">
-            <a href="salles.php">Découvrir les salles</a>
-            <a href="reservation.php">Réserver une table</a>
+    <header>
+        <a href="#content" class="skip-link">Aller au contenu</a>
+        <div class="intro">
+            <h1 id="content">Quest & Coffee</h1>
+            <p>Là où le jeu rencontre le gourmand</p>
+            <nav>
+                <a href="salles.php">Découvrir les salles</a>
+                <a href="boissons.php">Voir la carte des boissons</a>
+                <a href="reservation.php">Réserver une table</a>
+                <a href="propos.php">En savoir plus</a>
+            </nav>
         </div>
-    </div>
+    </header>
 
 
     <!-- Transition  -->
     <img class="gouttes" src="img/header-background.svg" alt="">
 
 
-    <!-- Main -->
+
     <main>
         <!-- Introduction -->
-        <div class="intro">
-            <spawn>
+        <div class="cafe presentation">
+            <div>
                 <h2>Notre café</h2>
-                <p>Plongez dans un univers où la passion du jeu vidéo rencontre le plaisir de la dégustation. Chez Quest
-                    & Coffee, chaque salle est une invitation à l'aventure, un café où les amateurs de jeux peuvent se
-                    retrouver pour explorer de nouveaux mondes tout en savourant des boissons artisanales et des délices
-                    gourmands. Que vous soyez en quête d'une pause relaxante ou que vous cherchiez à partager un moment
-                    convivial avec vos amis dans une salle à l’allure de votre jeu préféré, notre ambiance chaleureuse
-                    et accueillante est conçue pour satisfaire les désirs des gamers et des gourmets. Rejoignez-nous
-                    pour une expérience où l'excitation du jeu se mêle à la délectation des saveurs, créant ainsi un
-                    lieu où chaque visite est une véritable aventure pour les sens.</p>
-            </spawn>
+                <p>Chez Quest & Coffee, l'univers du jeu vidéo rencontre le plaisir de la dégustation. Chaque salle vous invite à l'aventure, où vous pouvez explorer de nouveaux mondes tout en savourant des boissons artisanales et des délices gourmands. Que ce soit pour une pause relaxante ou un moment convivial avec vos amis, notre ambiance chaleureuse et accueillante est idéale pour les gamers et les gourmets. Réservez une table dans une salle à thème inspirée d'un jeu vidéo du studio Quest & Coffee et venez vivre une expérience où l'excitation du jeu se mêle à la délectation des saveurs.</p>
+                <a href="salles.php" class="button-style centerElem">Découvrir nos salles -></a>
+            </div>
             <img src="img/mascotte.png" alt="">
         </div>
-        <hr>
+
+
+
         <!-- Slider des nouveautés-->
-        <div class="nouveaute">
-            <h3> Nouveauté </h3>
-            
-            <div class="slider">
-                <div class="js-slider">
-                    <div class="js-photos"></div>
-                    <?php require "connexion.php";
+        <section>
+            <div class="nouveaute">
 
-                    $requete = "SELECT * FROM salle WHERE nouveaute=1;";
-                    
-                    $compteur = 1;
-                    $stmt = $db->query($requete);
-                    $result = $stmt->fetchall(PDO::FETCH_ASSOC);
-                    foreach ($result as $salle) {
-                        
+                <div class="text">
+                    <h3> Nouveautés : </h3>
+                    <p> Découvrez nos nouvelles salles</p>
+                    <button> Voir les tendances </button>
+                </div>
+                <!-- Slider -->
+                <div class="slider">
+                    <div class="js-slider">
+                        <div class="js-photos"></div>
+                        <?php require "connexion.php";
+                        $requete = "SELECT * FROM salle WHERE nouveaute=1;";
+                        $compteur = 1;
+                        $stmt = $db->query($requete);
+                        $result = $stmt->fetchall(PDO::FETCH_ASSOC);
+                        foreach ($result as $salle) {
+                            ?>
+                            <div class=" js-photo photo<?= $compteur ?> ">
+                                <a href="detail.php?id_salle=<?= $salle["id_salle"]; ?>">
+                                    <img src="img/salle/<?= $salle["photo_salle"]; ?>"
+                                        alt="lien vers les détails de la salle <?= $salle["nom_salle"]; ?> ">
+                                </a>
+                                <a href="detail.php?id_salle=<?= $salle["id_salle"]; ?>"><?= $salle["nom_salle"]; ?></a>
+                            </div>
+                            <?php
+                            $compteur += 1;
+                        }
                         ?>
-
-                        <div class=" js-photo photo<?= $compteur ?> ">
-                            <a href="detail.php?id_salle=<?= $salle["id_salle"]; ?>">
-                                <img
-                                src="img/salle/<?= $salle["photo_salle"]; ?>"
-                                alt="lien vers les détails de la salle <?= $salle["nom_salle"]; ?> "
-                                >
-                            </a>
-                            <a href="detail.php?id_salle=<?= $salle["id_salle"]; ?>"><?= $salle["nom_salle"]; ?></a>
-                        </div>
-
-                    <?php
-                    $compteur += 1;
-                    }
-                    ?>
+                    </div>
                 </div>
             </div>
-        </div>
+            <!-- <nav class="js-nav">
+                <button class="js-nav-left"><img src="img/fleche_old.svg" alt="Voir l'image de gauche"> </button>
+                <button class="js-nav-right"><img src="img/fleche_old.svg" alt="Voir l'image de droite"> </button>
+            </nav> -->
+            </div>
 
-        <!-- <nav class="js-nav">
-            <button class="js-nav-left"><img src="img/fleche_old.svg" alt="Voir l'image de gauche"> </button>
-            <button class="js-nav-right"><img src="img/fleche_old.svg" alt="Voir l'image de droite"> </button>
-        </nav> -->
-
-        </div>
-        <button> Voir des tendances </button>
-        <!-- Slider des tendances-->
-        <div class="tendance">
-            <h3> Tendances </h3>
-            <div class="slider">
-                <div class="js-slider">
-                    <div class="js-photos"></div>
-                    <?php
-
-                    $requete = "SELECT *,COUNT(id_resa) FROM salle,reservation WHERE salle=id_salle ORDER BY COUNT(id_resa) LIMIT 2;";
-                    
-                    $compteur = 1;
-                    $stmt = $db->query($requete);
-                    $result = $stmt->fetchall(PDO::FETCH_ASSOC);
-                    foreach ($result as $salle) {
-                        
+            <!-- Slider des tendances-->
+            <div class="tendance cache">
+            <div class="text">
+                    <h3> Tendances : </h3>
+                    <p> Découvrez nos salles en tendance ! </p>
+                    <button> Voir les nouveautés </button>
+                </div>
+                <div class="slider">
+                    <div class="js-slider">
+                        <div class="js-photos"></div>
+                        <?php
+                        $requete = "SELECT *,COUNT(id_resa) FROM salle,reservation WHERE salle=id_salle ORDER BY COUNT(id_resa) LIMIT 2;";
+                        $compteur = 1;
+                        $stmt = $db->query($requete);
+                        $result = $stmt->fetchall(PDO::FETCH_ASSOC);
+                        foreach ($result as $salle) {
+                            ?>
+                            <div class=" js-photo photo<?= $compteur ?> ">
+                                <a href="detail.php?id_salle=<?= $salle["id_salle"]; ?>">
+                                    <img src="img/salle/<?= $salle["photo_salle"]; ?>"
+                                        alt="lien vers les détails de la salle <?= $salle["nom_salle"]; ?> ">
+                                </a>
+                                <a href="detail.php?id_salle=<?= $salle["id_salle"]; ?>"><?= $salle["nom_salle"]; ?></a>
+                            </div>
+                            <?php
+                            $compteur += 1;
+                        }
                         ?>
-
-                        <div class=" js-photo photo<?= $compteur ?> ">
-                            <a href="detail.php?id_salle=<?= $salle["id_salle"]; ?>">
-                                <img
-                                src="img/salle/<?= $salle["photo_salle"]; ?>"
-                                alt="lien vers les détails de la salle <?= $salle["nom_salle"]; ?> "
-                                >
-                            </a>
-                            <a href="detail.php?id_salle=<?= $salle["id_salle"]; ?>"><?= $salle["nom_salle"]; ?></a>
-                        </div>
-
-                    <?php
-                    $compteur += 1;
-                    }
-                    ?>
+                    </div>
                 </div>
             </div>
+            <!-- <nav class="js-nav">
+                <button class="js-nav-left"><img src="img/fleche_old.svg" alt="Voir l'image de gauche"> </button>
+                <button class="js-nav-right"><img src="img/fleche_old.svg" alt="Voir l'image de droite"> </button>
+            </nav> -->
+            </div>
+        </section>
+
+
+        <!-- Barre de recherche -->
+        <div class="search-section">
+            <h3>Vous cherchez une salle en particulier ?</h3>
+            <form action="salles.php">
+                <label for="search" class="sr-only">Rechercher</label>
+                <input type="text" name="search" id="search" placeholder="Rechercher....">
+                <input type="submit" name="envoyer" id="envoyer" class="button-style small-button" value="Chercher">
+            </form>
         </div>
 
-        <!-- <nav class="js-nav">
-            <button class="js-nav-left"><img src="img/fleche_old.svg" alt="Voir l'image de gauche"> </button>
-            <button class="js-nav-right"><img src="img/fleche_old.svg" alt="Voir l'image de droite"> </button>
-        </nav> -->
+        <!-- Studio -->
+        <div class="studio presentation">
+            <div>
+                <h2>Studio de jeux</h2>
+                <p>
+                Bienvenue chez Quest & Coffee, où la magie des jeux vidéo prend vie. Notre studio est dédié à la création de jeux d'aventure captivants, conçus pour transporter les joueurs dans des mondes extraordinaires et immersifs. Avec une équipe passionnée de développeurs, designers et artistes, nous mettons tout en œuvre pour offrir des expériences de jeu inoubliables. Plongez dans nos univers, explorez des quêtes épiques et vivez des aventures palpitantes à chaque instant. Chez Quest & Coffee, chaque jeu est une nouvelle quête, et nous sommes impatients de partager cette passion avec vous.
 
+                </p>
+
+                <a href="propos.php" class="button-style centerElem">En savoir plus -></a>
+            </div>
+            <img src="img/mascotte.png" alt="">
         </div>
-
-
-
 
 
         <hr>
-        <!-- Plus d'infos -->
-        <div class="infos">
-            <h3>Plus d'infos</h3>
-            <span>
-                <p>Coffee studio vous invite dans un nouveau monde de jeu en plus de vous proposez des ateliers pour
-                    réaliser votre boissons préféré digne de votre barista habituelle. ut tincidunt libero ornare et.
-                    Duis at sapien a leo mattis pellentesque. Etiam molestie aliquam leo eu scelerisque. Donec ut
-                    fermentum nisi. Praesent varius sem nec lectus tempus, sed tristique justo pulvinar. Morbi nec nibh
-                    laoreet dui eleifend rutrum. </p>
-                <img src="img/pinguin.jpg" alt="">
-            </span>
-        </div>
 
-        <a href="#top">Retour haut de page</a>
+        <blockquote>
+            Rejoignez-nous dans cette aventure passionnante et découvrez comment nous transformons des idées en
+            réalité ludique. Chez Quest & Coffee, chaque jeu est une quête, et nous sommes impatients de
+            partager cette passion avec vous.
+        </blockquote>
+
 
         <hr>
-        <blockquote>Quest & Coffee n'est pas seulement un café ludique, c'est aussi le studio derrière certains des jeux
-            les plus appréciés de la communauté. Chez Quest & Coffee, le jeu est au cœur de tout ce que nous faisons, et
-            nous sommes ravis de partager cette passion avec vous.</blockquote>
 
+        <a href="#top" class="button-style centerElem">Retour haut de page</a>
     </main>
     <!-- Footer -->
     <?php require "footer.php"; ?>

@@ -12,13 +12,19 @@
 
 //-----------------------------------------------------
 
+
 // ! Alert perte infos formulaire
 
-window.addEventListener('beforeunload', function (e) {
-  var message = "Les données ne seront pas enregistrées si vous quittez cette page";
-  e.preventDefault(); 
-  return message; 
-});
+// window.addEventListener('beforeunload', function (e) {
+//   if (document.querySelector("#nom").value !== "" || document.querySelector("#prenom").value !== "" || document.querySelector("#mail").value !== "") {
+//   var message = "Les données ne seront pas enregistrées si vous quittez cette page";
+//   e.preventDefault(); 
+//   return message; 
+// };
+// });
+
+
+
 
 
 //-----------------------------------------------------
@@ -38,21 +44,31 @@ boutonUser.addEventListener("click", function () {
   localStorage.setItem('mail', document.querySelector("#mail").value);
   // Vérification Champs Obligatoire
   if (localStorage.getItem('nom') == "" || localStorage.getItem('prenom') == "" || localStorage.getItem('mail') == "") {
-    // TODO: À modifier ? : Si l'utilisateur met un espace ça fonctionne
-    // TODO : Prévenir user de l'erreur d'une meilleure façon
     if (localStorage.getItem('nom') == "") {
       alert('Veuillez remplir le champs nom');
-    } if (localStorage.getItem('prenom') == "") {
+      return false;
+    } else if (localStorage.getItem('prenom') == "") {
       alert('Veuillez remplir le champ prenom');
-    } if (localStorage.getItem('mail') == "") {
+      return false;
+    } else if (localStorage.getItem('mail') == "") {
       alert('Veuillez remplir le champs mail');
+      return false;
     }
-
     pageValide = 'False';
   }
-  // Vérifier si une chaîne contient des chiffres
-  else if (/\d/.test(localStorage.getItem('nom')) || /\d/.test(localStorage.getItem('prenom'))) {
-    alert('Les champs nom et prenom ne peuvent pas contenir de chiffre')
+  // Verifie que le mail contient @ et .
+  else if (!localStorage.getItem('mail').includes('@') && localStorage.getItem('mail').includes('.')) {
+    alert('Veuillez remplir le champs mail avec un mail valide (doit correspondre au format du mail)');
+    pageValide = 'False';
+  }
+  // Vérifie que les champs nom et prénom ne contiennent pas que des espaces
+  else if (localStorage.getItem('nom').trim() == '' || localStorage.getItem('prenom').trim() == '') {
+    alert('Les champs nom et prenom ne peuvent pas contenir que des espaces, veuillez rentrer des caractères valides.');
+    pageValide = 'False';
+  }
+  // Vérifie si une chaîne contient des chiffres
+  else if (!/^[a-zA-Z -]+$/.test(localStorage.getItem('nom')) || !/^[a-zA-Z -]+$/.test(localStorage.getItem('prenom'))) {
+    alert('Les champs nom et prenom ne peuvent que lettres alphabétiques (majuscules et minuscules) et le symbole "-"')
     pageValide = 'False';
 
   } else {
@@ -124,7 +140,7 @@ boutonDrink.addEventListener("click", function () {
 
   localStorage.setItem('boissons', JSON.stringify(boissons));
   localStorage.setItem('quantite', JSON.stringify(quantites));
- 
+
   // Vérification du bon remplissage des champs
   var champsCheck = 0
   if (boissons[0] == "Choisir une boisson" & quantites[0] == "" & boissons.length == 1) {
@@ -135,9 +151,10 @@ boutonDrink.addEventListener("click", function () {
       if (boissons[i] == "Choisir une boisson" || quantites[i] == "") {
         pageValide = 'False';
         alert('Chaque choix de boissons doit avoir une boisson séléctionnée et une quantité, sinon retirez la boisson');
+        return false;
       } else if (boissons[i - 1] == boissons[i]) {
         pageValide = 'False';
-        alert('Veuillez réunir les même boissons dans un seul champs'); // Ça veut rien dire ? Demander avis
+        alert('Veuillez réunir les même boissons dans un seul champs');
         console.log(boissons)
       } else {
         champsCheck++;
@@ -170,21 +187,23 @@ function recapitulatif() {
     + '<p><strong>Réservation : </strong> le ' + localStorage.getItem('date') + ' à ' + localStorage.getItem('horaire') + ' pour ' + localStorage.getItem('duree') + '</p>'
     + '<p><strong>Nombre de personne.s : </strong>' + localStorage.getItem('participant') + '</p></div>'
 
-    + '<div><p><strong>Les boissons : </strong></p>'
-    + afficheBoissonRecap() + '</div>'
+    
+    + afficheBoissonRecap()
 
-    + '<input type="button" class="button-before" id="before-recap" value="Précédendent">'
-    + '<input type="submit" name="bouton_soumettre" value="Envoyer">';
+    + '<span><input type="button" class="button-before button-style small-button" id="before-recap" value="Précédendent">'
+    + '<input type="submit" name="bouton_soumettre" class="button-style small-button" value="Envoyer ->"></span>';
   document.querySelector("#before-recap").addEventListener("click", decaleDroite);
 };
 
 function afficheBoissonRecap() {
-var boissons=JSON.parse(localStorage.getItem('boissons'));
-var quantites=JSON.parse(localStorage.getItem('quantite'));
-var boissonHTML=''
-  for (let i = 0; i < boissons.length; i++) {
-    boissonHTML += '<p>' + boissons[i] + ' x ' + quantites[i] + '</p>';
-  }
+  var boissons = JSON.parse(localStorage.getItem('boissons'));
+  var quantites = JSON.parse(localStorage.getItem('quantite'));
+  var boissonHTML = ''
+  if (boissons[0] !== "Choisir une boisson" & quantites[0] !== "x") {
+    for (let i = 0; i < boissons.length; i++) {
+      boissonHTML +='<div><p><strong>Les boissons : </strong></p><p>' + boissons[i] + ' x ' + quantites[i] + '</p></div>';
+    };
+  };
   return boissonHTML;
 }
 
@@ -284,7 +303,7 @@ function ajouterBoisson() {
   const nouvelleBoisson = document.createElement('div');
   const boisson1 = document.querySelector(".boisson");
   nouvelleBoisson.classList.add('boisson-container');
-  nouvelleBoisson.innerHTML = boisson1.innerHTML + ` <button type="button" class="remove-drink" >Retirer</button>`;
+  nouvelleBoisson.innerHTML = boisson1.innerHTML + ` <button type="button" class="remove-drink button-style small-button" >Retirer</button>`;
   boissonsDiv.appendChild(nouvelleBoisson);
   // Ajout de l'événement de retrait au nouveau bouton "Retirer"
   nouvelleBoisson.querySelector('.remove-drink').addEventListener('click', function () {

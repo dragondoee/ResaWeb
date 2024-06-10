@@ -27,7 +27,7 @@
             <div class="slider">
                 <div class="slider-content">
                     <fieldset>
-                        <legend id="content">Responsable</legend>
+                        <legend id="content">Réservation</legend>
                         <p>Tous les champs sont obligatoires</p>
                         <!-- Nom -->
                         <label for="nom">Nom</label>
@@ -41,23 +41,24 @@
                         <label for="mail">Adresse mail</label>
                         <input type="email" id="mail" name="mail" required placeholder="exemple@mail.com">
                         <br> <br>
-                        <input type="button" class="button-next userButton" value="Suivant">
+                        <input type="button" class="button-next userButton button-style small-button" value="Suivant">
                     </fieldset>
                     <!-- ------------------------------------------------------------------- -->
                     <fieldset>
+                    <?php $salleID = isset($_GET['salle']) ? $_GET['salle'] : ''; ?>
                         <legend>Réservation d'une table</legend>
                         <p>Tous les champs sont obligatoires</p>
                         <!-- Salle -->
                         <label for="salle">Salle</label>
                         <select name="salle" id="salle">
-                            <option value="">Choisir une salle</option>
+                            <option value="" >Choisir une salle</option>
                             <?php require "connexion.php";
                             $requete = "SELECT * FROM salle ORDER BY nom_salle ASC;";
                             $stmt = $db->query($requete);
                             $result = $stmt->fetchall(PDO::FETCH_ASSOC);
                             foreach ($result as $salle) {
                                 ?>
-                                <option value="<?= $salle["id_salle"]; ?>"><?= $salle["nom_salle"]; ?></option>
+                                <option value="<?= $salle["id_salle"]; ?>" <?php echo ($salleID == $salle["id_salle"]) ?'selected' : ''; ?>><?= $salle["nom_salle"]; ?></option>
                                 <?php
                             }
                             ?>
@@ -65,7 +66,7 @@
                         <br> <br>
                         <!-- Date -->
                         <label for="date">Date</label>
-                        <input type="date" id="date" name="date" required>
+                        <input type="date" min="<?= date('Y-m-d') ?>" id="date" name="date" required>
                         <br> <br>
                         <!-- Horaire -->
                         <label for="horaire">Horaire</label>
@@ -91,8 +92,10 @@
                         <label for="participant">Nombre de personne</label>
                         <input type="number" id="participant" name="participant" required>
                         <br> <br>
-                        <input type="button" class="button-before" value="Précédendent">
-                        <input type="button" class="button-next resaButton" value="Suivant">
+                        <span>
+                            <input type="button" class="button-before button-style small-button" value="Précédendent">
+                            <input type="button" class="button-next resaButton button-style small-button" value="Suivant">
+                        </span>
                     </fieldset>
                     <!-- ------------------------------------------------------------------- -->
                     <fieldset class="form-boisson">
@@ -101,7 +104,7 @@
                         <br>
                         <div id="boissons">
                             <div class="boisson">
-                                <label> Boisson
+                                <label> <span class="sr-only">Boisson</span>
                                     <select name="boisson[]" class="choixBoisson">
                                         <option value="">Choisir une boisson</option>
                                         <?php require "connexion.php";
@@ -117,13 +120,15 @@
                                         ?>
                                     </select>
                                 </label>
-                                <label> <input type="number" name="quantite[]" class="quantite"> Quantité </label>
+                                <label> Quantité <input type="number" name="quantite[]" class="quantite">  </label>
                             </div>
                         </div>
-                        <button type="button" class="add-drink">Ajouter une boisson</button>
+                        <button type="button" class="add-drink button-style small-button">Ajouter une boisson</button>
                         <br><br>
-                        <input type="button" class="button-before" value="Précédendent">
-                        <input type="button" class="button-next drinkButton" value="Suivant">
+                        <span>
+                            <input type="button" class="button-before button-style small-button" value="Précédendent">
+                            <input type="button" class="button-next drinkButton button-style small-button" value="Suivant">
+                        </span>
                     </fieldset>
                     <!-- ------------------------------------------------------------------- -->
                     <fieldset class="recap">
