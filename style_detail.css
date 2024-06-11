@@ -49,10 +49,7 @@ main img{
   flex-direction: column;
   justify-content: space-around;
   gap: 10px;
-  /* width: 60%; */
   border-radius: 10px;
-  /* margin-left: 10px;
-  margin-right: 10px; */
   margin: 30px 10px;
 }
 
@@ -80,10 +77,11 @@ main img{
 
 /* Cases */
 .cases p{
-  background-color: var(--darkRed);
+  background-color: var(--lightPink);
+  border: var(--darkRed) 2px solid;
   padding: 20px;
   text-align: center;
-  color: white;
+  color: var(--darkRed);
   border-radius: 10px;
 }
 

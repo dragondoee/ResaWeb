@@ -97,4 +97,10 @@ details div{
   width: 300px;
   padding: 30px 0;
   margin-bottom: 20px;
+  animation: ease 1s;
+}
+
+.liste-salles div:hover{
+  transform: scale(1.05);
+  animation: ease 1s;
 }

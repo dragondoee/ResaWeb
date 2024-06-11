@@ -44,7 +44,7 @@
 
                 <!-- Lien -->
                 <span class="lien">
-                    <a class="button-style" target="_blank" href="reservation.php?salle=<?= $id_salle ?>">Réserver une
+                    <a class="button-style" href="reservation.php?salle=<?= $id_salle ?>">Réserver une
                         salle</a>
                     <a class="button-style" target="_blank" href="https://store.steampowered.com/?l=french">Découvrir le
                         jeu</a>

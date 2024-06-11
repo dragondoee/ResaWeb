@@ -44,7 +44,6 @@ boutonUser.addEventListener("click", function () {
   localStorage.setItem('nom', document.querySelector("#nom").value);
   localStorage.setItem('prenom', document.querySelector("#prenom").value);
   localStorage.setItem('mail', document.querySelector("#mail").value);
-  console.log(localStorage.getItem('mail').includes('@'))
   // Vérification Champs Obligatoire
   if (localStorage.getItem('nom') == "" || localStorage.getItem('prenom') == "" || localStorage.getItem('mail') == "") {
     if (localStorage.getItem('nom') == "") {
@@ -158,7 +157,6 @@ boutonDrink.addEventListener("click", function () {
       } else if (boissons[i - 1] == boissons[i]) {
         pageValide = 'False';
         alert('Veuillez réunir les même boissons dans un seul champs');
-        console.log(boissons)
       } else {
         champsCheck++;
       }
@@ -204,8 +202,9 @@ function afficheBoissonRecap() {
   var quantites = JSON.parse(localStorage.getItem('quantite'));
   var boissonHTML = ''
   if (boissons[0] !== "Choisir une boisson" & quantites[0] !== "x") {
+    boissonHTML = '<div><p><strong>Les boissons : </strong></p><p>'
     for (let i = 0; i < boissons.length; i++) {
-      boissonHTML +='<div><p><strong>Les boissons : </strong></p><p>' + boissons[i] + ' x ' + quantites[i] + '</p></div>';
+      boissonHTML += '<p>'+ boissons[i] + ' x ' + quantites[i] + '</p></div>';
     };
   };
   return boissonHTML;

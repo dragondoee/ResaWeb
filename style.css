@@ -81,6 +81,8 @@ label, legend{
   border: none;
   cursor: pointer;
   box-shadow: 0 2px 5px #000000b0;
+  transition: ease 0.5s;
+  z-index: 2;
 }
 
 .small-button{
@@ -96,6 +98,15 @@ label, legend{
   margin-right: auto;
 }
 
+/* Hover Button */
+
+.button-style:hover, .small-button:hover, button:hover{
+  color: var(--darkRed);
+  text-align: center;
+  background-color: var(--lightPink);
+  transition: ease 0.5s;
+  transform: scale(1.05);
+}
 
 /* Skip Link */
 .skip-link {
