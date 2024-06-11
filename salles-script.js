@@ -1,3 +1,7 @@
+
+
+
+
 // Filtre salle
 
 let salles=document.querySelectorAll(".salle");

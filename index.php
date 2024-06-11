@@ -11,6 +11,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Iceberg&family=Itim&display=swap" rel="stylesheet">
+    <!-- Animation -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <!--  -->
     <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
     <title>Accueil - Quest & Coffee</title>
@@ -50,7 +54,7 @@
     <main>
         <!-- Introduction -->
         <div class="cafe presentation">
-            <div>
+            <div data-aos="fade-right" data-aos-duration="1000">
                 <h2>Notre café</h2>
                 <p>Chez Quest & Coffee, l'univers du jeu vidéo rencontre le plaisir de la dégustation. Chaque salle vous
                     invite à l'aventure, où vous pouvez explorer de nouveaux mondes tout en savourant des boissons
@@ -60,7 +64,7 @@
                     et venez vivre une expérience où l'excitation du jeu se mêle à la délectation des saveurs.</p>
                 <a href="salles.php" class="button-style centerElem">Découvrir nos salles -></a>
             </div>
-            <img src="img/mascotte.png" alt="">
+            <img src="img/mascotte.png" alt="" data-aos="fade-left" data-aos-duration="1000">
         </div>
 
 
@@ -79,24 +83,25 @@
                     <div class="slider">
                         <div class="js-slider">
                             <div class="js-photos">
-                            <?php require "connexion.php";
-                            $requete = "SELECT * FROM salle WHERE nouveaute=1;";
-                            $compteur = 1;
-                            $stmt = $db->query($requete);
-                            $result = $stmt->fetchall(PDO::FETCH_ASSOC);
-                            foreach ($result as $salle) {
+                                <?php require "connexion.php";
+                                $requete = "SELECT * FROM salle WHERE nouveaute=1;";
+                                $compteur = 1;
+                                $stmt = $db->query($requete);
+                                $result = $stmt->fetchall(PDO::FETCH_ASSOC);
+                                foreach ($result as $salle) {
+                                    ?>
+                                    <div class=" js-photo photo<?= $compteur ?> ">
+                                        <a href="detail.php?id_salle=<?= $salle["id_salle"]; ?>">
+                                            <img src="img/salle/<?= $salle["photo_salle"]; ?>"
+                                                alt="lien vers les détails de la salle <?= $salle["nom_salle"]; ?> ">
+                                        </a>
+                                        <a
+                                            href="detail.php?id_salle=<?= $salle["id_salle"]; ?>"><?= $salle["nom_salle"]; ?></a>
+                                    </div>
+                                    <?php
+                                    $compteur += 1;
+                                }
                                 ?>
-                                <div class=" js-photo photo<?= $compteur ?> ">
-                                    <a href="detail.php?id_salle=<?= $salle["id_salle"]; ?>">
-                                        <img src="img/salle/<?= $salle["photo_salle"]; ?>"
-                                            alt="lien vers les détails de la salle <?= $salle["nom_salle"]; ?> ">
-                                    </a>
-                                    <a href="detail.php?id_salle=<?= $salle["id_salle"]; ?>"><?= $salle["nom_salle"]; ?></a>
-                                </div>
-                                <?php
-                                $compteur += 1;
-                            }
-                            ?>
                             </div>
                         </div>
                     </div>
@@ -148,8 +153,8 @@
 
 
         <!-- Barre de recherche -->
-        <div class="search-section">
-            <h3>Vous cherchez une salle en particulier ?</h3>
+        <div class="search-section" >
+            <h3 >Vous cherchez une salle en particulier ?</h3>
             <form action="salles.php">
                 <label for="search" class="sr-only">Rechercher</label>
                 <input type="text" name="search" id="search" placeholder="Rechercher....">
@@ -158,8 +163,8 @@
         </div>
 
         <!-- Studio -->
-        <div class="studio presentation">
-            <div>
+        <div class="studio presentation" >
+            <div data-aos="fade-left" data-aos-duration="1000">
                 <h2>Studio de jeux</h2>
                 <p>
                     Bienvenue chez Quest & Coffee, où la magie des jeux vidéo prend vie. Notre studio est dédié à la
@@ -174,13 +179,13 @@
 
                 <a href="propos.php" class="button-style centerElem">En savoir plus -></a>
             </div>
-            <img src="img/logo.png" alt="">
+            <img src="img/logo.png" alt="" data-aos="fade-right" data-aos-duration="1000">
         </div>
 
 
         <hr>
 
-        <blockquote>
+        <blockquote data-aos="fade-down" data-aos-duration="500">
             Rejoignez-nous dans cette aventure passionnante et découvrez comment nous transformons des idées en
             réalité ludique. Chez Quest & Coffee, chaque jeu est une quête, et nous sommes impatients de
             partager cette passion avec vous.
@@ -194,6 +199,9 @@
     <!-- Footer -->
     <?php require "footer.php"; ?>
 
+    <script>
+        AOS.init();
+    </script>
 </body>
 
 </html>
