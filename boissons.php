@@ -69,7 +69,7 @@
                             <h2><?= $boisson["nom_boisson"]; ?></h2>
                             <p><?= $boisson["description_boisson"]; ?></p>
                         </span>
-                        <p><strong><?= $boisson["prix"]; ?>€/h</strong></p>
+                        <p><strong><?= $boisson["prix"]; ?>€</strong></p>
                     </div>
 
 

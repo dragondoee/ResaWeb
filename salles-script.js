@@ -9,7 +9,6 @@ let salleData = [];
 
 let filtre="";
 
-
 document.querySelector("#filtrer").addEventListener("click",function(){
     salles.forEach(function(salle){
     filtre=document.querySelector("#filtre").value
@@ -25,16 +24,5 @@ document.querySelector("#filtrer").addEventListener("click",function(){
 })
 
 
-
-function ajouteFilm(film) {
-    let newTableRow = document.createElement("tr");
-    newTableRow.outerHTML = '<tr data-sortie=" + film.sortie + ">' 
-      + '<td>' + film.sortie + '</td>' 
-      + '<td>' + film.titre + '</td>' 
-      + '<td>' + film.note + '</td>' 
-      + '</tr>'; 
-    table.append(newTableRow);
- }
- 
 
  

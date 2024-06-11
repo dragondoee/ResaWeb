@@ -2,11 +2,11 @@
 
 // * Sommaire : 
 
-// Alert perte infos formulaire
-// Vérification des infos du formulaire // TODO
-// Récapitulatif de la réservation
+// Alert perte infos formulaire (règle 88)
+// Vérification des infos du formulaire (règle 77)
+// Récapitulatif de la réservation (règle 81)
 // Détection adresse mail temporaire
-// Affiche formulaire 1 page : Slider
+// Affiche formulaire 1 page : Slider (règle 89)
 // Choix de boissons dans le formulaire
 
 
@@ -14,14 +14,15 @@
 
 
 // ! Alert perte infos formulaire
+// ! Règle opquast 88
 
-// window.addEventListener('beforeunload', function (e) {
-//   if (document.querySelector("#nom").value !== "" || document.querySelector("#prenom").value !== "" || document.querySelector("#mail").value !== "") {
-//   var message = "Les données ne seront pas enregistrées si vous quittez cette page";
-//   e.preventDefault(); 
-//   return message; 
-// };
-// });
+window.addEventListener('beforeunload', function (e) {
+  if (document.querySelector("#nom").value !== "" || document.querySelector("#prenom").value !== "" || document.querySelector("#mail").value !== "") {
+  var message = "Les données ne seront pas enregistrées si vous quittez cette page";
+  e.preventDefault(); 
+  return message; 
+};
+});
 
 
 
@@ -30,6 +31,7 @@
 //-----------------------------------------------------
 
 // ! Vérification des infos du formulaire
+// ! Règle opquast 77 
 
 // Variable pour vérifier que les infos obligatoires sont données et correct avant de passé à la page suivante
 var pageValide = 'False';
@@ -176,6 +178,7 @@ boutonDrink.addEventListener("click", function () {
 //-----------------------------------------------------
 
 //  ! Récapitulatif de la réservation
+// ! Règle opquast 81
 const pageRecap = document.querySelector(".recap");
 
 
@@ -252,6 +255,7 @@ function manualVerifMail(mail) {
 
 //-----------------------------------------------------
 //!  Affiche formulaire 1 page : Slider
+// ! Règle opquast 89
 
 // Variables
 const boutonsNext = document.querySelectorAll(".button-next");
