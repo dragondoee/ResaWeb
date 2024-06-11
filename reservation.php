@@ -109,7 +109,7 @@
                         </p>
                         
                         <span>
-                            <input type="button" class="button-before button-style small-button" value="Précédendent">
+                            <input type="button" class="button-before button-style small-button" value="Précédent">
                             <input type="button" class="button-next resaButton button-style small-button" value="Suivant">
                         </span>
                     </fieldset>
@@ -142,7 +142,7 @@
                         <button type="button" class="add-drink button-style small-button">Ajouter une boisson</button>
                        
                         <span>
-                            <input type="button" class="button-before button-style small-button" value="Précédendent">
+                            <input type="button" class="button-before button-style small-button" value="Précédent">
                             <input type="button" class="button-next drinkButton button-style small-button" value="Suivant">
                         </span>
                     </fieldset>

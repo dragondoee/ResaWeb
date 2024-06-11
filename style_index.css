@@ -220,45 +220,46 @@ h1 {
 
 section {
   position: relative;
-  width: 1185px;
+  width: 80vw;
+  max-width: 1300px ;
   margin-right: auto;
   margin-left: auto;
 }
 
-.nouveaute {
+.nouveaute, .tendance {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: space-around;
   border: var(--darkRed) 5px solid;
   border-radius: 5px;
 }
 
+.nouveaute button, .tendance button{
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
 .text {
   width: 400px;
   text-align: center;
+  margin-right: auto;
+  margin-left: auto;
 }
 
-/* Slider */
+/* Liste Salles */
 
 
-
-.js-slider{
-  width: 250px;
-  height: 300px;
-  position: relative;
-  overflow: hidden;
-}
-
-.js-photos{
+.ListeSalles{
   position: relative;
   display: flex;
-  left: 0;
+  gap: 10px;
   transition: left 0.3s ease;
-  width: 200px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
-.slider img {
+.carteSalle img {
   width: 200px;
   height: 200px;
   border-radius: 10px;
@@ -266,55 +267,31 @@ section {
   margin-right: auto;
 }
 
-.slider a{
+.carteSalle a{
   text-decoration: none;
   font-size: 1.2rem;
   margin-top: 10px;
 }
 
+.text h3{
+  font-size: 2rem;
+}
+
 /* Style de la carte */
-.js-photo{
+.carteSalle {
   display: flex;
   flex-direction: column;
   text-align: center;
   background-color: #F4D1D1;
   border-radius: 30px;
-  /* width: 300px; */
+  width: 300px;
   padding: 20px 12.5px;
   margin-bottom: 20px;
 }
 
-
-/* NAVIGATION */
-
-.js-nav{
-  display: flex;
-  margin-top: 10px;
-}
-
-.js-nav-left{
-  background-color: gainsboro;
-  border-radius: 50px;
-  padding: 5px;
-  width: 20px;
-  text-align: center;
-  cursor: pointer;
-  user-select: none;
-}
-.js-nav-right{
-  background-color: gainsboro;
-  border-radius: 50px;
-  padding: 5px;
-  width: 20px;
-  text-align: center;
-  cursor: pointer;
-  user-select: none;
-}
-.js-nav-left:hover{
-  background-color: #ff7f7f;
-}
-.js-nav-right:hover{
-  background-color: #ff7f7f;
+.carteSalle:hover{
+  animation: ease 1s;
+  transform: scale(1.05);
 }
 
 /* Form */

@@ -76,40 +76,29 @@
                 <div class="text">
                     <h3> Nouveautés : </h3>
                     <p> Découvrez nos nouvelles salles</p>
-                    <button> Voir les tendances </button>
+
                 </div>
                 <!-- Slider -->
-                <div>
-                    <div class="slider">
-                        <div class="js-slider">
-                            <div class="js-photos">
-                                <?php require "connexion.php";
-                                $requete = "SELECT * FROM salle WHERE nouveaute=1;";
-                                $compteur = 1;
-                                $stmt = $db->query($requete);
-                                $result = $stmt->fetchall(PDO::FETCH_ASSOC);
-                                foreach ($result as $salle) {
-                                    ?>
-                                    <div class=" js-photo photo<?= $compteur ?> ">
-                                        <a href="detail.php?id_salle=<?= $salle["id_salle"]; ?>">
-                                            <img src="img/salle/<?= $salle["photo_salle"]; ?>"
-                                                alt="lien vers les détails de la salle <?= $salle["nom_salle"]; ?> ">
-                                        </a>
-                                        <a
-                                            href="detail.php?id_salle=<?= $salle["id_salle"]; ?>"><?= $salle["nom_salle"]; ?></a>
-                                    </div>
-                                    <?php
-                                    $compteur += 1;
-                                }
-                                ?>
-                            </div>
+                <div class="ListeSalles">
+                    <?php require "connexion.php";
+                    $requete = "SELECT * FROM salle WHERE nouveaute=1;";
+                    $compteur = 1;
+                    $stmt = $db->query($requete);
+                    $result = $stmt->fetchall(PDO::FETCH_ASSOC);
+                    foreach ($result as $salle) {
+                        ?>
+                        <div class="carteSalle" data-aos="fade-in" data-aos-duration="1000">
+                            <a href="detail.php?id_salle=<?= $salle["id_salle"]; ?>">
+                                <img src="img/salle/<?= $salle["photo_salle"]; ?>"
+                                    alt="lien vers les détails de la salle <?= $salle["nom_salle"]; ?> ">
+                            </a>
+                            <a href="detail.php?id_salle=<?= $salle["id_salle"]; ?>"><?= $salle["nom_salle"]; ?></a>
                         </div>
-                    </div>
+                        <?php
+                    }
+                    ?>
                 </div>
-                <nav class="js-nav">
-                    <button class="js-nav-left"><img src="img/fleche_old.svg" alt="Voir l'image de gauche"> </button>
-                    <button class="js-nav-right"><img src="img/fleche_old.svg" alt="Voir l'image de droite"> </button>
-                </nav>
+                <button id="buttonVoirTendances"> Voir les tendances </button>
             </div>
             </div>
 
@@ -118,43 +107,36 @@
                 <div class="text">
                     <h3> Tendances : </h3>
                     <p> Découvrez nos salles les plus demandées ! </p>
-                    <button> Voir les nouveautés </button>
+
                 </div>
-                <div class="slider">
-                    <div class="js-slider">
-                        <div class="js-photos"></div>
-                        <?php
-                        $requete = "SELECT *,COUNT(id_resa) FROM salle,reservation WHERE salle=id_salle ORDER BY COUNT(id_resa) LIMIT 2;";
-                        $compteur = 1;
-                        $stmt = $db->query($requete);
-                        $result = $stmt->fetchall(PDO::FETCH_ASSOC);
-                        foreach ($result as $salle) {
-                            ?>
-                            <div class=" js-photo photo<?= $compteur ?> ">
-                                <a href="detail.php?id_salle=<?= $salle["id_salle"]; ?>">
-                                    <img src="img/salle/<?= $salle["photo_salle"]; ?>"
-                                        alt="lien vers les détails de la salle <?= $salle["nom_salle"]; ?> ">
-                                </a>
-                                <a href="detail.php?id_salle=<?= $salle["id_salle"]; ?>"><?= $salle["nom_salle"]; ?></a>
-                            </div>
-                            <?php
-                            $compteur += 1;
-                        }
+                <div class="ListeSalles">
+                    <?php
+                    $requete = "SELECT salle.*, COUNT(id_resa) AS reservation_count FROM salle LEFT JOIN reservation ON salle.id_salle = id_salle GROUP BY salle.id_salle ORDER BY reservation_count DESC LIMIT 2;";
+                    $compteur = 1;
+                    $stmt = $db->query($requete);
+                    $result = $stmt->fetchall(PDO::FETCH_ASSOC);
+                    foreach ($result as $salle) {
                         ?>
-                    </div>
+                        <div class="carteSalle" data-aos="fade-in" data-aos-duration="1000">
+                            <a href="detail.php?id_salle=<?= $salle["id_salle"]; ?>">
+                                <img src="img/salle/<?= $salle["photo_salle"]; ?>"
+                                    alt="lien vers les détails de la salle <?= $salle["nom_salle"]; ?> ">
+                            </a>
+                            <a href="detail.php?id_salle=<?= $salle["id_salle"]; ?>"><?= $salle["nom_salle"]; ?></a>
+                        </div>
+                        <?php
+                    }
+                    ?>
                 </div>
+                <button id="buttonVoirNouveaute"> Voir les nouveautés </button>
             </div>
-            <!-- <nav class="js-nav">
-                <button class="js-nav-left"><img src="img/fleche_old.svg" alt="Voir l'image de gauche"> </button>
-                <button class="js-nav-right"><img src="img/fleche_old.svg" alt="Voir l'image de droite"> </button>
-            </nav> -->
             </div>
         </section>
 
 
         <!-- Barre de recherche -->
-        <div class="search-section" >
-            <h3 >Vous cherchez une salle en particulier ?</h3>
+        <div class="search-section">
+            <h3>Vous cherchez une salle en particulier ?</h3>
             <form action="salles.php">
                 <label for="search" class="sr-only">Rechercher</label>
                 <input type="text" name="search" id="search" placeholder="Rechercher....">
@@ -163,7 +145,7 @@
         </div>
 
         <!-- Studio -->
-        <div class="studio presentation" >
+        <div class="studio presentation">
             <div data-aos="fade-left" data-aos-duration="1000">
                 <h2>Studio de jeux</h2>
                 <p>
@@ -201,6 +183,18 @@
 
     <script>
         AOS.init();
+
+        // Voir les tendances
+        document.querySelector("#buttonVoirTendances").addEventListener("click", function () {
+            document.querySelector(".nouveaute").style.display = 'none';
+            document.querySelector(".tendance").style.display = 'flex';
+        })
+
+        // Voir les nouveautés
+        document.querySelector("#buttonVoirNouveaute").addEventListener("click", function () {
+            document.querySelector(".nouveaute").style.display = 'flex';
+            document.querySelector(".tendance").style.display = 'none';
+        })
     </script>
 </body>
 
