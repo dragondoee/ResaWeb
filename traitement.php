@@ -84,13 +84,7 @@ if (validateArray($boisson)) {
 
 // * Configuration de l'e-mail pour l'utilisateur qui a réservé
 $sujet = "Confirmation de réservation - Quest & Coffee";
-$message = ' Votre réservation a bien été enregistrée ';
-$message+= 'Quest & Coffee vous remercie pour votre réservation du '.$date.' à '.$horaire  ;
-$message+= 'Voici le récapitulatif :' ;
-$message+='Le '. $date.' à '.$horaire ;
-$message+= 'Pour '.$duree.'' ;
-$message+= 'salle : '. $salle .'' ;
-$message+= $participant.' personne(s)' ;
+$message = " Votre réservation a bien été enregistrée. Quest & Coffee vous remercie pour votre réservation du $date à $horaire Voici le récapitulatif : Le  $date à $horaire pour $duree, salle : $salle avec $participant personne(s)." ;
 
 
 // * Mail pour l'utilisateur qui a réservé
@@ -98,7 +92,7 @@ mail($email, $sujet, $message);
 
 // * Configuration de l'e-mail pour le gestionnaire
 $sujetG = "Notification de réservation - Quest & Coffee";
-$messageG = "$prenom $nom a réserver la salle $salle le $date pour $duree avec $participant personne(s), Adresse mail du client: $email";
+$messageG = "$prenom $nom a réserver la salle $salle le $date à $horaire pour $duree avec $participant personne(s), Adresse mail du client: $email";
 
 // * Mail pour le gestionnaire
 mail('emilie.desgranges78@gmail.com', $sujetG, $messageG);
