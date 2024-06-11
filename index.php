@@ -37,11 +37,11 @@
         <div>
             <img class="down_wave" src="img/down_wave.svg" alt="">
             <img class="up_wave" src="img/up_wave.svg" alt="">
-            <img class="cafe shapeG1" src="img/red_cafe.png" alt="">
-            <img class="cafe shapeG2" src="img/red_cafe.png" alt="">
-            <img class="cafe shapeD3" src="img/red_cafe.png" alt="">
-            <img class="cafe shapeD4" src="img/red_cafe.png" alt="">
-            <img class="cafe shapeD5" src="img/red_cafe.png" alt="">
+            <img class="cafe shapeG1 animated-image delay1 rotate1" src="img/red_cafe.png" alt="">
+            <img class="cafe shapeG2 animated-image delay3 rotate2" src="img/red_cafe.png" alt="">
+            <img class="cafe shapeD3 animated-image delay1 rotate3" src="img/red_cafe.png" alt="">
+            <img class="cafe shapeD4 animated-image delay2 rotate4" src="img/red_cafe.png" alt="">
+            <img class="cafe shapeD5 animated-image delay3 rotate5" src="img/red_cafe.png" alt="">
         </div>
     </header>
 
@@ -185,7 +185,7 @@
 
         <hr>
 
-        <blockquote data-aos="fade-down" data-aos-duration="500">
+        <blockquote data-aos="fade-down" data-aos-duration="800">
             Rejoignez-nous dans cette aventure passionnante et découvrez comment nous transformons des idées en
             réalité ludique. Chez Quest & Coffee, chaque jeu est une quête, et nous sommes impatients de
             partager cette passion avec vous.
@@ -194,7 +194,7 @@
 
         <hr>
 
-        <a href="#top" class="button-style centerElem">Retour haut de page</a>
+        <a href="#top" class="button-style centerElem scrollButton">Retour haut de page</a>
     </main>
     <!-- Footer -->
     <?php require "footer.php"; ?>

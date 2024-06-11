@@ -63,6 +63,58 @@ h1 {
   gap: 25px;
 }
 
+/* Animation */
+
+.animated-image {
+  animation: moveUpAndDown 3s infinite ease-in-out;
+}
+
+@keyframes moveUpAndDown {
+  0% {
+      transform: translateY(0) rotate(var(--rotate-angle));
+  }
+  50% {
+      transform: translateY(-15px) rotate(var(--rotate-angle));
+  }
+  100% {
+      transform: translateY(0) rotate(var(--rotate-angle));
+  }
+}
+
+.rotate1 {
+  --rotate-angle: 25deg;
+}
+
+.rotate2 {
+  --rotate-angle: -30deg;
+}
+
+.rotate3 {
+  --rotate-angle: 20deg;
+}
+
+.rotate4 {
+  --rotate-angle: -25deg;
+}
+
+.rotate5 {
+  --rotate-angle: 40deg;
+}
+
+/* Délais d'animation spécifiques */
+.delay1 {
+  animation-delay: 0s;
+}
+
+.delay2 {
+  animation-delay: 1s;
+}
+
+.delay3 {
+  animation-delay: 2s;
+}
+
+
 /* Header déco */
 
 
@@ -305,3 +357,4 @@ blockquote {
 .studio img{
   width: 30%;
 }
+
