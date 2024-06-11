@@ -30,6 +30,15 @@
                 <a href="propos.php">En savoir plus</a>
             </nav>
         </div>
+        <div>
+            <img class="down_wave" src="img/down_wave.svg" alt="">
+            <img class="up_wave" src="img/up_wave.svg" alt="">
+            <img class="cafe shapeG1" src="img/red_cafe.png" alt="">
+            <img class="cafe shapeG2" src="img/red_cafe.png" alt="">
+            <img class="cafe shapeD3" src="img/red_cafe.png" alt="">
+            <img class="cafe shapeD4" src="img/red_cafe.png" alt="">
+            <img class="cafe shapeD5" src="img/red_cafe.png" alt="">
+        </div>
     </header>
 
 
@@ -43,7 +52,12 @@
         <div class="cafe presentation">
             <div>
                 <h2>Notre café</h2>
-                <p>Chez Quest & Coffee, l'univers du jeu vidéo rencontre le plaisir de la dégustation. Chaque salle vous invite à l'aventure, où vous pouvez explorer de nouveaux mondes tout en savourant des boissons artisanales et des délices gourmands. Que ce soit pour une pause relaxante ou un moment convivial avec vos amis, notre ambiance chaleureuse et accueillante est idéale pour les gamers et les gourmets. Réservez une table dans une salle à thème inspirée d'un jeu vidéo du studio Quest & Coffee et venez vivre une expérience où l'excitation du jeu se mêle à la délectation des saveurs.</p>
+                <p>Chez Quest & Coffee, l'univers du jeu vidéo rencontre le plaisir de la dégustation. Chaque salle vous
+                    invite à l'aventure, où vous pouvez explorer de nouveaux mondes tout en savourant des boissons
+                    artisanales et des délices gourmands. Que ce soit pour une pause relaxante ou un moment convivial
+                    avec vos amis, notre ambiance chaleureuse et accueillante est idéale pour les gamers et les
+                    gourmets. Réservez une table dans une salle à thème inspirée d'un jeu vidéo du studio Quest & Coffee
+                    et venez vivre une expérience où l'excitation du jeu se mêle à la délectation des saveurs.</p>
                 <a href="salles.php" class="button-style centerElem">Découvrir nos salles -></a>
             </div>
             <img src="img/mascotte.png" alt="">
@@ -61,41 +75,44 @@
                     <button> Voir les tendances </button>
                 </div>
                 <!-- Slider -->
-                <div class="slider">
-                    <div class="js-slider">
-                        <div class="js-photos"></div>
-                        <?php require "connexion.php";
-                        $requete = "SELECT * FROM salle WHERE nouveaute=1;";
-                        $compteur = 1;
-                        $stmt = $db->query($requete);
-                        $result = $stmt->fetchall(PDO::FETCH_ASSOC);
-                        foreach ($result as $salle) {
+                <div>
+                    <div class="slider">
+                        <div class="js-slider">
+                            <div class="js-photos">
+                            <?php require "connexion.php";
+                            $requete = "SELECT * FROM salle WHERE nouveaute=1;";
+                            $compteur = 1;
+                            $stmt = $db->query($requete);
+                            $result = $stmt->fetchall(PDO::FETCH_ASSOC);
+                            foreach ($result as $salle) {
+                                ?>
+                                <div class=" js-photo photo<?= $compteur ?> ">
+                                    <a href="detail.php?id_salle=<?= $salle["id_salle"]; ?>">
+                                        <img src="img/salle/<?= $salle["photo_salle"]; ?>"
+                                            alt="lien vers les détails de la salle <?= $salle["nom_salle"]; ?> ">
+                                    </a>
+                                    <a href="detail.php?id_salle=<?= $salle["id_salle"]; ?>"><?= $salle["nom_salle"]; ?></a>
+                                </div>
+                                <?php
+                                $compteur += 1;
+                            }
                             ?>
-                            <div class=" js-photo photo<?= $compteur ?> ">
-                                <a href="detail.php?id_salle=<?= $salle["id_salle"]; ?>">
-                                    <img src="img/salle/<?= $salle["photo_salle"]; ?>"
-                                        alt="lien vers les détails de la salle <?= $salle["nom_salle"]; ?> ">
-                                </a>
-                                <a href="detail.php?id_salle=<?= $salle["id_salle"]; ?>"><?= $salle["nom_salle"]; ?></a>
                             </div>
-                            <?php
-                            $compteur += 1;
-                        }
-                        ?>
+                        </div>
                     </div>
                 </div>
+                <nav class="js-nav">
+                    <button class="js-nav-left"><img src="img/fleche_old.svg" alt="Voir l'image de gauche"> </button>
+                    <button class="js-nav-right"><img src="img/fleche_old.svg" alt="Voir l'image de droite"> </button>
+                </nav>
             </div>
-            <!-- <nav class="js-nav">
-                <button class="js-nav-left"><img src="img/fleche_old.svg" alt="Voir l'image de gauche"> </button>
-                <button class="js-nav-right"><img src="img/fleche_old.svg" alt="Voir l'image de droite"> </button>
-            </nav> -->
             </div>
 
             <!-- Slider des tendances-->
             <div class="tendance cache">
-            <div class="text">
+                <div class="text">
                     <h3> Tendances : </h3>
-                    <p> Découvrez nos salles en tendance ! </p>
+                    <p> Découvrez nos salles les plus demandées ! </p>
                     <button> Voir les nouveautés </button>
                 </div>
                 <div class="slider">
@@ -145,13 +162,19 @@
             <div>
                 <h2>Studio de jeux</h2>
                 <p>
-                Bienvenue chez Quest & Coffee, où la magie des jeux vidéo prend vie. Notre studio est dédié à la création de jeux d'aventure captivants, conçus pour transporter les joueurs dans des mondes extraordinaires et immersifs. Avec une équipe passionnée de développeurs, designers et artistes, nous mettons tout en œuvre pour offrir des expériences de jeu inoubliables. Plongez dans nos univers, explorez des quêtes épiques et vivez des aventures palpitantes à chaque instant. Chez Quest & Coffee, chaque jeu est une nouvelle quête, et nous sommes impatients de partager cette passion avec vous.
+                    Bienvenue chez Quest & Coffee, où la magie des jeux vidéo prend vie. Notre studio est dédié à la
+                    création de jeux d'aventure captivants, conçus pour transporter les joueurs dans des mondes
+                    extraordinaires et immersifs. Avec une équipe passionnée de développeurs, designers et artistes,
+                    nous mettons tout en œuvre pour offrir des expériences de jeu inoubliables. Plongez dans nos
+                    univers, explorez des quêtes épiques et vivez des aventures palpitantes à chaque instant. Chez Quest
+                    & Coffee, chaque jeu est une nouvelle quête, et nous sommes impatients de partager cette passion
+                    avec vous.
 
                 </p>
 
                 <a href="propos.php" class="button-style centerElem">En savoir plus -></a>
             </div>
-            <img src="img/mascotte.png" alt="">
+            <img src="img/logo.png" alt="">
         </div>
 
 

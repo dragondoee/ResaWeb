@@ -39,7 +39,8 @@ body {
 }
 
 .composant-header img {
-  width: 70px;
+  margin-top: 20px;
+  width: 300px;
 }
 
 .composant-header nav {
@@ -109,7 +110,7 @@ footer {
 }
 
 .footerlogo {
-  width: 70px;
+  width: 210px;
 }
 
 footer a {

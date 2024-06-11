@@ -42,6 +42,7 @@ boutonUser.addEventListener("click", function () {
   localStorage.setItem('nom', document.querySelector("#nom").value);
   localStorage.setItem('prenom', document.querySelector("#prenom").value);
   localStorage.setItem('mail', document.querySelector("#mail").value);
+  console.log(localStorage.getItem('mail').includes('@'))
   // Vérification Champs Obligatoire
   if (localStorage.getItem('nom') == "" || localStorage.getItem('prenom') == "" || localStorage.getItem('mail') == "") {
     if (localStorage.getItem('nom') == "") {
@@ -57,7 +58,7 @@ boutonUser.addEventListener("click", function () {
     pageValide = 'False';
   }
   // Verifie que le mail contient @ et .
-  else if (!localStorage.getItem('mail').includes('@') && localStorage.getItem('mail').includes('.')) {
+  else if (!localStorage.getItem('mail').includes('@') || !localStorage.getItem('mail').includes('.')) {
     alert('Veuillez remplir le champs mail avec un mail valide (doit correspondre au format du mail)');
     pageValide = 'False';
   }
@@ -102,9 +103,9 @@ boutonResa.addEventListener("click", function () {
   localStorage.setItem('duree', dureeOption.innerHTML);
   // Participant
   localStorage.setItem('participant', document.querySelector("#participant").value);
-
+  
   //* Vérification Champs obligatoire
-  if (localStorage.getItem('salle') == "" || localStorage.getItem('date') == "" || localStorage.getItem('horaire') == "" || localStorage.getItem('duree') == "" || localStorage.getItem('participant') == "") {
+  if (localStorage.getItem('salle') == "Choisir une salle" || localStorage.getItem('date') == "" || localStorage.getItem('horaire') == "" || localStorage.getItem('duree') == "" || localStorage.getItem('participant') == "") {
     alert('Tous les champs sont obligatoires, veuillez vérifier que vous les avez tous remplis.');
     pageValide = 'False';
   } else {

@@ -25,54 +25,56 @@
     <main>
         <h1 id="content">À propos</h1>
 
-            <div class="propos-quest">
-                <span>
-                    <h2>Quest & Coffee</h2>
-                    <p>
-                    Chez Quest & Coffee, le jeu est au cœur de tout ce que nous faisons. Fondé par des passionnés de jeux vidéo, notre studio s'est rapidement imposé comme un créateur de jeux d'aventure parmi les plus appréciés de la communauté. Nous croyons en la puissance du jeu pour raconter des histoires uniques et éveiller des émotions profondes. Notre mission est de repousser les limites de l'imagination et de l'innovation pour offrir des expériences de jeu immersives et captivantes. Grâce à une collaboration étroite entre développeurs, artistes et storytellers, nous créons des mondes fantastiques où chaque détail compte. Rejoignez-nous dans cette aventure et découvrez comment nous transformons des idées en réalités ludiques inoubliables.
-                    </p>
-                </span>
-                <img src="img/mascotte.png" alt="">
-            </div>
+        <div class="propos-quest">
+            <span>
+                <h2>Quest & Coffee</h2>
+                <p>
 
-            <!-- Bandeau -->
+                    Chez Quest & Coffee, le jeu est au cœur de tout ce que nous faisons. Fondé par des passionnés de
+                    jeux vidéo, nous créons des aventures captivantes et immersives qui repoussent les limites de
+                    l'imagination.
+                    <br><br>
+                    Mais Quest & Coffee, c'est aussi un café unique proposant des salles à thèmes inspirées de nos jeux.
+                    Avec quatre salles disponibles, chaque détail est pensé pour offrir une expérience inoubliable.
+                    Réservez une table, savourez nos délicieuses boissons, et plongez dans nos mondes fantastiques.
+                    <br><br>
+                    Bienvenue chez Quest & Coffee – où le jeu rencontre le gourmand.
+                </p>
+            </span>
+            <img src="img/mascotte.png" alt="">
+        </div>
 
-            <div class="bandeau">
-                <p>Polyvalents dans notre approche, nous explorons plusieurs genres de jeux pour repousser les limites de notre imagination et créativité, et pour tester de nouvelles idées.</p>
-            </div>
+        <!-- Bandeau -->
 
-            <!-- Cases -->
-            <div class="cases">
-                <p>Aventure</p>
-                <p>Fantaisie</p>
-                <p>Ambiance chill</p>
-                <p>Horreur</p>
-            </div>
+        <div class="bandeau">
+            <p>Polyvalents dans notre approche, nous explorons plusieurs genres de jeux pour repousser les limites de
+                notre imagination et créativité, et pour tester de nouvelles idées.</p>
+        </div>
 
-            <hr>
+        <!-- Cases -->
+        <div class="cases">
+            <p>Aventure</p>
+            <p>Fantaisie</p>
+            <p>Ambiance chill</p>
+            <p>Horreur</p>
+        </div>
 
-            <div class="propos-moi">
-                <span>
-                    <h2>À propos de moi</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, quaerat quis. Voluptates nesciunt
-                        repudiandae ipsa velit similique, voluptas beatae. Deserunt molestias maxime aspernatur fuga ex
-                        eius qui
-                        iusto voluptas! Sapiente? Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
-                        dignissimos
-                        adipisci temporibus
-                        praesentium inventore, quo neque maiores optio ipsum aperiam, aliquam eligendi expedita illo
-                        incidunt
-                        culpa esse tempora, omnis perspiciatis.
-                    </p>
-                </span>
-                <img src="img/emilie.jpg" alt="">
-            </div>
-            <!-- Cases -->
-            <div class="cases">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, possimus.</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, possimus.</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, possimus.</p>
-            </div>
+        <hr>
+
+        <div class="propos-moi">
+            <span>
+                <h2>À propos de moi</h2>
+                <p>Emilie Desgranges, actuellement étudiante en première année de BUT Métier du Multimédia et de l’Internet à Champs-sur-Marne, j'ai développé ce site de réservation dans le cadre d'un projet du deuxième semestre. Passionnée par le développement, j'ai pris beaucoup de plaisir à intégrer les différentes fonctionnalités du site. J’ai mis du temps avant de bien m’organiser, donc j’ai pris un peu de retard par rapport à mes ambitions. Je suis convaincue qu’en étant efficace dès le début,  j’aurais pu me surpasser et améliorer l'aspect visuel.
+                </p>
+            </span>
+            <img src="img/emilie.jpg" alt="">
+        </div>
+        <!-- Cases -->
+        <div class="cases">
+            <p>BUT MMI</p>
+            <p>Développement web</p>
+            <p>Jeux vidéos</p>
+        </div>
 
 
 

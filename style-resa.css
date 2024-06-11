@@ -55,12 +55,17 @@ fieldset {
   flex-shrink: 0;
 }
 
+fieldset p{
+  display: flex;
+  flex-direction: column;
+}
+
 legend{
   font-size: 2rem;
 }
 
 .quantite{
-  width: 100px;
+  width: 80px;
 }
 
 .boisson, .boisson-container{
@@ -78,4 +83,13 @@ legend{
 .add-drink{
   margin-top: 15px;
   width: 200px;
+}
+
+.button-style{
+  margin-top: 20px;
+}
+
+select{
+  border-radius: 5px;
+  border: var(--darkRed) 1px solid;
 }

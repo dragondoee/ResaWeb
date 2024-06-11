@@ -83,7 +83,9 @@ details div {
   margin-left: auto;
   width: 80%;
   margin-right: auto;
-  border: var(--darkRed) 1px solid;
+  /* border: var(--darkRed) 1px solid; */
+  border: var(--lightPink) 4px solid;
+  /* background-color: var(--lightPink); */
   border-radius: 10px;
   padding: 10px;
 }

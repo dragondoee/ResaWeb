@@ -2,7 +2,7 @@
 <header class="composant-header">
         <a href="#content" class="skip-link">Aller au contenu</a>
         <nav>
-            <a class="retourAccueil" href="index.php"><img src="img/logo.png" alt="retour à l'accueil"></a>
+            <a class="retourAccueil" href="index.php"><img src="img/logo-full.png" alt="retour à l'accueil"></a>
             <ul>
                 <li><a href="salles.php">Salles</a></li>
                 <li><a href="boissons.php">Boissons</a></li>

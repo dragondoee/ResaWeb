@@ -30,17 +30,23 @@
                         <legend id="content">Réservation</legend>
                         <p>Tous les champs sont obligatoires</p>
                         <!-- Nom -->
-                        <label for="nom">Nom</label>
-                        <input type="text" id="nom" name="nom" required placeholder="Nom">
-                        <br> <br>
+                        <p>
+                            <label for="nom">Nom</label>
+                            <input type="text" id="nom" name="nom" required placeholder="Nom">
+                        </p>
+                        
                         <!-- Prénom -->
-                        <label for="prenom">Prénom</label>
-                        <input type="text" id="prenom" name="prenom" required placeholder="Prénom">
-                        <br> <br>
+                        <p>
+                            <label for="prenom">Prénom</label>
+                            <input type="text" id="prenom" name="prenom" required placeholder="Prénom">
+                        </p>
+                        
                         <!-- Adresse mail -->
-                        <label for="mail">Adresse mail</label>
-                        <input type="email" id="mail" name="mail" required placeholder="exemple@mail.com">
-                        <br> <br>
+                        <p>
+                            <label for="mail">Adresse mail</label>
+                            <input type="email" id="mail" name="mail" required placeholder="exemple@mail.com">
+                        </p>
+                        
                         <input type="button" class="button-next userButton button-style small-button" value="Suivant">
                     </fieldset>
                     <!-- ------------------------------------------------------------------- -->
@@ -49,49 +55,59 @@
                         <legend>Réservation d'une table</legend>
                         <p>Tous les champs sont obligatoires</p>
                         <!-- Salle -->
-                        <label for="salle">Salle</label>
-                        <select name="salle" id="salle">
-                            <option value="" >Choisir une salle</option>
-                            <?php require "connexion.php";
-                            $requete = "SELECT * FROM salle ORDER BY nom_salle ASC;";
-                            $stmt = $db->query($requete);
-                            $result = $stmt->fetchall(PDO::FETCH_ASSOC);
-                            foreach ($result as $salle) {
+                        <p>
+                            <label for="salle">Salle</label>
+                            <select name="salle" id="salle">
+                                <option value="" >Choisir une salle</option>
+                                <?php require "connexion.php";
+                                $requete = "SELECT * FROM salle ORDER BY nom_salle ASC;";
+                                $stmt = $db->query($requete);
+                                $result = $stmt->fetchall(PDO::FETCH_ASSOC);
+                                foreach ($result as $salle) {
+                                    ?>
+                                    <option value="<?= $salle["id_salle"]; ?>" <?php echo ($salleID == $salle["id_salle"]) ?'selected' : ''; ?>><?= $salle["nom_salle"]; ?></option>
+                                    <?php
+                                }
                                 ?>
-                                <option value="<?= $salle["id_salle"]; ?>" <?php echo ($salleID == $salle["id_salle"]) ?'selected' : ''; ?>><?= $salle["nom_salle"]; ?></option>
-                                <?php
-                            }
-                            ?>
-                        </select>
-                        <br> <br>
+                            </select>
+                        </p>
+                        
                         <!-- Date -->
-                        <label for="date">Date</label>
-                        <input type="date" min="<?= date('Y-m-d') ?>" id="date" name="date" required>
-                        <br> <br>
+                        <p>
+                            <label for="date">Date</label>
+                            <input type="date" min="<?= date('Y-m-d') ?>" id="date" name="date" required>
+                        </p>
+                       
                         <!-- Horaire -->
-                        <label for="horaire">Horaire</label>
-                        <select name="horaire" id="horaire">
-                            <option value="">Choisir un horaire</option>
-                            <option value="009:00:00">9h00</option>
-                            <option value="009:30:00">9h30</option>
-                            <option value="010:00:00">10h00</option>
-                            <option value="010:30:00">10h30</option>
-                            <option value="011:00:00">11h00</option>
-                        </select>
-                        <br> <br>
+                        <p>
+                            <label for="horaire">Horaire</label>
+                            <select name="horaire" id="horaire">
+                                <option value="">Choisir un horaire</option>
+                                <option value="009:00:00">9h00</option>
+                                <option value="009:30:00">9h30</option>
+                                <option value="010:00:00">10h00</option>
+                                <option value="010:30:00">10h30</option>
+                                <option value="011:00:00">11h00</option>
+                            </select>
+                        </p>
+                        
                         <!-- Durée -->
-                        <label for="duree">Durée</label>
-                        <select name="duree" id="duree">
-                            <option value="">Choisir une durée</option>
-                            <option value="01:00:00">1h</option>
-                            <option value="01:30:00">1h30</option>
-                            <option value="02:00:00">2h</option>
-                        </select>
-                        <br><br>
+                        <p>
+                            <label for="duree">Durée</label>
+                            <select name="duree" id="duree">
+                                <option value="">Choisir une durée</option>
+                                <option value="01:00:00">1h</option>
+                                <option value="01:30:00">1h30</option>
+                                <option value="02:00:00">2h</option>
+                            </select>
+                        </p>
+                       
                         <!-- Participant -->
-                        <label for="participant">Nombre de personne</label>
-                        <input type="number" id="participant" name="participant" required>
-                        <br> <br>
+                        <p>
+                            <label for="participant">Nombre de personne</label>
+                            <input type="number" id="participant" name="participant" required>
+                        </p>
+                        
                         <span>
                             <input type="button" class="button-before button-style small-button" value="Précédendent">
                             <input type="button" class="button-next resaButton button-style small-button" value="Suivant">
@@ -101,7 +117,7 @@
                     <fieldset class="form-boisson">
                         <legend>Commander des boissons</legend>
                         <p>Les champs sont facultatifs</p>
-                        <br>
+                        
                         <div id="boissons">
                             <div class="boisson">
                                 <label> <span class="sr-only">Boisson</span>
@@ -124,7 +140,7 @@
                             </div>
                         </div>
                         <button type="button" class="add-drink button-style small-button">Ajouter une boisson</button>
-                        <br><br>
+                       
                         <span>
                             <input type="button" class="button-before button-style small-button" value="Précédendent">
                             <input type="button" class="button-next drinkButton button-style small-button" value="Suivant">

@@ -32,7 +32,7 @@
         <div class="contenu">
             <span>
                 <a href="salles.php">Retour à la liste des salles</a>
-                <h1><?= $result["nom_salle"]; ?></h1>
+                <h1 id="content"><?= $result["nom_salle"]; ?></h1>
                 <!-- Images -->
                 <img src="img/salle/<?= $result["photo_salle"]; ?>" alt="">
             </span>
@@ -41,11 +41,13 @@
             <span class="description">
                 <h2>Description : </h2>
                 <p><?= $result["description_salle"]; ?></p>
-                
+
                 <!-- Lien -->
                 <span class="lien">
-                    <a class="button-style" href="reservation.php?salle=<?= $id_salle ?>">Réserver une salle</a>
-                    <a class="button-style" target="_blank" href="https://store.steampowered.com/?l=french">Découvrir le jeu</a>
+                    <a class="button-style" target="_blank" href="reservation.php?salle=<?= $id_salle ?>">Réserver une
+                        salle</a>
+                    <a class="button-style" target="_blank" href="https://store.steampowered.com/?l=french">Découvrir le
+                        jeu</a>
                 </span>
             </span>
         </div>
