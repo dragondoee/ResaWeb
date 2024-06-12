@@ -93,3 +93,9 @@ select{
   border-radius: 5px;
   border: var(--darkRed) 1px solid;
 }
+
+legend{
+  width: 300px;
+  margin-right: auto;
+  margin-left: auto;
+}

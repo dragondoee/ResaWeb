@@ -14,11 +14,11 @@ document.querySelector("#filtrer").addEventListener("click",function(){
     filtre=document.querySelector("#filtre").value
     console.log(filtre)
     if(filtre=="0"){
-        salle.style.display="block"
+        salle.style.display="flex"
     } else if(salle.dataset["ambiance"]!==filtre){
         salle.style.display="none"
     }  else {
-        salle.style.display="block"
+        salle.style.display="flex"
     }
 });
 })

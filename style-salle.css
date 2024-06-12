@@ -88,7 +88,7 @@ details div{
   margin-right: auto;
 }
 
-.liste-salles div{
+.salle{
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -100,7 +100,7 @@ details div{
   animation: ease 1s;
 }
 
-.liste-salles div:hover{
+.salle:hover{
   transform: scale(1.05);
   animation: ease 1s;
 }

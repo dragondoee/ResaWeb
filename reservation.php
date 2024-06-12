@@ -105,7 +105,7 @@
                         <!-- Participant -->
                         <p>
                             <label for="participant">Nombre de personne</label>
-                            <input type="number" id="participant" name="participant" required>
+                            <input type="number" min="1" max="10" id="participant" name="participant" required>
                         </p>
                         
                         <span>
@@ -136,7 +136,7 @@
                                         ?>
                                     </select>
                                 </label>
-                                <label> Quantité <input type="number" name="quantite[]" class="quantite">  </label>
+                                <label> Quantité <input type="number" min="1" max="10" name="quantite[]" class="quantite">  </label>
                             </div>
                         </div>
                         <button type="button" class="add-drink button-style small-button">Ajouter une boisson</button>

@@ -16,12 +16,13 @@
 // ! Alert perte infos formulaire
 // ! Règle opquast 88
 
+
 window.addEventListener('beforeunload', function (e) {
   if (document.querySelector("#nom").value !== "" || document.querySelector("#prenom").value !== "" || document.querySelector("#mail").value !== "") {
-  var message = "Les données ne seront pas enregistrées si vous quittez cette page";
-  e.preventDefault(); 
-  return message; 
-};
+    var message = "Les données ne seront pas enregistrées si vous quittez cette page";
+    e.preventDefault();
+    return message;
+  };
 });
 
 
@@ -69,7 +70,7 @@ boutonUser.addEventListener("click", function () {
     pageValide = 'False';
   }
   // Vérifie si une chaîne contient des chiffres
-  else if (!/^[a-zA-Z -]+$/.test(localStorage.getItem('nom')) || !/^[a-zA-Z -]+$/.test(localStorage.getItem('prenom'))) {
+  else if (!/^[a-zA-ZÀ-ÿ -]+$/.test(localStorage.getItem('nom')) || !/^[a-zA-ZÀ-ÿ -]+$/.test(localStorage.getItem('prenom'))) {
     alert('Les champs nom et prenom ne peuvent que lettres alphabétiques (majuscules et minuscules) et le symbole "-"')
     pageValide = 'False';
 
@@ -104,17 +105,19 @@ boutonResa.addEventListener("click", function () {
   localStorage.setItem('duree', dureeOption.innerHTML);
   // Participant
   localStorage.setItem('participant', document.querySelector("#participant").value);
-  
+
   //* Vérification Champs obligatoire
   if (localStorage.getItem('salle') == "Choisir une salle" || localStorage.getItem('date') == "" || localStorage.getItem('horaire') == "" || localStorage.getItem('duree') == "" || localStorage.getItem('participant') == "") {
     alert('Tous les champs sont obligatoires, veuillez vérifier que vous les avez tous remplis.');
     pageValide = 'False';
   } else {
     pageValide = 'True';
-    // recapitulatif()
   } if (parseInt(localStorage.getItem('participant')) <= 0) {
     pageValide = 'False';
     alert('Il doit y avoir au moins 1 personne pour faire une réservation');
+  } if (parseInt(localStorage.getItem('participant')) > 10) {
+    pageValide = 'False';
+    alert('Le maximum de personnes pour une réservation est 10');
   }
 });
 
@@ -157,6 +160,12 @@ boutonDrink.addEventListener("click", function () {
       } else if (boissons[i - 1] == boissons[i]) {
         pageValide = 'False';
         alert('Veuillez réunir les même boissons dans un seul champs');
+      } if (quantites[i] <= 0) {
+        pageValide = 'False';
+        alert('Il doit y avoir au moins 1 boisson pour faire une commande');
+      } else if (quantites[i] > 10) {
+        pageValide = 'False';
+        alert('Veuillez commander moins de boisson. Le maximum autoriser en une commande est 10');
       } else {
         champsCheck++;
       }
@@ -189,12 +198,13 @@ function recapitulatif() {
     + '<p><strong>Réservation : </strong> le ' + localStorage.getItem('date') + ' à ' + localStorage.getItem('horaire') + ' pour ' + localStorage.getItem('duree') + '</p>'
     + '<p><strong>Nombre de personne.s : </strong>' + localStorage.getItem('participant') + '</p></div>'
 
-    
+
     + afficheBoissonRecap()
 
     + '<span><input type="button" class="button-before button-style small-button" id="before-recap" value="Précédendent">'
-    + '<input type="submit" name="bouton_soumettre" class="button-style small-button" value="Envoyer ->"></span>';
+    + '<input type="submit" name="bouton_soumettre" class="button-style small-button" id="envoyer" value="Envoyer ->"></span>';
   document.querySelector("#before-recap").addEventListener("click", decaleDroite);
+
 };
 
 function afficheBoissonRecap() {
@@ -204,7 +214,7 @@ function afficheBoissonRecap() {
   if (boissons[0] !== "Choisir une boisson" & quantites[0] !== "x") {
     boissonHTML = '<div><p><strong>Les boissons : </strong></p><p>'
     for (let i = 0; i < boissons.length; i++) {
-      boissonHTML += '<p>'+ boissons[i] + ' x ' + quantites[i] + '</p></div>';
+      boissonHTML += '<p>' + boissons[i] + ' x ' + quantites[i] + '</p></div>';
     };
   };
   return boissonHTML;

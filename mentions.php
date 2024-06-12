@@ -29,7 +29,7 @@
         <nav>
             <h2>Sommaire : </h2>
             <a href="#editeur">1.Éditeur du site</a>
-            <a href="#herbergeur">2.Hébergeur</a>
+            <a href="#hebergeur">2.Hébergeur</a>
             <a href="#contenu">3.Images et contenu</a>
             <a href="#donnee">4.Utilisation et protection des données personnelles</a>
         </nav>
