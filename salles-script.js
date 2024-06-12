@@ -1,7 +1,7 @@
 
 
 
-
+// 2.a s'il contient la fonctionnalité de filtre parmi les résultats de la recherche
 // Filtre salle
 
 let salles=document.querySelectorAll(".salle");

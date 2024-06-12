@@ -2,11 +2,11 @@
 
 // * Sommaire : 
 
-// Alert perte infos formulaire (règle 88)
-// Vérification des infos du formulaire (règle 77)
-// Récapitulatif de la réservation (règle 81)
-// Détection adresse mail temporaire
-// Affiche formulaire 1 page : Slider (règle 89)
+// Alert perte infos formulaire (1.c : règle 88)
+// Vérification des infos du formulaire (1.c : règle 77) + (1.b)
+// Récapitulatif de la réservation (1.c : règle 81)
+// Détection adresse mail temporaire (1.a)
+// Affiche formulaire 1 page : Slider (1.c : règle 89)
 // Choix de boissons dans le formulaire
 
 
@@ -70,6 +70,7 @@ boutonUser.addEventListener("click", function () {
     pageValide = 'False';
   }
   // Vérifie si une chaîne contient des chiffres
+  // 1.b si le fichier contient des expressions régulières ou du code de traitement des chaines de caractères
   else if (!/^[a-zA-ZÀ-ÿ -]+$/.test(localStorage.getItem('nom')) || !/^[a-zA-ZÀ-ÿ -]+$/.test(localStorage.getItem('prenom'))) {
     alert('Les champs nom et prenom ne peuvent que lettres alphabétiques (majuscules et minuscules) et le symbole "-"')
     pageValide = 'False';
@@ -222,8 +223,10 @@ function afficheBoissonRecap() {
 
 
 //-----------------------------------------------------
+// 1.a si le fichier contient du code relatif à l'interactivité dans le(s) formulaire(s), notamment pour la détection d’adresses de courriel temporaires
 
 // ! Détection adresse mail temporaire
+
 
 // Liste des nom de domaine d'adresse mail temporaire
 var mailTempo = ["uooos.com", "doolk.com", "nthrw.com", "bbitq.com", "ckptr.com", "alldrys.com", "moabuild.com", "moongit.com", "20minutemail.it", "diolang.com", "aosod.com", "huleos.com", "sharklasers.com", "guerrillamail.info", "grr.la", "guerrillamail.biz", "guerrillamail.com", "guerrillamail.de", "guerrillamail.net", "guerrillamail.org", "guerrillamailblock.com", "pokemail.net", "spam4.me", "musiccode.me", "lyricspad.net", "citmo.net", "vusra.com", "gufum.com", "best-john-boats.com", "pirolsnet.com", "trickyfucm.com", "entipat.com", "smartinbox.online", "goonby.com", "plexfirm.com", "neixos.com", "10mail.org", "firste.ml", "zeroe.ml", "dropmail.me", "vintomaper.com", "labworld.org", "fillallin.com", "dockleafs.com", "mailsac.com", "mails.omvvim.edu.in", "onetimeusemail.com", "midiharmonica.com", "fthcapital.com", "yopmail.com", "crazymailing.com", "exbts.com", "wemel.site", "mybx.site", "emeil.top", "mywrld.top", "matra.top", "memsg.site", "mybx.site", "emailnax.com", "emailbbox.pro", "inboxbear.com", "getnada.com", "guysmail.com", "guysmail.com", "trashmail.fr", "trashmail.se", "my10minutemail.com"]
