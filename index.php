@@ -25,7 +25,7 @@
     <header>
         <a href="#content" class="skip-link">Aller au contenu</a>
         <div class="intro">
-            <h1 id="content">Quest & Coffee</h1>
+            <h1 >Quest & Coffee</h1>
             <p>Là où le jeu rencontre le gourmand</p>
             <nav>
                 <a href="salles.php">Découvrir les salles</a>
@@ -55,7 +55,7 @@
         <!-- Introduction -->
         <div class="cafe presentation">
             <div data-aos="fade-right" data-aos-duration="1000">
-                <h2>Notre café</h2>
+                <h2 id="content">Notre café</h2>
                 <p>Chez Quest & Coffee, l'univers du jeu vidéo rencontre le plaisir de la dégustation. Chaque salle vous
                     invite à l'aventure, où vous pouvez explorer de nouveaux mondes tout en savourant des boissons
                     artisanales et des délices gourmands. Que ce soit pour une pause relaxante ou un moment convivial
