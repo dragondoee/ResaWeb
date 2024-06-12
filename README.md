@@ -4,7 +4,7 @@ https://resaweb.desgranges.butmmi.o2switch.site
 
 ■ Tableau des règles de qualité Web Opquast et des règles A11y
 
-https://docs.google.com/spreadsheets/d/1PXqrYxyBxoaoG_XgkSaAI1uBQsU8wGp7OIcTbWJPpjg/edit?usp=sharing 
+https://docs.google.com/spreadsheets/d/1PXqrYxyBxoaoG_XgkSaAI1uBQsU8wGp7OIcTbWJPpjg/edit?usp=sharing
 
 ■ Une description complète de la procédure à faire pour réinstaller le site et la base de données sur un serveur local XAMPP, on précisera l’URL locale à utiliser pour y accéder.
 
