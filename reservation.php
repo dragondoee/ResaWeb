@@ -84,10 +84,15 @@
                             <select name="horaire" id="horaire">
                                 <option value="">Choisir un horaire</option>
                                 <option value="009:00:00">9h00</option>
-                                <option value="009:30:00">9h30</option>
                                 <option value="010:00:00">10h00</option>
-                                <option value="010:30:00">10h30</option>
                                 <option value="011:00:00">11h00</option>
+                                <option value="012:00:00">12h00</option>
+                                <option value="013:00:00">13h00</option>
+                                <option value="014:00:00">14h00</option>
+                                <option value="015:00:00">15h00</option>
+                                <option value="016:00:00">16h00</option>
+                                <option value="017:00:00">17h00</option>
+                                <option value="018:00:00">18h00</option>
                             </select>
                         </p>
                         
@@ -97,7 +102,6 @@
                             <select name="duree" id="duree">
                                 <option value="">Choisir une durée</option>
                                 <option value="01:00:00">1h</option>
-                                <option value="01:30:00">1h30</option>
                                 <option value="02:00:00">2h</option>
                             </select>
                         </p>

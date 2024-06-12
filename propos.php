@@ -68,7 +68,7 @@
         <div class="propos-moi">
             <span data-aos="fade-left" data-aos-duration="1000">
                 <h2>À propos de moi</h2>
-                <p>Emilie Desgranges, actuellement étudiante en première année de BUT Métier du Multimédia et de l’Internet à Champs-sur-Marne, j'ai développé ce site de réservation dans le cadre d'un projet du deuxième semestre. Passionnée par le développement, j'ai pris beaucoup de plaisir à intégrer les différentes fonctionnalités du site. J’ai mis du temps avant de bien m’organiser, donc j’ai pris un peu de retard par rapport à mes ambitions. Je suis convaincue qu’en étant efficace dès le début,  j’aurais pu me surpasser et améliorer l'aspect visuel.
+                <p>Emilie Desgranges, actuellement étudiante en première année de BUT Métier du Multimédia et de l’Internet à Champs-sur-Marne, j'ai développé ce site de réservation dans le cadre d'un projet du deuxième semestre. Passionnée par le développement, j'ai pris beaucoup de plaisir à intégrer les différentes fonctionnalités du site et apprendre de nouvelles choses.
                 </p>
             </span>
             <img src="img/emilie.jpg" alt="" data-aos="fade-right" data-aos-duration="1000">
