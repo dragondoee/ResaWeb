@@ -202,7 +202,7 @@ function recapitulatif() {
 
     + afficheBoissonRecap()
 
-    + '<span><input type="button" class="button-before button-style small-button" id="before-recap" value="Précédendent">'
+    + '<span><input type="button" class="button-before button-style small-button" id="before-recap" value="Précédent">'
     + '<input type="submit" name="bouton_soumettre" class="button-style small-button" id="envoyer" value="Envoyer ->"></span>';
   document.querySelector("#before-recap").addEventListener("click", decaleDroite);
 
